@@ -43,3 +43,10 @@ C:\Users\asmith\source\repos\MvcPlaces\MvcPlaces\obj\Debug\netcoreapp2.1\Razor\V
 C:\Users\asmith\source\repos\MvcPlaces\MvcPlaces\obj\Debug\netcoreapp2.1\Razor\Views\Continents\DetailsMenu.g.cshtml.cs
 C:\Users\asmith\source\repos\MvcPlaces\MvcPlaces\obj\Debug\netcoreapp2.1\Razor\Views\Continents\DetailsHeader.g.cshtml.cs
 C:\Users\asmith\source\repos\MvcPlaces\MvcPlaces\obj\Debug\netcoreapp2.1\Razor\Views\Shared\Partial\Common\DeleteMenu.g.cshtml.cs
+C:\Users\asmith\source\repos\MvcPlaces\MvcPlaces\obj\Debug\netcoreapp2.1\Razor\Views\ImportContinent\Delete.g.cshtml.cs
+C:\Users\asmith\source\repos\MvcPlaces\MvcPlaces\obj\Debug\netcoreapp2.1\Razor\Views\ImportContinent\Index.g.cshtml.cs
+C:\Users\asmith\source\repos\MvcPlaces\MvcPlaces\obj\Debug\netcoreapp2.1\Razor\Views\ImportContinent\IndexMenu.g.cshtml.cs
+C:\Users\asmith\source\repos\MvcPlaces\MvcPlaces\obj\Debug\netcoreapp2.1\Razor\Views\ImportContinent\ListImported.g.cshtml.cs
+C:\Users\asmith\source\repos\MvcPlaces\MvcPlaces\obj\Debug\netcoreapp2.1\Razor\Views\ImportContinent\ListNotImported.g.cshtml.cs
+C:\Users\asmith\source\repos\MvcPlaces\MvcPlaces\obj\Debug\netcoreapp2.1\Razor\Views\ImportContinent\Import.g.cshtml.cs
+C:\Users\asmith\source\repos\MvcPlaces\MvcPlaces\obj\Debug\netcoreapp2.1\Razor\Views\Shared\Partial\Common\ImportMenu.g.cshtml.cs

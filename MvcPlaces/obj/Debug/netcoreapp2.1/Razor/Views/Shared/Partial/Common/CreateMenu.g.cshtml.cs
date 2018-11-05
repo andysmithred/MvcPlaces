@@ -60,7 +60,7 @@ using NonFactors.Mvc.Grid;
             WriteLiteral("<nav class=\"navbar navbar-expand-sm bg-dark navbar-dark\">\r\n    <a class=\"navbar-brand\" href=\"#\">Create</a>\r\n    <ul class=\"navbar-nav\">\r\n        <li class=\"nav-item active\">\r\n            ");
             EndContext();
             BeginContext(187, 48, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "3752a6023fa947bb86272ad04696b76a", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "282e6040b0094b4589001da93fe0ed1c", async() => {
                 BeginContext(226, 5, true);
                 WriteLiteral("Index");
                 EndContext();

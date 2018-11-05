@@ -28,7 +28,7 @@
             <div class="d-flex">
                 <div class="w-25 p-1 pr-4 mb-1 bg-secondary text-white text-right"><label asp-for="ParentId"></label></div>
                 <div class="w-75 p-1 pl-4 mb-1 bg-white">
-                    @if(Model.ParentId.HasValue)
+                    @if (Model.ParentId.HasValue)
                     {
                         <a asp-action="Details" asp-route-id="@Model.ParentId">@Model.Parent.Name</a>
                     }
@@ -38,6 +38,31 @@
                     }
                 </div>
             </div>
+        </div>
+    </div>
+    <div class="card rounded-0">
+        <div class="card-header bg-dark text-white rounded-0">Sub-Continents</div>
+        <div class="card-body bg-light" style="height:200px;max-height:200px;overflow-y:auto;">
+
+            @if (Model.Children.Count > 0)
+            {
+                foreach (var item in Model.Children)
+                {
+                    <div class="d-flex">
+                        <div class="w-100 p-1 pl-4 mb-1 bg-white text-dark">
+                            <a asp-action="Details" asp-route-id="@item.Id">@item.Name</a>
+                        </div>
+                    </div>
+                }
+            }
+            else
+            {
+                <div class="d-flex">
+                    <div class="w-100 p-1 pl-4 mb-1 bg-white">
+                        <span>--</span>
+                    </div>
+                </div>
+            }
         </div>
     </div>
 </div>

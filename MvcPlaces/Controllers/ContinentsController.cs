@@ -1,15 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Threading;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using MvcPlaces.Code.Data;
 using MvcPlaces.Models;
 using MvcPlaces.ViewModels.Models.Main;
+using System;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace MvcPlaces.Controllers
 {
@@ -21,12 +18,7 @@ namespace MvcPlaces.Controllers
         {
             return new DataAccess<Continent, ContinentView>(Context, Context.Continent);
         }
-
-        //protected override IListModel<BuilderView> LoadListModel(ICollection<BuilderView> items, string search)
-        //{
-        //    return new ListsModel<BuilderView>(items, x => x.Name.ToUpper().Contains(search.ToUpper()), search);
-        //}
-
+        
         protected override Func<int, Continent> GetItemFunc()
         {
             return i => Context.Continent

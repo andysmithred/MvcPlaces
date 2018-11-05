@@ -61,7 +61,7 @@ using NonFactors.Mvc.Grid;
             WriteLiteral("<nav class=\"navbar navbar-expand-sm bg-dark navbar-dark\">\r\n    <a class=\"navbar-brand\" href=\"#\">Delete</a>\r\n    <ul class=\"navbar-nav\">\r\n        <li class=\"nav-item active\">");
             EndContext();
             BeginContext(173, 48, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "0a70ac63b5fa46c09c3a87c61a344299", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "81cce7902dfe47539f8b96a8b086c452", async() => {
                 BeginContext(212, 5, true);
                 WriteLiteral("Index");
                 EndContext();
@@ -84,7 +84,7 @@ using NonFactors.Mvc.Grid;
             WriteLiteral("</li>\r\n        <li class=\"nav-item\">");
             EndContext();
             BeginContext(257, 77, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "5bd004bc19ce484ea6864ce71260812a", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "791a4a8855524bf4834e907bbf080d7e", async() => {
                 BeginContext(323, 7, true);
                 WriteLiteral("Details");
                 EndContext();

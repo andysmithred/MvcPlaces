@@ -15,7 +15,6 @@
 
   <ItemGroup>
     <Folder Include="Data\Scripts\" />
-    <Folder Include="ViewModels\Models\Import\" />
   </ItemGroup>
 
   <ItemGroup>
