@@ -3,7 +3,6 @@ using Microsoft.EntityFrameworkCore;
 using MvcPlaces.Code.Data;
 using MvcPlaces.Code.Interfaces;
 using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -39,7 +38,7 @@ namespace MvcPlaces.Controllers
 
         public virtual async Task<IActionResult> Index()
         {
-            return View(await DataAccess.GetViewsAsync());
+            return View(await DataAccess.GetViewsAsync(GetItemsFunction()));
         }
 
         #endregion List
@@ -53,7 +52,7 @@ namespace MvcPlaces.Controllers
                 return NotFound();
             }
 
-            var item = await DataAccess.GetViewAsync(id.Value, GetItemFunc());
+            var item = await DataAccess.GetViewAsync(id.Value, GetItemFunction());
 
             if (item == null)
             {
@@ -95,7 +94,7 @@ namespace MvcPlaces.Controllers
                 return NotFound();
             }
 
-            Item = await DataAccess.GetItemAsync(id.Value, GetItemFunc());
+            Item = await DataAccess.GetItemAsync(id.Value, GetItemFunction());
 
             if (Item == null)
             {
@@ -152,7 +151,7 @@ namespace MvcPlaces.Controllers
                 return NotFound();
             }
 
-            Item = await DataAccess.GetItemAsync(id.Value, GetItemFunc());
+            Item = await DataAccess.GetItemAsync(id.Value, GetItemFunction());
 
             if (Item == null)
             {
@@ -164,7 +163,7 @@ namespace MvcPlaces.Controllers
 
         public virtual async Task<IActionResult> DeleteConfirmed(int id)
         {
-            Item = await DataAccess.GetItemAsync(id, GetItemFunc());
+            Item = await DataAccess.GetItemAsync(id, GetItemFunction());
             DataAccess.Delete(Item);
             await DataAccess.SaveAsync();
 
@@ -176,15 +175,9 @@ namespace MvcPlaces.Controllers
         #region Abstract Methods
 
         protected abstract DataAccess<T, TView> LoadDataAccess();
-
-        //protected abstract IListModel<TView> LoadListModel(ICollection<TView> items, string search);
-
-
-
-        protected abstract Func<int, T> GetItemFunc();
-
+        protected abstract Func<int, T> GetItemFunction();
+        protected abstract Func<IQueryable<T>> GetItemsFunction();
         protected abstract Func<T, bool> GetExistsFunc(int id);
-
 
         #endregion Abstract Methods
 

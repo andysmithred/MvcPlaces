@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using MvcPlaces.Code.Data;
 using System;
 using System.Linq;
@@ -12,51 +13,6 @@ namespace MvcPlaces.Controllers
                                     Models.Continent, 
                                     ViewModels.Models.Main.ContinentView>
     {
-        #region Override Abstract Methods
-
-        protected override DataAccess<Models.Continent, ViewModels.Models.Main.ContinentView> LoadImportToDataAccess()
-        {
-            return new DataAccess<Models.Continent, ViewModels.Models.Main.ContinentView>(ImportToContext, ImportToContext.Continent);
-        }
-
-        protected override DataAccess<ModelsImport.Continent, ViewModels.Models.Import.ContinentView> LoadDataAccess()
-        {
-            return new DataAccess<ModelsImport.Continent, ViewModels.Models.Import.ContinentView>(ImportFromContext, ImportFromContext.Continent);
-        }
-
-        protected override bool ImportItem(ModelsImport.Continent item)
-        {
-            //Create the new Branch Type
-            Models.Continent newItem = new Models.Continent();
-
-            newItem.Name = item.Name;
-            newItem.Code = item.Code;
-
-            ImportToDataAccess.Add(newItem);
-            ImportToDataAccess.Save();
-
-            //Update the old / import item with the import Id
-            item.ImportId = newItem.Id;
-
-            DataAccess.Update(item);
-            DataAccess.Save();
-
-            return true;
-        }
-
-        protected override Func<int, ModelsImport.Continent> GetItemFunc()
-        {
-            return i => ImportFromContext.Continent
-                        .FirstOrDefault(x => x.Id == i);
-        }
-
-        protected override Func<ModelsImport.Continent, bool> GetExistsFunc(int id)
-        {
-            return i => i.Id == id;
-        }
-
-        #endregion Override Abstract Methods
-
         #region List
 
         public async override Task<IActionResult> Index()
@@ -128,5 +84,56 @@ namespace MvcPlaces.Controllers
         }
 
         #endregion Delete
+
+        #region Override Abstract Methods
+
+        protected override DataAccess<Models.Continent, ViewModels.Models.Main.ContinentView> LoadImportToDataAccess()
+        {
+            return new DataAccess<Models.Continent, ViewModels.Models.Main.ContinentView>(ImportToContext, ImportToContext.Continent);
+        }
+
+        protected override DataAccess<ModelsImport.Continent, ViewModels.Models.Import.ContinentView> LoadDataAccess()
+        {
+            return new DataAccess<ModelsImport.Continent, ViewModels.Models.Import.ContinentView>(ImportFromContext, ImportFromContext.Continent);
+        }
+
+        protected override bool ImportItem(ModelsImport.Continent item)
+        {
+            //Create the new Branch Type
+            Models.Continent newItem = new Models.Continent();
+
+            newItem.Name = item.Name;
+            newItem.Code = item.Code;
+
+            ImportToDataAccess.Add(newItem);
+            ImportToDataAccess.Save();
+
+            //Update the old / import item with the import Id
+            item.ImportId = newItem.Id;
+
+            DataAccess.Update(item);
+            DataAccess.Save();
+
+            return true;
+        }
+
+        protected override Func<int, ModelsImport.Continent> GetItemFunction()
+        {
+            return i => ImportFromContext.Continent
+                        .FirstOrDefault(x => x.Id == i);
+        }
+
+        protected override Func<IQueryable<ModelsImport.Continent>> GetItemsFunction()
+        {
+            return () => ImportFromContext.Continent
+                            .Include(x => x.Country);
+        }
+
+        protected override Func<ModelsImport.Continent, bool> GetExistsFunc(int id)
+        {
+            return i => i.Id == id;
+        }
+
+        #endregion Override Abstract Methods
     }
 }

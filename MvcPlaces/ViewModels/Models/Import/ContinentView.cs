@@ -1,4 +1,7 @@
-﻿namespace MvcPlaces.ViewModels.Models.Import
+﻿using MvcPlaces.ModelsImport;
+using System.Collections.Generic;
+
+namespace MvcPlaces.ViewModels.Models.Import
 {
     public class ContinentView : ImportableView<ModelsImport.Continent>
     {
@@ -13,7 +16,7 @@
 
         #region Foreign Properties
 
-        //public ICollection<ContinentView> Countries => GetViewList<ContinentView, Continent>(ViewObject.Country);
+        public ICollection<CountryView> Countries => GetViewList<CountryView, Country>(ViewObject.Country);
 
         #endregion Foreign Properties
 

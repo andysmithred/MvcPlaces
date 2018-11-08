@@ -16,13 +16,14 @@ namespace MvcPlaces.Models
         }
 
         public virtual DbSet<Continent> Continent { get; set; }
+        public virtual DbSet<Territory> Territory { get; set; }
+        public virtual DbSet<TerritoryType> TerritoryType { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)
             {
-#warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
-                optionsBuilder.UseSqlServer("Server=(localdb)\\mssqllocaldb;Database=Travel;Trusted_Connection=True;");
+                optionsBuilder.UseSqlServer("Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=Travel;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
             }
         }
 
@@ -43,6 +44,38 @@ namespace MvcPlaces.Models
                     .WithMany(p => p.Children)
                     .HasForeignKey(d => d.ParentId)
                     .HasConstraintName("FK_Continent_Continent");
+            });
+
+            modelBuilder.Entity<Territory>(entity =>
+            {
+                entity.Property(e => e.Isocode)
+                    .HasColumnName("ISOCode")
+                    .HasMaxLength(10);
+
+                entity.Property(e => e.Name)
+                    .IsRequired()
+                    .HasMaxLength(50);
+
+                entity.HasOne(d => d.Continent)
+                    .WithMany(p => p.Territories)
+                    .HasForeignKey(d => d.ContinentId)
+                    .HasConstraintName("FK_Territory_Continent");
+
+                entity.HasOne(d => d.Parent)
+                    .WithMany(p => p.Children)
+                    .HasForeignKey(d => d.ParentId)
+                    .HasConstraintName("FK_Territory_Territory");
+
+                entity.HasOne(d => d.TerritoryType)
+                    .WithMany(p => p.Territories)
+                    .HasForeignKey(d => d.TerritoryTypeId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_Territory_TerritoryType");
+            });
+
+            modelBuilder.Entity<TerritoryType>(entity =>
+            {
+                entity.Property(e => e.Type).IsRequired();
             });
         }
     }

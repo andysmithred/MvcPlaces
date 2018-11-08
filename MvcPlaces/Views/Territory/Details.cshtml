@@ -1,0 +1,135 @@
+﻿@model MvcPlaces.ViewModels.Models.Main.TerritoryView
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<br />
+<partial name="DetailsMenu" />
+<br />
+<partial name="DetailsHeader" />
+
+<div class="card-deck">
+    <div class="card rounded-0">
+        <div class="card-header bg-dark text-white rounded-0">Main</div>
+        <div class="card-body bg-light" style="height:250px;max-height:250px;overflow-y:auto;">
+            <div class="d-flex">
+                <div class="w-25 p-1 pr-4 mb-1 bg-secondary text-white text-right"><label asp-for="Id"></label></div>
+                <div class="w-75 p-1 pl-4 mb-1 bg-white">@Model.Id</div>
+            </div>
+            <div class="d-flex">
+                <div class="w-25 p-1 pr-4 mb-1 bg-secondary text-white text-right"><label asp-for="Isocode"></label></div>
+                <div class="w-75 p-1 pl-4 mb-1 bg-white">@Model.Isocode</div>
+            </div>
+            <div class="d-flex">
+                <div class="w-25 p-1 pr-4 mb-1 bg-secondary text-white text-right"><label asp-for="FullName"></label></div>
+                <div class="w-75 p-1 pl-4 mb-1 bg-white"><small>@Model.FullName</small></div>
+            </div>
+            <div class="d-flex">
+                <div class="w-25 p-1 pr-4 mb-1 bg-secondary text-white text-right"><label asp-for="NativeName"></label></div>
+                <div class="w-75 p-1 pl-4 mb-1 bg-white">
+                    @if (String.IsNullOrEmpty(Model.NativeName))
+                    {
+                        <span>--</span>
+                    }
+                    else
+                    {
+                        <small>@Model.NativeName</small>
+                    }
+                </div>
+            </div>
+            <div class="d-flex">
+                <div class="w-25 p-1 pr-4 mb-1 bg-secondary text-white text-right"><label asp-for="ContinentId"></label></div>
+                <div class="w-75 p-1 pl-4 mb-1 bg-white">
+                    @if (Model.ContinentId.HasValue)
+                    {
+                        <a asp-controller="Continent" asp-action="Details" asp-route-id="@Model.ContinentId">@Model.Continent.Name</a>
+                    }
+                    else
+                    {
+                        <span>--</span>
+                    }
+                </div>
+            </div>
+            <div class="d-flex">
+                <div class="w-25 p-1 pr-4 mb-1 bg-secondary text-white text-right"><label asp-for="TerritoryTypeId"></label></div>
+                <div class="w-75 p-1 pl-4 mb-1 bg-white">
+                    @if (Model.TerritoryTypeId.HasValue)
+                    {
+                        <a asp-controller="TerritoryType" asp-action="Details" asp-route-id="@Model.TerritoryTypeId">@Model.TerritoryType.Type</a>
+                    }
+                    else
+                    {
+                        <span>--</span>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="card rounded-0">
+        <div class="card-header bg-dark text-white rounded-0">Other</div>
+        <div class="card-body bg-light" style="height:250px;max-height:250px;overflow-y:auto;">
+            <div class="d-flex">
+                <div class="w-25 p-1 pr-4 mb-1 bg-secondary text-white text-right"><label asp-for="ParentId"></label></div>
+                <div class="w-75 p-1 pl-4 mb-1 bg-white">
+                    @if (Model.ParentId.HasValue)
+                    {
+                        <a asp-action="Details" asp-route-id="@Model.ParentId">@Model.Parent.Name</a>
+                    }
+                    else
+                    {
+                        <span>--</span>
+                    }
+                </div>
+            </div>
+            <div class="d-flex">
+                <div class="w-25 p-1 pr-4 mb-1 bg-secondary text-white text-right"><label asp-for="Population"></label></div>
+                <div class="w-75 p-1 pl-4 mb-1 bg-white">@String.Format("{0:N0}", Model.Population)</div>
+            </div>
+            <div class="d-flex">
+                <div class="w-25 p-1 pr-4 mb-1 bg-secondary text-white text-right"><label asp-for="Area"></label></div>
+                <div class="w-75 p-1 pl-4 mb-1 bg-white">@String.Format(Model.Area % 1 == 0 ? "{0:N0}" : "{0:N2}", Model.Area) km<sup>2</sup></div>
+            </div>
+            <div class="d-flex">
+                <div class="w-25 p-1 pr-4 mb-1 bg-secondary text-white text-right"><label asp-for="Latitude"></label></div>
+                <div class="w-75 p-1 pl-4 mb-1 bg-white">@Model.Latitude</div>
+            </div>
+            <div class="d-flex">
+                <div class="w-25 p-1 pr-4 mb-1 bg-secondary text-white text-right"><label asp-for="Longitude"></label></div>
+                <div class="w-75 p-1 pl-4 mb-1 bg-white">@Model.Longitude</div>
+            </div>
+            <div class="d-flex">
+                <div class="w-25 p-1 pr-4 mb-1 bg-secondary text-white text-right"><label asp-for="Zoom"></label></div>
+                <div class="w-75 p-1 pl-4 mb-1 bg-white">@Model.Zoom</div>
+            </div>
+        </div>
+    </div>
+</div>
+<br />
+<div class="card-deck">
+    <div class="card rounded-0">
+        <div class="card-header bg-dark text-white rounded-0">Subdivisions</div>
+        <div class="card-body bg-light" style="height:250px;max-height:250px;overflow-y:auto;">
+
+            @if (Model.Children.Count > 0)
+            {
+                foreach (var item in Model.Children.OrderBy(x => x.Name))
+                {
+                    <div class="d-flex">
+                        <div class="w-100 p-1 pl-4 mb-1 bg-white text-dark">
+                            <a asp-action="Details" asp-route-id="@item.Id">@item.Name</a>
+                        </div>
+                    </div>
+                }
+            }
+            else
+            {
+                <div class="d-flex">
+                    <div class="w-100 p-1 pl-4 mb-1 bg-white">
+                        <span>--</span>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>

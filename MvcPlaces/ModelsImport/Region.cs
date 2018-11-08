@@ -22,6 +22,7 @@ namespace MvcPlaces.ModelsImport
         public bool HasFlag { get; set; }
         public int? Population { get; set; }
         public string Type { get; set; }
+        public int? ImportId { get; set; }
 
         public Country Country { get; set; }
         public ICollection<Airfield> Airfield { get; set; }

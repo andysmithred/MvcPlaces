@@ -1,0 +1,43 @@
+﻿@model MvcPlaces.ModelsImport.Region
+
+@{
+    ViewData["Title"] = "Cannot Import";
+}
+
+<h2>Cannot Import</h2>
+
+<h3>This Region cannot be imported!</h3>
+<div>
+    <h4>Continent</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Isocode)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Isocode)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Country.Name)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Country.Name)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Type)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Type)
+        </dd>
+    </dl>
+
+    <form asp-action="CannotImport">
+        <input type="submit" value="Confirm" class="btn btn-default" /> |
+    </form>
+</div>

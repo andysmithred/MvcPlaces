@@ -1,0 +1,52 @@
+﻿@model IEnumerable<MvcPlaces.ViewModels.Models.Main.ContinentView>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<br />
+<partial name="IndexMenu.cshtml" />
+<br />
+
+<div class="panel panel-info">
+    <div class="panel-body">
+        @(Html
+            .Grid(Model)
+            .Build(columns =>
+            {
+                
+                columns.Add(model => model.Name).Titled("Name");
+                columns.Add(model => model.Code).Titled("Code");
+                columns.Add(model => model.ParentId.HasValue ? model.Parent.Name : "--").Titled("Parent");
+                columns.Add(model => model.Territories.Count).Titled("Territories");
+                columns.Add(model => model.Children.Count).Titled("Subcontinents");
+
+                //columns.Add(model => model.Age).Titled("Age");
+                //columns.Add(model => model.Birthday).Titled("Birth date").Formatted("{0:d}");
+                //columns.Add(model => model.IsWorking).Titled("Employed");
+
+                //columns.Add(model => $"<a asp-action=Edit asp-route-id=\"{model.Id}\">Edit</a>").Encoded(false);
+                //columns.Add(model => {
+                //    $"<a href='/continents/Edit/{model.Id}'>Edit</a>";
+                //    $"<a href='/continents/Edit/{model.Id}'>Edit</a>";
+                //    $"<a href='/continents/Edit/{model.Id}'>Edit</a>";
+                //}
+                //).Encoded(false);
+
+                columns.Add().Encoded(false).RenderedAs(model =>
+                    "<div class='btn-group float-right'>" +
+                        $"<a class='btn btn-dark btn-sm rounded-0' href='/Continent/Edit/{model.Id}'>Edit</a>" +
+                        $"<a class='btn btn-dark btn-sm rounded-0' href='/Continent/Details/{model.Id}'>Details</a>" +
+                        $"<a class='btn btn-dark btn-sm rounded-0' href='/Continent/Delete/{model.Id}'>Delete</a>" +
+                    "</div>"
+                );
+            })
+            .Empty("No data found")
+            .Filterable()
+            .Sortable()
+            .Pageable()
+            .AppendCss("table-light table-striped table-hover small")
+            
+        )
+    </div>
+</div>

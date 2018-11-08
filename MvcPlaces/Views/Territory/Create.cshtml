@@ -1,0 +1,113 @@
+﻿@model MvcPlaces.Models.Territory
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<br />
+<partial name="CreateMenu" />
+<br />
+
+<div class="card rounded-0">
+    <div class="card-header bg-dark text-white rounded-0">Territory</div>
+    <div class="card-body bg-light text-dark">
+        <form asp-action="Create">
+            <div class="input-group mb-3 input-group">
+                <div class="input-group-prepend w-25">
+                    <label asp-for="Name" class="input-group-text w-100"></label>
+                </div>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="input-group mb-3 input-group">
+                <div class="input-group-prepend w-25">
+                    <label asp-for="FullName" class="input-group-text w-100"></label>
+                </div>
+                <input asp-for="FullName" class="form-control" />
+                <span asp-validation-for="FullName" class="text-danger"></span>
+            </div>
+            <div class="input-group mb-3 input-group">
+                <div class="input-group-prepend w-25">
+                    <label asp-for="NativeName" class="input-group-text w-100"></label>
+                </div>
+                <input asp-for="NativeName" class="form-control" />
+                <span asp-validation-for="NativeName" class="text-danger"></span>
+            </div>
+            <div class="input-group mb-3 input-group">
+                <div class="input-group-prepend w-25">
+                    <label asp-for="ContinentId" class="input-group-text w-100"></label>
+                </div>
+                <select asp-for="ContinentId" asp-items="ViewBag.Continents" class="form-control">
+                    <option value="">--none--</option>
+                </select>
+                <span asp-validation-for="ContinentId" class="text-danger"></span>
+            </div>
+            <div class="input-group mb-3 input-group">
+                <div class="input-group-prepend w-25">
+                    <label asp-for="ParentId" class="input-group-text w-100"></label>
+                </div>
+                <select asp-for="ParentId" asp-items="ViewBag.Territories" class="form-control">
+                    <option value="">--none--</option>
+                </select>
+                <span asp-validation-for="ParentId" class="text-danger"></span>
+            </div>
+            <div class="input-group mb-3 input-group">
+                <div class="input-group-prepend w-25">
+                    <label asp-for="Population" class="input-group-text w-100"></label>
+                </div>
+                <input asp-for="Population" class="form-control" />
+                <span asp-validation-for="Population" class="text-danger"></span>
+            </div>
+            <div class="input-group mb-3 input-group">
+                <div class="input-group-prepend w-25">
+                    <label asp-for="Area" class="input-group-text w-100"></label>
+                </div>
+                <input asp-for="Area" class="form-control" />
+                <span asp-validation-for="Area" class="text-danger"></span>
+            </div>
+            <div class="input-group mb-3 input-group">
+                <div class="input-group-prepend w-25">
+                    <label asp-for="Isocode" class="input-group-text w-100"></label>
+                </div>
+                <input asp-for="Isocode" class="form-control" />
+                <span asp-validation-for="Isocode" class="text-danger"></span>
+            </div>
+            <div class="input-group mb-3 input-group">
+                <div class="input-group-prepend w-25">
+                    <label asp-for="Latitude" class="input-group-text w-100"></label>
+                </div>
+                <input asp-for="Latitude" class="form-control" />
+                <span asp-validation-for="Latitude" class="text-danger"></span>
+            </div>
+            <div class="input-group mb-3 input-group">
+                <div class="input-group-prepend w-25">
+                    <label asp-for="Longitude" class="input-group-text w-100"></label>
+                </div>
+                <input asp-for="Longitude" class="form-control" />
+                <span asp-validation-for="Longitude" class="text-danger"></span>
+            </div>
+            <div class="input-group mb-3 input-group">
+                <div class="input-group-prepend w-25">
+                    <label asp-for="Zoom" class="input-group-text w-100"></label>
+                </div>
+                <input asp-for="Zoom" class="form-control" />
+                <span asp-validation-for="Zoom" class="text-danger"></span>
+            </div>
+            <div class="input-group mb-3 input-group">
+                <div class="input-group-prepend w-25">
+                    <label asp-for="TerritoryTypeId" class="input-group-text w-100"></label>
+                </div>
+                <select asp-for="TerritoryTypeId" asp-items="ViewBag.TerritoryTypes" class="form-control"></select>
+                <span asp-validation-for="TerritoryTypeId" class="text-danger"></span>
+            </div>
+            <hr />
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-dark rounded-0" />
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

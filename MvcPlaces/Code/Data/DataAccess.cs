@@ -62,6 +62,11 @@ namespace MvcPlaces.Code.Data
                    select item;
         }
 
+        public virtual IQueryable<T> GetItems(Func<IQueryable<T>> itemFunc)
+        {
+            return itemFunc();
+        }
+
         public T GetItem(int id)
         {
             return DataSet.Find(id);
@@ -72,19 +77,10 @@ namespace MvcPlaces.Code.Data
             return itemFunc(id);
         }
 
-
-
-
         public void Add(T item)
         {
             DataSet.Add(item);
         }
-
-
-
-
-
-
 
         public void Delete(T item)
         {
@@ -101,18 +97,20 @@ namespace MvcPlaces.Code.Data
             Context.SaveChanges();
         }
 
-
         public Task<int> SaveAsync()
         {
             return Context.SaveChangesAsync();
         }
 
-
-
         public ICollection<TView> GetViews()
         {
+            return GetViews(GetItems);
+        }
+
+        public ICollection<TView> GetViews(Func<IQueryable<T>> function)
+        {
             ICollection<TView> result = new List<TView>();
-            foreach (var item in GetItems())
+            foreach (var item in function())
             {
                 TView view = new TView();
                 view.ViewObject = item;
@@ -123,9 +121,7 @@ namespace MvcPlaces.Code.Data
 
         public TView GetView(int id)
         {
-            TView view = new TView();
-            view.ViewObject = GetItem(id);
-            return view;
+            return GetView(id, GetItem);
         }
 
         public TView GetView(int id, Func<int, T> itemFunc)
@@ -142,9 +138,14 @@ namespace MvcPlaces.Code.Data
             return Task<ICollection<TView>>.Factory.StartNew(() => GetViews());
         }
 
-        public Task<TView> GetViewAsync(int id, Func<int, T> itemFunc)
+        public Task<ICollection<TView>> GetViewsAsync(Func<IQueryable<T>> function)
         {
-            return Task<TView>.Factory.StartNew(() => GetView(id, itemFunc));
+            return Task<ICollection<TView>>.Factory.StartNew(() => GetViews(function));
+        }
+
+        public Task<TView> GetViewAsync(int id, Func<int, T> function)
+        {
+            return Task<TView>.Factory.StartNew(() => GetView(id, function));
         }
 
         public Task<T> GetItemAsync(int id, Func<int, T> itemFunc)

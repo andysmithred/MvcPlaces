@@ -53,13 +53,13 @@ namespace MvcPlaces.Controllers
 
         public async virtual Task<IActionResult> ListImported()
         {
-            var items = await DataAccess.GetViewsAsync();
+            var items = await DataAccess.GetViewsAsync(GetItemsFunction());
             return View(items.Where(x => x.ImportId.HasValue).ToList());
         }
 
         public async virtual Task<IActionResult> ListNotImported()
         {
-            var items = await DataAccess.GetViewsAsync();
+            var items = await DataAccess.GetViewsAsync(GetItemsFunction());
             return View(items.Where(x => x.ImportId == null).ToList());
         }
 
@@ -74,7 +74,7 @@ namespace MvcPlaces.Controllers
 
         public async virtual Task<IActionResult> ImportConfirmed(int id)
         {
-            Item = await DataAccess.GetItemAsync(id, GetItemFunc());
+            Item = await DataAccess.GetItemAsync(id, GetItemFunction());
 
             if (Item == null)
             {
@@ -100,7 +100,7 @@ namespace MvcPlaces.Controllers
                 return NotFound();
             }
 
-            Item = await DataAccess.GetItemAsync(id.Value, GetItemFunc());
+            Item = await DataAccess.GetItemAsync(id.Value, GetItemFunction());
 
             if (Item == null)
             {
@@ -129,7 +129,7 @@ namespace MvcPlaces.Controllers
             {
                 return NotFound();
             }
-            Item = await DataAccess.GetItemAsync(id.Value, GetItemFunc());
+            Item = await DataAccess.GetItemAsync(id.Value, GetItemFunction());
             if (Item == null)
             {
                 return NotFound();
@@ -151,8 +151,6 @@ namespace MvcPlaces.Controllers
         protected abstract DataAccess<TImportTo, TViewImportTo> LoadImportToDataAccess();
 
         protected abstract bool ImportItem(TImportFrom item);
-
-        protected override abstract Func<int, TImportFrom> GetItemFunc();
 
         #endregion Abstract Methods
     }

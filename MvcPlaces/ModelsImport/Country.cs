@@ -44,6 +44,7 @@ namespace MvcPlaces.ModelsImport
         public double Latitude { get; set; }
         public double Longitude { get; set; }
         public int Zoom { get; set; }
+        public int? ImportId { get; set; }
 
         public Continent Continent { get; set; }
         public ICollection<ArmedForce> ArmedForce { get; set; }
