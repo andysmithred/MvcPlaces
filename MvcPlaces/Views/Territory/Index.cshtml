@@ -5,32 +5,6 @@
 }
 
 <br />
-<partial name="IndexMenu.cshtml" />
+<partial name='IndexMenu' model='new { Title = "Territories" }' />
 <br />
-
-<div class="panel panel-info">
-    <div class="panel-body">
-        @(Html
-            .Grid(Model)
-            .Build(columns =>
-            {
-                columns.Add(model => model.Name).Titled("Name");
-                columns.Add(model => model.Isocode).Titled("ISO");
-                columns.Add(model => model.NativeName).Titled("Native");
-                columns.Add(model => model.TerritoryType.Type).Titled("Type");
-                columns.Add().Encoded(false).RenderedAs(model =>
-                    "<div class='btn-group float-right'>" +
-                        $"<a class='btn btn-dark btn-sm rounded-0' href='/Territory/Edit/{model.Id}'>Edit</a>" +
-                        $"<a class='btn btn-dark btn-sm rounded-0' href='/Territory/Details/{model.Id}'>Details</a>" +
-                        $"<a class='btn btn-dark btn-sm rounded-0' href='/Territory/Delete/{model.Id}'>Delete</a>" +
-                    "</div>"
-                );
-            })
-            .Empty("No data found")
-            .Filterable()
-            .Sortable()
-            .Pageable()
-            .AppendCss("table-light table-striped table-hover small")
-        )
-    </div>
-</div>
+<partial name="PartialListMainTerritories" model="@Model" />

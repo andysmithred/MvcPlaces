@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Razor;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -36,10 +37,13 @@ namespace MvcPlaces
 
             services.AddMvc()
                 .SetCompatibilityVersion(CompatibilityVersion.Version_2_1)
-                .AddRazorOptions(option => 
-                    option.ViewLocationFormats.Add("/Views/Shared/Partial/Common/{0}.cshtml")
-                );
-
+                .AddRazorOptions(o =>
+                {
+                    o.ViewLocationFormats.Add("/Views/Shared/Partial/Common/{0}" + RazorViewEngine.ViewExtension);
+                    o.ViewLocationFormats.Add("/Views/Shared/Partial/Lists/{0}" + RazorViewEngine.ViewExtension);
+                    o.ViewLocationFormats.Add("/Views/Shared/Partial/Components/{0}" + RazorViewEngine.ViewExtension);
+                });
+                
             var connection = @"Server=(localdb)\mssqllocaldb;Database=Travel;Trusted_Connection=True;ConnectRetryCount=0";
             services.AddDbContext<TravelContext>(options => options.UseSqlServer(connection));
         }

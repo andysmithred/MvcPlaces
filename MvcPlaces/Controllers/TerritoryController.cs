@@ -74,6 +74,16 @@ namespace MvcPlaces.Controllers
             return await base.Details(id);
         }
 
+        public async Task<IActionResult> TerritoriesList(int? id)
+        {
+            return await base.Details(id);
+        }
+
+        public async Task<IActionResult> PlacesList(int? id)
+        {
+            return await base.Details(id);
+        }
+
         #endregion Details
 
         #region Create
@@ -154,9 +164,11 @@ namespace MvcPlaces.Controllers
         {
             return i => Context.Territory
                         .Include(x => x.Parent)
-                        .Include(x => x.Children)
+                        .Include(x => x.Children).ThenInclude(c => c.TerritoryType)
+                        .Include(x => x.Children).ThenInclude(c => c.Children)
                         .Include(x => x.Continent)
                         .Include(x => x.TerritoryType)
+                        .Include(x => x.TerritoryPlaces).ThenInclude(x => x.Place)
                         .FirstOrDefault(x => x.Id == i);
         }
 
@@ -166,7 +178,8 @@ namespace MvcPlaces.Controllers
                         .Include(x => x.Parent)
                         .Include(x => x.Children)
                         .Include(x => x.Continent)
-                        .Include(x => x.TerritoryType);
+                        .Include(x => x.TerritoryType)
+                        .Include(x => x.TerritoryPlaces).ThenInclude(x => x.Place);
         }
 
         protected override Func<Territory, bool> GetExistsFunc(int id)

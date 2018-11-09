@@ -18,6 +18,8 @@ namespace MvcPlaces.Models
         public virtual DbSet<Continent> Continent { get; set; }
         public virtual DbSet<Territory> Territory { get; set; }
         public virtual DbSet<TerritoryType> TerritoryType { get; set; }
+        public virtual DbSet<Place> Place { get; set; }
+        public virtual DbSet<TerritoryPlace> TerritoryPlace { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -76,6 +78,24 @@ namespace MvcPlaces.Models
             modelBuilder.Entity<TerritoryType>(entity =>
             {
                 entity.Property(e => e.Type).IsRequired();
+            });
+
+            modelBuilder.Entity<Place>(entity =>
+            {
+                entity.Property(e => e.Name).IsRequired();
+            });
+
+            modelBuilder.Entity<TerritoryPlace>(entity =>
+            {
+                entity.HasOne(d => d.Territory)
+                    .WithMany(p => p.TerritoryPlaces)
+                    .HasForeignKey(d => d.TerritoryId)
+                    .HasConstraintName("FK_TerritoryPlace_Territory");
+
+                entity.HasOne(d => d.Place)
+                    .WithMany(p => p.TerritoryPlaces)
+                    .HasForeignKey(d => d.PlaceId)
+                    .HasConstraintName("FK_TerritoryPlace_Place");
             });
         }
     }

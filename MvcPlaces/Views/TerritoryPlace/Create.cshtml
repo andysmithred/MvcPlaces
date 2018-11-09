@@ -1,0 +1,39 @@
+﻿@model MvcPlaces.Models.TerritoryPlace
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<br />
+<partial name="CreateMenu" />
+<br />
+
+<div class="card rounded-0">
+    <div class="card-header bg-dark text-white rounded-0">Territory Place</div>
+    <div class="card-body bg-light text-dark">
+        <form asp-action="Create">
+            <div class="input-group mb-3 input-group">
+                <div class="input-group-prepend w-25">
+                    <label asp-for="PlaceId" class="input-group-text w-100"></label>
+                </div>
+                <select asp-for="PlaceId" asp-items="ViewBag.Places" class="form-control"></select>
+                <span asp-validation-for="PlaceId" class="text-danger"></span>
+            </div>
+            <div class="input-group mb-3 input-group">
+                <div class="input-group-prepend w-25">
+                    <label asp-for="TerritoryId" class="input-group-text w-100"></label>
+                </div>
+                <select asp-for="TerritoryId" asp-items="ViewBag.Territories" class="form-control"></select>
+                <span asp-validation-for="TerritoryId" class="text-danger"></span>
+            </div>
+            <hr />
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-dark rounded-0" />
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

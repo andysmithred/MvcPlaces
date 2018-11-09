@@ -1,6 +1,8 @@
 ﻿using MvcPlaces.Models;
+using MvcPlaces.Code.Classes;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.Linq;
 
 namespace MvcPlaces.ViewModels.Models.Main
 {
@@ -48,14 +50,19 @@ namespace MvcPlaces.ViewModels.Models.Main
         public TerritoryView Parent => GetView<TerritoryView, Territory>(ViewObject.Parent);
         public TerritoryTypeView TerritoryType => GetView<TerritoryTypeView, TerritoryType>(ViewObject.TerritoryType);
         public ICollection<TerritoryView> Children => GetViewList<TerritoryView, Territory>(ViewObject.Children);
+        public ICollection<TerritoryPlaceView> TerritoryPlaces => GetViewList<TerritoryPlaceView, TerritoryPlace>(ViewObject.TerritoryPlaces);
 
         #endregion Foreign Properties
 
         #region Other Properties
 
-        public override string ListName => Name + ":" + Isocode;
+        public override string ListName => Name + " : " + Isocode;
 
         public string DetailsName => string.IsNullOrEmpty(NativeName) ? FullName : NativeName + " | " + FullName;
+
+        public string ParentName => ParentId.HasValue ? Parent.Name : "--";
+
+        public ICollection<PlaceView> Places => TerritoryPlaces.Select(x => x.Place).Distinct(x => x.Id).ToList();
 
         #endregion Other Properties
     }

@@ -5,27 +5,6 @@
 }
 
 <br />
-    <partial name="IndexMenu.cshtml" />
+<partial name='ImportIndexMenu' model='new { Title = "Import Countries" }' />
 <br />
-
-<div class="panel panel-info">
-    <div class="panel-body">
-        @(Html
-        .Grid(Model)
-        .Build(columns =>
-        {
-            columns.Add(model => model.Name).Titled("Name");
-            columns.Add(model => model.Isocode).Titled("ISO");
-            columns.Add(model => model.ImportId.HasValue ? model.ImportId.Value.ToString() : "--").Titled("Import Id");
-            columns.Add().Encoded(false).RenderedAs(model =>
-                $"<a class='btn btn-dark btn-sm rounded-0' style='margin:1px' href='/ImportCountry/Import/{model.Id}'>Import</a>"
-            );
-        })
-        .Empty("No data found")
-        .Filterable()
-        .Sortable()
-        .Pageable()
-        .AppendCss("table-light table-striped table-hover")
-        )
-    </div>
-</div>
+<partial name="PartialListMainImportCountries" model="@Model" />

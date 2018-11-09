@@ -1,0 +1,19 @@
+﻿<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+    <!-- Brand -->
+    <a class="navbar-brand" href="#">@Model.Title</a>
+
+    <!-- Links -->
+    <ul class="navbar-nav">
+        <!-- Dropdown -->
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+                Lists
+            </a>
+            <div class="dropdown-menu">
+                <a class="dropdown-item" asp-action="Index">Main</a>
+                <a class="dropdown-item" asp-action="ListImported">Imported</a>
+                <a class="dropdown-item" asp-action="ListNotImported">Not Imported</a>
+            </div>
+        </li>
+    </ul>
+</nav>

@@ -1,0 +1,63 @@
+﻿@model MvcPlaces.ViewModels.Models.Main.TerritoryPlaceView
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<br />
+<partial name="DetailsMenu" />
+<br />
+<partial name="DetailsHeader" />
+
+<div class="card-deck">
+    <div class="card rounded-0">
+        <div class="card-header bg-dark text-white rounded-0">Place</div>
+        <div class="card-body bg-light" style="height:250px;max-height:250px;overflow-y:auto;">
+            <div class="d-flex">
+                <div class="w-25 p-1 pr-4 mb-1 bg-secondary text-white text-right"><label asp-for="PlaceId"></label></div>
+                <div class="w-75 p-1 pl-4 mb-1 bg-white">@Model.PlaceId</div>
+            </div>
+            <div class="d-flex">
+                <div class="w-25 p-1 pr-4 mb-1 bg-secondary text-white text-right"><label asp-for="Place.Name"></label></div>
+                <div class="w-75 p-1 pl-4 mb-1 bg-white"><a asp-controller="Place" asp-action="Details" asp-route-id="@Model.PlaceId">@Model.Place.Name</a></div>
+            </div>
+            <div class="d-flex">
+                <div class="w-25 p-1 pr-4 mb-1 bg-secondary text-white text-right"><label asp-for="Place.LocalName"></label></div>
+                <div class="w-75 p-1 pl-4 mb-1 bg-white"><small>@Model.Place.LocalName</small></div>
+            </div>
+            <div class="d-flex">
+                <div class="w-25 p-1 pr-4 mb-1 bg-secondary text-white text-right"><label asp-for="Place.Latitude"></label></div>
+                <div class="w-75 p-1 pl-4 mb-1 bg-white">@Model.Place.LatitudeDegrees</div>
+            </div>
+            <div class="d-flex">
+                <div class="w-25 p-1 pr-4 mb-1 bg-secondary text-white text-right"><label asp-for="Place.Longitude"></label></div>
+                <div class="w-75 p-1 pl-4 mb-1 bg-white">@Model.Place.LongitudeDegrees</div>
+            </div>
+        </div>
+    </div>
+    <div class="card rounded-0">
+        <div class="card-header bg-dark text-white rounded-0">Territory</div>
+        <div class="card-body bg-light" style="height:250px;max-height:250px;overflow-y:auto;">
+            <div class="d-flex">
+                <div class="w-25 p-1 pr-4 mb-1 bg-secondary text-white text-right"><label asp-for="TerritoryId"></label></div>
+                <div class="w-75 p-1 pl-4 mb-1 bg-white">@Model.TerritoryId</div>
+            </div>
+            <div class="d-flex">
+                <div class="w-25 p-1 pr-4 mb-1 bg-secondary text-white text-right"><label asp-for="Territory.Name"></label></div>
+                <div class="w-75 p-1 pl-4 mb-1 bg-white"><a asp-controller="Territory" asp-action="Details" asp-route-id="@Model.TerritoryId">@Model.Territory.Name</a></div>
+            </div>
+            <div class="d-flex">
+                <div class="w-25 p-1 pr-4 mb-1 bg-secondary text-white text-right"><label asp-for="Territory.NativeName"></label></div>
+                <div class="w-75 p-1 pl-4 mb-1 bg-white">@Model.Territory.NativeName</div>
+            </div>
+            <div class="d-flex">
+                <div class="w-25 p-1 pr-4 mb-1 bg-secondary text-white text-right"><label asp-for="Territory.Population"></label></div>
+                <div class="w-75 p-1 pl-4 mb-1 bg-white">@String.Format("{0:N0}", Model.Territory.Population)</div>
+            </div>
+            <div class="d-flex">
+                <div class="w-25 p-1 pr-4 mb-1 bg-secondary text-white text-right"><label asp-for="Territory.Area"></label></div>
+                <div class="w-75 p-1 pl-4 mb-1 bg-white">@String.Format(Model.Territory.Area % 1 == 0 ? "{0:N0}" : "{0:N2}", Model.Territory.Area) km<sup>2</sup></div>
+            </div>
+        </div>
+    </div>
+</div>

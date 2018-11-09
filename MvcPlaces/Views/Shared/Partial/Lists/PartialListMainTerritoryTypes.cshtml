@@ -1,0 +1,22 @@
+﻿@model IEnumerable<MvcPlaces.ViewModels.Models.Main.TerritoryTypeView>
+
+@(Html
+    .Grid(Model)
+    .Build(columns =>
+    {
+        columns.Add(model => model.Type).Titled("Type");
+        columns.Add(model => model.TerritoryCount).Titled("Territories");
+        columns.Add().Encoded(false).RenderedAs(model =>
+            "<div class='btn-group float-right'>" +
+                $"<a class='btn btn-dark btn-sm rounded-0' href='/TerritoryType/Edit/{model.Id}'>Edit</a>" +
+                $"<a class='btn btn-dark btn-sm rounded-0' href='/TerritoryType/Details/{model.Id}'>Details</a>" +
+                $"<a class='btn btn-dark btn-sm rounded-0' href='/TerritoryType/Delete/{model.Id}'>Delete</a>" +
+            "</div>"
+        );
+    })
+    .Empty("No data found")
+    .Filterable()
+    .Sortable()
+    .Pageable()
+    .AppendCss("table-light table-striped table-hover small")
+)

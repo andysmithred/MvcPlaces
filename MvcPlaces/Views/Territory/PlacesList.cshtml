@@ -1,0 +1,17 @@
+﻿@model MvcPlaces.ViewModels.Models.Main.TerritoryView
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<br />
+<partial name="DetailsMenu" />
+<br />
+<partial name="DetailsHeader" />
+
+<div class="card rounded-0">
+    <div class="card-header bg-dark text-white rounded-0">Places</div>
+    <div class="card-body bg-light">
+        <partial name="PartialListDetailsPlaces" model="@Model.Places.OrderBy(x => x.ListName)" />
+    </div>
+</div>

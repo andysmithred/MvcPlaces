@@ -9,6 +9,7 @@ namespace MvcPlaces.Models
         public Territory()
         {
             Children = new HashSet<Territory>();
+            TerritoryPlaces = new HashSet<TerritoryPlace>();
         }
 
         [Key]
@@ -45,5 +46,7 @@ namespace MvcPlaces.Models
         public Territory Parent { get; set; }
         public TerritoryType TerritoryType { get; set; }
         public ICollection<Territory> Children { get; set; }
+
+        public ICollection<TerritoryPlace> TerritoryPlaces { get; set; }
     }
 }

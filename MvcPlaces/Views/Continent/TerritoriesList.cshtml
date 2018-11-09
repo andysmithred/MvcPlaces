@@ -12,26 +12,6 @@
 <div class="card rounded-0">
     <div class="card-header bg-dark text-white rounded-0">Territories</div>
     <div class="card-body bg-light">
-        @(Html
-            .Grid(Model.Territories)
-            .Build(columns =>
-            {
-                columns.Add(model => model.Name).Titled("Name");
-                columns.Add(model => model.Isocode).Titled("ISO");
-                columns.Add(model => model.TerritoryType.Type).Titled("Type");
-                columns.Add(model => model.ParentId.HasValue ? model.Parent.Name : "--").Titled("Parent");
-                columns.Add(model => model.Children.Count).Titled("Territories");
-                columns.Add().Encoded(false).RenderedAs(model =>
-                    "<div class='btn-group float-right'>" +
-                        $"<a class='btn btn-dark btn-sm rounded-0' href='/Territory/Details/{model.Id}'>Details</a>" +
-                    "</div>"
-                );
-            })
-            .Empty("No data found")
-            .Filterable()
-            .Sortable()
-            .Pageable()
-            .AppendCss("table-light table-striped table-hover small")
-        )
+        <partial name="PartialListDetailsTerritories" model="@Model.Territories.OrderBy(x => x.ListName)" />
     </div>
 </div>

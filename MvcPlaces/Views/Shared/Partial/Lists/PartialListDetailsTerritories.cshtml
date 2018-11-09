@@ -1,0 +1,23 @@
+﻿@model IEnumerable<MvcPlaces.ViewModels.Models.Main.TerritoryView>
+
+@(Html
+    .Grid(Model)
+    .Build(columns =>
+    {
+        columns.Add(model => model.Name).Titled("Name");
+        columns.Add(model => model.Isocode).Titled("ISO");
+        columns.Add(model => model.TerritoryType.Type).Titled("Type");
+        columns.Add(model => model.ParentName).Titled("Parent");
+        columns.Add(model => model.Children.Count).Titled("Territories");
+        columns.Add().Encoded(false).RenderedAs(model =>
+            "<div class='btn-group float-right'>" +
+                $"<a class='btn btn-dark btn-sm rounded-0' href='/Territory/Details/{model.Id}'>Details</a>" +
+            "</div>"
+        );
+    })
+    .Empty("No data found")
+    .Filterable()
+    .Sortable()
+    .Pageable()
+    .AppendCss("table-light table-striped table-hover small")
+)

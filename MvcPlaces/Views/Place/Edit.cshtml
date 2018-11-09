@@ -1,0 +1,62 @@
+﻿@model MvcPlaces.Models.Place
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<br />
+<partial name="EditMenu" />
+<br />
+
+<div class="card rounded-0">
+    <div class="card-header bg-dark text-white rounded-0">Place</div>
+    <div class="card-body bg-light text-dark">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="input-group mb-3 input-group">
+                <div class="input-group-prepend w-25">
+                    <label asp-for="Name" class="input-group-text w-100"></label>
+                </div>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="input-group mb-3 input-group">
+                <div class="input-group-prepend w-25">
+                    <label asp-for="LocalName" class="input-group-text w-100"></label>
+                </div>
+                <input asp-for="LocalName" class="form-control" />
+                <span asp-validation-for="LocalName" class="text-danger"></span>
+            </div>
+            <div class="input-group mb-3 input-group">
+                <div class="input-group-prepend w-25">
+                    <label asp-for="Latitude" class="input-group-text w-100"></label>
+                </div>
+                <input asp-for="Latitude" class="form-control" />
+                <span asp-validation-for="Latitude" class="text-danger"></span>
+            </div>
+            <div class="input-group mb-3 input-group">
+                <div class="input-group-prepend w-25">
+                    <label asp-for="Longitude" class="input-group-text w-100"></label>
+                </div>
+                <input asp-for="Longitude" class="form-control" />
+                <span asp-validation-for="Longitude" class="text-danger"></span>
+            </div>
+            <div class="input-group mb-3 input-group">
+                <div class="input-group-prepend w-25">
+                    <label asp-for="Zoom" class="input-group-text w-100"></label>
+                </div>
+                <input asp-for="Zoom" class="form-control" />
+                <span asp-validation-for="Zoom" class="text-danger"></span>
+            </div>
+            <hr />
+            <div class="form-group">
+                <input type="submit" value="Update" class="btn btn-dark rounded-0" />
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

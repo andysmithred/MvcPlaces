@@ -28,6 +28,11 @@ namespace MvcPlaces.Controllers
             return await base.Details(id);
         }
 
+        public async Task<IActionResult> TerritoriesList(int? id)
+        {
+            return await base.Details(id);
+        }
+
         #endregion Details
 
         #region Create
@@ -100,14 +105,16 @@ namespace MvcPlaces.Controllers
         protected override Func<int, TerritoryType> GetItemFunction()
         {
             return i => Context.TerritoryType
-                        .Include(x => x.Territories)
+                        .Include(x => x.Territories).ThenInclude(t => t.Children)
+                        .Include(x => x.Territories).ThenInclude(t => t.Parent)
                         .FirstOrDefault(x => x.Id == i);
         }
 
         protected override Func<IQueryable<TerritoryType>> GetItemsFunction()
         {
             return () => Context.TerritoryType
-                        .Include(x => x.Territories);
+                        .Include(x => x.Territories).ThenInclude(t => t.Children)
+                        .Include(x => x.Territories).ThenInclude(t => t.Parent);
         }
 
         protected override Func<TerritoryType, bool> GetExistsFunc(int id)

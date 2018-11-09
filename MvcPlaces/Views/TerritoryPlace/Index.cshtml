@@ -1,0 +1,10 @@
+﻿@model IEnumerable<MvcPlaces.ViewModels.Models.Main.TerritoryPlaceView>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<br />
+<partial name='IndexMenu' model='new { Title = "Territory Places" }' />
+<br />
+<partial name="PartialListMainTerritoryPlaces" model="@Model" />
