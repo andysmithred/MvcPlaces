@@ -18,6 +18,7 @@ namespace MvcPlaces.ModelsImport
         public int RegionId { get; set; }
         public double? Latitude { get; set; }
         public double? Longitude { get; set; }
+        public int? ImportId { get; set; }
 
         public Region Region { get; set; }
         public ICollection<AirfieldPlace> AirfieldPlace { get; set; }

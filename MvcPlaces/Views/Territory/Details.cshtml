@@ -41,9 +41,9 @@
             <div class="d-flex">
                 <div class="w-25 p-1 pr-4 mb-1 bg-secondary text-white text-right"><label asp-for="ContinentId"></label></div>
                 <div class="w-75 p-1 pl-4 mb-1 bg-white">
-                    @if (Model.ContinentId.HasValue)
+                    @if (Model.Continent != null)
                     {
-                        <a asp-controller="Continent" asp-action="Details" asp-route-id="@Model.ContinentId">@Model.Continent.Name</a>
+                        <a asp-controller="Continent" asp-action="Details" asp-route-id="@Model.Continent.Id">@Model.Continent.Name</a>
                     }
                     else
                     {
@@ -130,7 +130,7 @@
                 {
                     <div class="d-flex">
                         <div class="w-100 p-1 pl-4 mb-1 bg-white text-dark">
-                            <a asp-action="Details" asp-route-id="@item.Id">@item.Name</a>
+                            <small><a asp-action="Details" asp-route-id="@item.Id">@item.Name</a></small>
                         </div>
                     </div>
                 }
@@ -160,7 +160,7 @@
                 {
                     <div class="d-flex">
                         <div class="w-100 p-1 pl-4 mb-1 bg-white text-dark">
-                            <a asp-controller="Place" asp-action="Details" asp-route-id="@item.Id">@item.Name</a>
+                            <small><a asp-controller="Place" asp-action="Details" asp-route-id="@item.Id">@item.Name</a></small>
                         </div>
                     </div>
                 }

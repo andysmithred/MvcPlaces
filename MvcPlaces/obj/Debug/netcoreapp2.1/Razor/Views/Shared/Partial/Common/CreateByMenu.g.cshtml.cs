@@ -60,7 +60,7 @@ using NonFactors.Mvc.Grid;
             WriteLiteral("<nav class=\"navbar navbar-expand-sm bg-dark navbar-dark\">\r\n    <a class=\"navbar-brand\" href=\"#\">Create</a>\r\n    <ul class=\"navbar-nav\">\r\n        <li class=\"nav-item\">");
             EndContext();
             BeginContext(166, 48, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "c83cfd57e1214619bf9127f7887e9e14", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "1c084d340e124ab59c343bbd29dce0ea", async() => {
                 BeginContext(205, 5, true);
                 WriteLiteral("Index");
                 EndContext();
@@ -83,7 +83,7 @@ using NonFactors.Mvc.Grid;
             WriteLiteral("</li>\r\n        <li class=\"nav-item\">\r\n            ");
             EndContext();
             BeginContext(264, 122, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "9d77b4594f494345a799bdfa6365f29c", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "f32b9853f77f44388eaf66ff60aa0f07", async() => {
                 BeginContext(372, 10, false);
 #line 6 "C:\Users\asmith\source\repos\MvcPlaces\MvcPlaces\Views\Shared\Partial\Common\CreateByMenu.cshtml"
                                                                                                                   Write(Model.Text);

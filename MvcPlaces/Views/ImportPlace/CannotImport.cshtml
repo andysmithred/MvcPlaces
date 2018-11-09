@@ -1,0 +1,33 @@
+﻿@model MvcPlaces.ModelsImport.Place
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<br />
+<partial name='ImportIndexMenu' model='new { Title = "Import Places" }' />
+<br />
+
+<div class="card rounded-0">
+    <div class="card-header bg-dark text-white rounded-0">Place</div>
+    <div class="card-body bg-light text-dark">
+        <h3>This Country cannot be imported!</h3>
+        <hr />
+        <div class="d-flex">
+            <div class="w-25 p-1 pr-4 mb-1 bg-secondary text-white text-right"><label asp-for="Id"></label></div>
+            <div class="w-75 p-1 pl-4 mb-1 bg-white"><span asp-for="Id">@Model.Id</span></div>
+        </div>
+        <div class="d-flex">
+            <div class="w-25 p-1 pr-4 mb-1 bg-secondary text-white text-right"><label asp-for="Name"></label></div>
+            <div class="w-75 p-1 pl-4 mb-1 bg-white"><span asp-for="Name">@Model.Name</span></div>
+        </div>
+        <div class="d-flex">
+            <div class="w-25 p-1 pr-4 mb-1 bg-secondary text-white text-right"><label asp-for="Region.Name"></label></div>
+            <div class="w-75 p-1 pl-4 mb-1 bg-white"><span asp-for="Region.Name">@Model.Region.Name</span></div>
+        </div>
+        <hr />
+        <form asp-action="CannotImport">
+            <input type="submit" value="Confirm" class="btn btn-dark rounded-0" />
+        </form>
+    </div>
+</div>

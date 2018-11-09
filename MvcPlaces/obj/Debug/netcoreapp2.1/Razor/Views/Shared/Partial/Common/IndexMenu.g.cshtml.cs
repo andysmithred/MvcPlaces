@@ -70,7 +70,7 @@ using NonFactors.Mvc.Grid;
             WriteLiteral("</a>\r\n    <ul class=\"navbar-nav\">\r\n        <li class=\"nav-item\">\r\n            ");
             EndContext();
             BeginContext(186, 47, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "1c1cf446b75748938eda9823833ea757", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "7f445fe863a743ea8b5e34ba82ff6082", async() => {
                 BeginContext(226, 3, true);
                 WriteLiteral("New");
                 EndContext();

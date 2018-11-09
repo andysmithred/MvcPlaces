@@ -1,0 +1,10 @@
+﻿@model IEnumerable<MvcPlaces.ViewModels.Models.Import.PlaceView>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<br />
+<partial name='ImportIndexMenu' model='new { Title = "Import Places" }' />
+<br />
+<partial name="PartialListMainImportPlaces" model="@Model" />

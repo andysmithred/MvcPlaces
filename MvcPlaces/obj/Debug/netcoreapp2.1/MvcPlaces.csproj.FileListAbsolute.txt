@@ -117,3 +117,12 @@ C:\Users\asmith\source\repos\MvcPlaces\MvcPlaces\obj\Debug\netcoreapp2.1\Razor\V
 C:\Users\asmith\source\repos\MvcPlaces\MvcPlaces\obj\Debug\netcoreapp2.1\Razor\Views\Shared\Partial\Lists\PartialListMainImportRegions.g.cshtml.cs
 C:\Users\asmith\source\repos\MvcPlaces\MvcPlaces\obj\Debug\netcoreapp2.1\Razor\Views\Shared\Partial\Lists\PartialListMainImportedRegions.g.cshtml.cs
 C:\Users\asmith\source\repos\MvcPlaces\MvcPlaces\obj\Debug\netcoreapp2.1\Razor\Views\Shared\Partial\Lists\PartialListMainNotImportedRegions.g.cshtml.cs
+C:\Users\asmith\source\repos\MvcPlaces\MvcPlaces\obj\Debug\netcoreapp2.1\Razor\Views\ImportPlace\Index.g.cshtml.cs
+C:\Users\asmith\source\repos\MvcPlaces\MvcPlaces\obj\Debug\netcoreapp2.1\Razor\Views\Shared\Partial\Lists\PartialListMainImportPlaces.g.cshtml.cs
+C:\Users\asmith\source\repos\MvcPlaces\MvcPlaces\obj\Debug\netcoreapp2.1\Razor\Views\ImportPlace\ListImported.g.cshtml.cs
+C:\Users\asmith\source\repos\MvcPlaces\MvcPlaces\obj\Debug\netcoreapp2.1\Razor\Views\ImportPlace\ListNotImported.g.cshtml.cs
+C:\Users\asmith\source\repos\MvcPlaces\MvcPlaces\obj\Debug\netcoreapp2.1\Razor\Views\ImportPlace\Import.g.cshtml.cs
+C:\Users\asmith\source\repos\MvcPlaces\MvcPlaces\obj\Debug\netcoreapp2.1\Razor\Views\ImportPlace\CannotImport.g.cshtml.cs
+C:\Users\asmith\source\repos\MvcPlaces\MvcPlaces\obj\Debug\netcoreapp2.1\Razor\Views\ImportPlace\Delete.g.cshtml.cs
+C:\Users\asmith\source\repos\MvcPlaces\MvcPlaces\obj\Debug\netcoreapp2.1\Razor\Views\Shared\Partial\Lists\PartialListMainImportedPlaces.g.cshtml.cs
+C:\Users\asmith\source\repos\MvcPlaces\MvcPlaces\obj\Debug\netcoreapp2.1\Razor\Views\Shared\Partial\Lists\PartialListMainNotImportedPlaces.g.cshtml.cs

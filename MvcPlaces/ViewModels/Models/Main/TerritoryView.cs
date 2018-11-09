@@ -46,7 +46,7 @@ namespace MvcPlaces.ViewModels.Models.Main
 
         #region Foreign Properties
 
-        public ContinentView Continent => GetView<ContinentView, Continent>(ViewObject.Continent);
+        public ContinentView Continent => ContinentId.HasValue ? GetView<ContinentView, Continent>(ViewObject.Continent) : Parent.Continent;
         public TerritoryView Parent => GetView<TerritoryView, Territory>(ViewObject.Parent);
         public TerritoryTypeView TerritoryType => GetView<TerritoryTypeView, TerritoryType>(ViewObject.TerritoryType);
         public ICollection<TerritoryView> Children => GetViewList<TerritoryView, Territory>(ViewObject.Children);

@@ -163,7 +163,7 @@ namespace MvcPlaces.Controllers
         protected override Func<int, Territory> GetItemFunction()
         {
             return i => Context.Territory
-                        .Include(x => x.Parent)
+                        .Include(x => x.Parent).ThenInclude(x => x.Continent)
                         .Include(x => x.Children).ThenInclude(c => c.TerritoryType)
                         .Include(x => x.Children).ThenInclude(c => c.Children)
                         .Include(x => x.Continent)
@@ -175,8 +175,9 @@ namespace MvcPlaces.Controllers
         protected override Func<IQueryable<Territory>> GetItemsFunction()
         {
             return () => Context.Territory
-                        .Include(x => x.Parent)
-                        .Include(x => x.Children)
+                        .Include(x => x.Parent).ThenInclude(x => x.Continent)
+                        .Include(x => x.Children).ThenInclude(c => c.TerritoryType)
+                        .Include(x => x.Children).ThenInclude(c => c.Children)
                         .Include(x => x.Continent)
                         .Include(x => x.TerritoryType)
                         .Include(x => x.TerritoryPlaces).ThenInclude(x => x.Place);
