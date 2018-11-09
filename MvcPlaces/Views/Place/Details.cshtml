@@ -45,6 +45,15 @@
         </div>
     </div>
     <div class="card rounded-0">
+        <div class="card-header bg-dark text-white rounded-0">Map</div>
+        <div class="card-body bg-light p-0" style="height:250px;max-height:250px;overflow-y:auto;">
+            <partial name='PartialMap' model='new { Name = Model.Name, Latitude = Model.LatitudeValue, Longitude = Model.LongitudeValue, Zoom = Model.ZoomValue }' />
+        </div>
+    </div>
+</div>
+<br />
+<div class="card-deck">
+    <div class="card rounded-0">
         <div class="card-header bg-dark text-white rounded-0">Stats</div>
         <div class="card-body bg-light" style="height:250px;max-height:250px;overflow-y:auto;">
             <div class="d-flex">
@@ -53,9 +62,6 @@
             </div>
         </div>
     </div>
-</div>
-<br />
-<div class="card-deck">
     <div class="card rounded-0">
         <div class="card-header bg-dark text-white rounded-0">
             <div style="display:inline-block;float:left">Territories</div>

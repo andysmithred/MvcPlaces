@@ -26,6 +26,7 @@ namespace MvcPlaces.ModelsImport
         public int? BaseId { get; set; }
         public string IcaoCode { get; set; }
         public int Prominence { get; set; }
+        public int? ImportId { get; set; }
 
         public Base Base { get; set; }
         public Region Region { get; set; }

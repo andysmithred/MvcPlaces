@@ -1,0 +1,23 @@
+﻿@{
+    Type type = Model.GetType();
+    double latitude = (double)type.GetProperty("Latitude").GetValue(Model, null);
+    double longitude = (double)type.GetProperty("Longitude").GetValue(Model, null);
+    int zoom = (int)type.GetProperty("Zoom").GetValue(Model, null);
+}
+
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAiEv5RMy0d7cDM7fhZPHFrBD7weVs1DFc&callback=initMap" type="text/javascript"></script>
+<script>
+    function initMap() {
+
+        var tmpLatitude = @latitude;
+        var tmpLongitude = @longitude;
+
+        var map = new google.maps.Map(document.getElementById('map_canvas'), {
+            zoom: @zoom,
+            center: new google.maps.LatLng(tmpLatitude, tmpLongitude),
+            mapTypeId: google.maps.MapTypeId.MAP,
+        });
+    }
+</script>
+
+<div id="map_canvas" style="width:100%;height:100%"></div>

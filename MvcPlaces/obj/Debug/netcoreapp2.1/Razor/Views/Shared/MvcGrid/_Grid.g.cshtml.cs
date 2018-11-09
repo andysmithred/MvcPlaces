@@ -411,7 +411,7 @@ WriteAttributeValue(" ", 3421, filterApplied, 3422, 14, false);
             WriteLiteral("                                    ");
             EndContext();
             BeginContext(3702, 51, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "1c4953d04202481ebece242689c1a82b", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "c1e125f455ef45e3b8437034e91131ec", async() => {
                 BeginContext(3733, 11, false);
 #line 62 "C:\Users\asmith\source\repos\MvcPlaces\MvcPlaces\Views\Shared\MvcGrid\_Grid.cshtml"
                                                              Write(option.Text);
@@ -568,7 +568,7 @@ WriteAttributeValue("", 4796, column.Filter.First?.Method, 4796, 28, false);
             WriteLiteral("                                                    ");
             EndContext();
             BeginContext(5365, 60, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "1eb1998a4b0848238d4dda3c4390a3ef", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "2debf9e694a74d0daf11160a6ca25110", async() => {
                 BeginContext(5405, 11, false);
 #line 93 "C:\Users\asmith\source\repos\MvcPlaces\MvcPlaces\Views\Shared\MvcGrid\_Grid.cshtml"
                                                                                       Write(option.Text);
@@ -614,7 +614,7 @@ WriteAttributeValue("", 4796, column.Filter.First?.Method, 4796, 28, false);
             WriteLiteral("                                                    ");
             EndContext();
             BeginContext(5635, 51, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "7094b042e4314987a9cdcb7ee148a472", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "9a63ca52a9e04f12b74cdcf508e93a19", async() => {
                 BeginContext(5666, 11, false);
 #line 97 "C:\Users\asmith\source\repos\MvcPlaces\MvcPlaces\Views\Shared\MvcGrid\_Grid.cshtml"
                                                                              Write(option.Text);
