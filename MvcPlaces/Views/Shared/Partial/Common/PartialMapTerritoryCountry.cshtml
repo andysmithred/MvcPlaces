@@ -1,0 +1,32 @@
+﻿@model MvcPlaces.ViewModels.Models.Main.TerritoryView
+
+@{
+    ViewBag.Title = Model.Name;
+}
+
+<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+<script type="text/javascript">
+    google.load("visualization", "1", {packages:["geochart"]});
+    google.setOnLoadCallback(drawRegionsMap);
+
+    function drawRegionsMap() {
+        var data = google.visualization.arrayToDataTable([
+        ['Country'],
+        ['@Model.Name'],
+    ]);
+
+        var options = {
+            region: '@Model.Isocode',
+            resolution: '@Model.GeoChartLevel',
+            keepAspectRatio: false,
+            backgroundColor: 'lightblue',
+            datalessRegionColor: 'lightgreen'
+        };
+
+        var chart = new google.visualization.GeoChart(document.getElementById('@Model.Isocode'));
+
+        chart.draw(data, options);
+    }
+</script>
+
+<div id="@Model.Isocode" style="width: 100%;"></div>

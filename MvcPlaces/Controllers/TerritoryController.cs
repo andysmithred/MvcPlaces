@@ -1,7 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using MvcPlaces.Code.Classes;
 using MvcPlaces.Code.Data;
+using MvcPlaces.Code.Enums;
 using MvcPlaces.Models;
 using MvcPlaces.ViewModels.Models.Main;
 using System;
@@ -20,6 +22,9 @@ namespace MvcPlaces.Controllers
 
         private DataAccess<TerritoryType, TerritoryTypeView> territoryTypes = null;
         private ICollection<TerritoryTypeView> territoryTypesList = null;
+
+        private DataAccess<Flag, FlagView> flags = null;
+        private ICollection<FlagView> flagsList = null;
 
         #endregion Private Declarations
 
@@ -47,6 +52,18 @@ namespace MvcPlaces.Controllers
         {
             get => territoryTypesList ?? (territoryTypesList = TerritoryTypes.GetViews().OrderBy(x => x.ListName).ToList());
             set => territoryTypesList = value;
+        }
+
+        public DataAccess<Flag, FlagView> Flags
+        {
+            get => flags ?? (flags = new DataAccess<Flag, FlagView>(Context, Context.Flag));
+            set => flags = value;
+        }
+
+        public ICollection<FlagView> FlagsList
+        {
+            get => flagsList ?? (flagsList = Flags.GetViews().OrderBy(x => x.ListName).ToList());
+            set => flagsList = value;
         }
 
         #endregion Public Properties
@@ -93,12 +110,15 @@ namespace MvcPlaces.Controllers
             ViewBag.Continents = GetContinentsSelectList(null);
             ViewBag.TerritoryTypes = GetTerritoryTypesSelectList(null);
             ViewBag.Territories = GetTerritoriesSelectList(null);
+            ViewBag.Flags = GetFlagsSelectList(null);
+            ViewBag.GeoChartLevels = GetGeoChartLevelSelectList(string.Empty);
+
             return base.Create();
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Name,FullName,NativeName,ContinentId,ParentId,Population,Area,Isocode,Latitude,Longitude,Zoom,TerritoryTypeId")] Territory item)
+        public async Task<IActionResult> Create([Bind("Id,Name,FullName,NativeName,ContinentId,ParentId,Population,Area,Isocode,Latitude,Longitude,Zoom,TerritoryTypeId,GeoChartLevel,FlagId")] Territory item)
         {
             if (ModelState.IsValid)
             {
@@ -108,6 +128,8 @@ namespace MvcPlaces.Controllers
             ViewBag.Continents = GetContinentsSelectList(item.ContinentId);
             ViewBag.TerritoryTypes = GetTerritoryTypesSelectList(item.TerritoryTypeId);
             ViewBag.Territories = GetTerritoriesSelectList(item.ParentId);
+            ViewBag.Flags = GetFlagsSelectList(item.FlagId);
+            ViewBag.GeoChartLevels = GetGeoChartLevelSelectList(item.GeoChartLevel);
             return View(item);
         }
 
@@ -121,17 +143,21 @@ namespace MvcPlaces.Controllers
             ViewBag.Continents = GetContinentsSelectList(Item.ContinentId);
             ViewBag.TerritoryTypes = GetTerritoryTypesSelectList(Item.TerritoryTypeId);
             ViewBag.Territories = GetTerritoriesSelectList(Item.ParentId);
+            ViewBag.Flags = GetFlagsSelectList(Item.FlagId);
+            ViewBag.GeoChartLevels = GetGeoChartLevelSelectList(Item.GeoChartLevel);
             return result;
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public override async Task<IActionResult> Edit(int id, [Bind("Id,Name,FullName,NativeName,ContinentId,ParentId,Population,Area,Isocode,Latitude,Longitude,Zoom,TerritoryTypeId")] Territory item)
+        public override async Task<IActionResult> Edit(int id, [Bind("Id,Name,FullName,NativeName,ContinentId,ParentId,Population,Area,Isocode,Latitude,Longitude,Zoom,TerritoryTypeId,GeoChartLevel,FlagId")] Territory item)
         {
             IActionResult result = await base.Edit(id, item);
             ViewBag.Continents = GetContinentsSelectList(item.ContinentId);
             ViewBag.TerritoryTypes = GetTerritoryTypesSelectList(item.TerritoryTypeId);
             ViewBag.Territories = GetTerritoriesSelectList(item.ParentId);
+            ViewBag.Flags = GetFlagsSelectList(item.FlagId);
+            ViewBag.GeoChartLevels = GetGeoChartLevelSelectList(item.GeoChartLevel);
             return result;
         }
 
@@ -164,10 +190,13 @@ namespace MvcPlaces.Controllers
         {
             return i => Context.Territory
                         .Include(x => x.Parent).ThenInclude(x => x.Continent)
+                        .Include(x => x.Parent).ThenInclude(x => x.Flag)
+                        .Include(x => x.Parent).ThenInclude(x => x.Parent).ThenInclude(x => x.Flag)
                         .Include(x => x.Children).ThenInclude(c => c.TerritoryType)
                         .Include(x => x.Children).ThenInclude(c => c.Children)
                         .Include(x => x.Continent)
                         .Include(x => x.TerritoryType)
+                        .Include(x => x.Flag)
                         .Include(x => x.TerritoryPlaces).ThenInclude(x => x.Place)
                         .FirstOrDefault(x => x.Id == i);
         }
@@ -176,10 +205,12 @@ namespace MvcPlaces.Controllers
         {
             return () => Context.Territory
                         .Include(x => x.Parent).ThenInclude(x => x.Continent)
+                        .Include(x => x.Parent).ThenInclude(x => x.Flag)
                         .Include(x => x.Children).ThenInclude(c => c.TerritoryType)
                         .Include(x => x.Children).ThenInclude(c => c.Children)
                         .Include(x => x.Continent)
                         .Include(x => x.TerritoryType)
+                        .Include(x => x.Flag)
                         .Include(x => x.TerritoryPlaces).ThenInclude(x => x.Place);
         }
 
@@ -225,6 +256,30 @@ namespace MvcPlaces.Controllers
             else
             {
                 return new SelectList(DataAccess.GetViews().OrderBy(x => x.ListName), "Id", "ListName");
+            }
+        }
+
+        public SelectList GetFlagsSelectList(int? id)
+        {
+            if (id.HasValue)
+            {
+                return new SelectList(FlagsList, "Id", "ListName", id);
+            }
+            else
+            {
+                return new SelectList(FlagsList, "Id", "ListName");
+            }
+        }
+
+        public SelectList GetGeoChartLevelSelectList(string geoChartLevel)
+        {
+            if (String.IsNullOrEmpty(geoChartLevel))
+            {
+                return new SelectList(CommonFunctions.ConvertToStringList<GeoChartLevel>());
+            }
+            else
+            {
+                return new SelectList(CommonFunctions.ConvertToStringList<GeoChartLevel>(), geoChartLevel);
             }
         }
 

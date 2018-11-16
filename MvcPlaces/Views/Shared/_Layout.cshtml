@@ -9,11 +9,13 @@
         <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
         <link rel="stylesheet" href="~/css/site.css" />
         <link rel="stylesheet" href="~/css/MvcGrid/mvc-grid.css">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
     </environment>
     <environment exclude="Development">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
         <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />
         <link rel="stylesheet" href="~/css/MvcGrid/mvc-grid.css">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
     </environment>
 </head>
 <body>
@@ -36,7 +38,10 @@
                     <a class="dropdown-item" asp-controller="TerritoryType" asp-action="Index">Territory Types</a>
                     <a class="dropdown-item" asp-controller="Territory" asp-action="Index">Territories</a>
                     <a class="dropdown-item" asp-controller="Place" asp-action="Index">Places</a>
+                    <a class="dropdown-item" asp-controller="PlaceGroup" asp-action="Index">Place Groups</a>
+                    <a class="dropdown-item" asp-controller="PlaceGroupSet" asp-action="Index">Place Group Sets</a>
                     <a class="dropdown-item" asp-controller="TerritoryPlace" asp-action="Index">Territory Places</a>
+                    <a class="dropdown-item" asp-controller="Flag" asp-action="Index">Flags</a>
                 </div>
             </li>
             <!-- Dropdown -->
@@ -49,6 +54,8 @@
                     <a class="dropdown-item" asp-controller="ImportCountry" asp-action="Index">Countries</a>
                     <a class="dropdown-item" asp-controller="ImportRegion" asp-action="Index">Regions</a>
                     <a class="dropdown-item" asp-controller="ImportPlace" asp-action="Index">Places</a>
+                    <a class="dropdown-item" asp-controller="ImportPlaceGroup" asp-action="Index">Place Groups</a>
+                    <a class="dropdown-item" asp-controller="ImportPlaceGroupSet" asp-action="Index">Place Group Sets</a>
                     <a class="dropdown-item" asp-controller="ImportAirfield" asp-action="Index">Airfields</a>
                 </div>
             </li>

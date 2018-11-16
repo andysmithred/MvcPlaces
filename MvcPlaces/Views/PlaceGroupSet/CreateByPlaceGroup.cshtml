@@ -1,0 +1,44 @@
+﻿@model MvcPlaces.Models.PlaceGroupSet
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<br />
+<partial name='CreateByMenu' model='new { Text = "Group", Action = "Details", Controller = "PlaceGroup", Id = ViewBag.PlaceGroup }' />
+<br />
+
+<div class="card rounded-0">
+    <div class="card-header bg-dark text-white rounded-top">
+        <div class="d-flex">
+            <div><b>Place Group Set</b></div>
+            <div class="ml-auto"><i class='fas fa-map-marker'></i></div>
+        </div>
+    </div>
+    <div class="card-body bg-light text-dark">
+        <form asp-action="Create">
+            <div class="input-group mb-3 input-group">
+                <div class="input-group-prepend w-25">
+                    <label asp-for="PlaceId" class="input-group-text w-100"></label>
+                </div>
+                <select asp-for="PlaceId" asp-items="ViewBag.Places" class="form-control"></select>
+                <span asp-validation-for="PlaceId" class="text-danger"></span>
+            </div>
+            <div class="input-group mb-3 input-group">
+                <div class="input-group-prepend w-25">
+                    <label asp-for="GroupId" class="input-group-text w-100"></label>
+                </div>
+                <select asp-for="GroupId" asp-items="ViewBag.PlaceGroups" class="form-control"></select>
+                <span asp-validation-for="GroupId" class="text-danger"></span>
+            </div>
+            <hr />
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-dark rounded-0" />
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -29,6 +29,9 @@ namespace MvcPlaces.Models
         [Display(Name = "Parent")]
         public int? ParentId { get; set; }
 
+        [Display(Name = "Flag")]
+        public int? FlagId { get; set; }
+
         public int? Population { get; set; }
         public decimal? Area { get; set; }
 
@@ -42,9 +45,14 @@ namespace MvcPlaces.Models
         [Display(Name = "Type")]
         public int TerritoryTypeId { get; set; }
 
+        [Display(Name = "Geochart")]
+        public string GeoChartLevel { get; set; }
+
         public Continent Continent { get; set; }
         public Territory Parent { get; set; }
         public TerritoryType TerritoryType { get; set; }
+        public Flag Flag { get; set; }
+
         public ICollection<Territory> Children { get; set; }
 
         public ICollection<TerritoryPlace> TerritoryPlaces { get; set; }

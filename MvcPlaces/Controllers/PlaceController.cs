@@ -114,6 +114,8 @@ namespace MvcPlaces.Controllers
             return i => Context.Place
                         .Include(p => p.TerritoryPlaces).ThenInclude(t => t.Territory).ThenInclude(t => t.TerritoryType)
                         .Include(p => p.TerritoryPlaces).ThenInclude(t => t.Territory).ThenInclude(t => t.Parent)
+                        .Include(p => p.TerritoryPlaces).ThenInclude(t => t.Territory).ThenInclude(t => t.Flag)
+                        .Include(p => p.TerritoryPlaces).ThenInclude(t => t.Territory).ThenInclude(t => t.Parent).ThenInclude(x => x.Flag)
                         .FirstOrDefault(x => x.Id == i);
         }
 

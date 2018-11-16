@@ -1,0 +1,33 @@
+﻿@model MvcPlaces.ModelsImport.PlaceGroupSet
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<br />
+<partial name='ImportIndexMenu' model='new { Title = "Import Place Group Sets" }' />
+<br />
+
+<div class="card rounded-0">
+    <div class="card-header bg-dark text-white rounded-0">Place Group Set</div>
+    <div class="card-body bg-light text-dark">
+        <h3>This item cannot be imported!</h3>
+        <hr />
+        <div class="d-flex">
+            <div class="w-25 p-1 pr-4 mb-1 bg-secondary text-white text-right"><label asp-for="Id"></label></div>
+            <div class="w-75 p-1 pl-4 mb-1 bg-white"><span asp-for="Id">@Model.Id</span></div>
+        </div>
+        <div class="d-flex">
+            <div class="w-25 p-1 pr-4 mb-1 bg-secondary text-white text-right"><label asp-for="Place.Name"></label></div>
+            <div class="w-75 p-1 pl-4 mb-1 bg-white"><span asp-for="Place.Name">@Model.Place.Name</span></div>
+        </div>
+        <div class="d-flex">
+            <div class="w-25 p-1 pr-4 mb-1 bg-secondary text-white text-right"><label asp-for="Group.Name"></label></div>
+            <div class="w-75 p-1 pl-4 mb-1 bg-white"><span asp-for="Group.Name">@Model.Group.Name</span></div>
+        </div>
+        <hr />
+        <form asp-action="CannotImport">
+            <input type="submit" value="Confirm" class="btn btn-dark rounded" />
+        </form>
+    </div>
+</div>

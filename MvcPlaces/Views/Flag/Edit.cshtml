@@ -1,0 +1,73 @@
+﻿@model MvcPlaces.Models.Flag
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<br />
+<partial name="EditMenu" />
+<br />
+
+<div class="card rounded-0">
+    <div class="card-header bg-dark text-white rounded-0">Continent</div>
+    <div class="card-body bg-light text-dark">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="input-group mb-3">
+                <div class="input-group-prepend w-25">
+                    <label asp-for="Name" class="input-group-text w-100"></label>
+                </div>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend w-25">
+                    <label asp-for="Code" class="input-group-text w-100"></label>
+                </div>
+                <input asp-for="Code" class="form-control" />
+                <span asp-validation-for="Code" class="text-danger"></span>
+            </div>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend w-25">
+                    <label asp-for="Description" class="input-group-text w-100"></label>
+                </div>
+                <input asp-for="Description" class="form-control" />
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend w-25">
+                    <label asp-for="StartDate" class="input-group-text w-100"></label>
+                </div>
+                <input asp-for="StartDate" class="form-control" />
+                <span asp-validation-for="StartDate" class="text-danger"></span>
+            </div>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend w-25">
+                    <label asp-for="EndDate" class="input-group-text w-100"></label>
+                </div>
+                <input asp-for="EndDate" class="form-control" />
+                <span asp-validation-for="EndDate" class="text-danger"></span>
+            </div>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend w-25">
+                    <label asp-for="Active" class="input-group-text w-100"></label>
+                </div>
+                <div class="input-group-prepend">
+                    <div class="input-group-text">
+                        <input asp-for="Active" type="checkbox">
+                    </div>
+                </div>
+                <span asp-validation-for="Active" class="text-danger"></span>
+            </div>
+            <hr />
+            <div class="form-group">
+                <input type="submit" value="Update" class="btn btn-dark rounded-0" />
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

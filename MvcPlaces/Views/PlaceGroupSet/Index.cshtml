@@ -1,0 +1,10 @@
+﻿@model IEnumerable<MvcPlaces.ViewModels.Models.Main.PlaceGroupSetView>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<br />
+<partial name='IndexMenu' model='new { Title = "Group Sets", Icon = "fas fa-map-marker" }' />
+<br />
+<partial name="PartialListMainPlaceGroupSets" model="@Model" />

@@ -1,8 +1,10 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using MvcPlaces.Code.Data;
 using MvcPlaces.Code.Interfaces;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -180,6 +182,15 @@ namespace MvcPlaces.Controllers
         protected abstract Func<T, bool> GetExistsFunc(int id);
 
         #endregion Abstract Methods
+
+        #region Other Methods
+
+        protected SelectList GetSelectList<TListType>(IEnumerable<TListType> list, int? id)
+        {
+            return id.HasValue ? new SelectList(list, "Id", "ListName", id) : new SelectList(list, "Id", "ListName");
+        }
+
+        #endregion Other Methods
 
         #endregion Methods
     }

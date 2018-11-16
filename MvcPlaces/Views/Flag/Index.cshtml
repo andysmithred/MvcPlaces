@@ -1,0 +1,10 @@
+﻿@model IEnumerable<MvcPlaces.ViewModels.Models.Main.FlagView>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<br />
+<partial name='IndexMenu' model='new { Title = "Flags", Icon = "fas fa-flag" }' />
+<br />
+<partial name="PartialListMainFlags" model="@Model" />

@@ -1,0 +1,21 @@
+﻿@model IEnumerable<MvcPlaces.ViewModels.Models.Import.PlaceGroupSetView>
+
+@(Html
+    .Grid(Model)
+    .Build(columns =>
+    {
+        columns.Add(model => model.Place.Name).Titled("Place");
+        columns.Add(model => model.Group.Name).Titled("Group");
+        columns.Add(model => model.ImportId.HasValue ? model.ImportId.Value.ToString() : "--").Titled("Import Id");
+        columns.Add().Encoded(false).RenderedAs(model =>
+            "<div class='btn-group float-right'>" +
+                $"<a class='btn btn-dark btn-sm rounded-0' style='margin:1px' href='/ImportPlaceGroupSet/Import/{model.Id}'>Import</a>" +
+            "</div>"
+        );
+    })
+    .Empty("No data found")
+    .Filterable()
+    .Sortable()
+    .Pageable()
+    .AppendCss("table-light table-striped table-hover small")
+)

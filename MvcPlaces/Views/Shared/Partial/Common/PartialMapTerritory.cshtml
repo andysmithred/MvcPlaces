@@ -1,0 +1,35 @@
+﻿@model MvcPlaces.ViewModels.Models.Main.TerritoryView
+
+@{
+    string name = Model.Name.Trim();
+    string mapName = name.Replace("'", "\\'");
+    string isoCode = String.IsNullOrEmpty(Model.Isocode) ? string.Empty : Model.Isocode;
+    string countryIso = Model.CountryIso;
+    string mapRegion = "['Region', 'Name'], ['" + isoCode + "', '" + mapName + "']";
+}
+
+<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+<script type="text/javascript">
+    google.load("visualization", "1", { packages: ["geochart"] });
+    google.setOnLoadCallback(drawRegionsMap);
+
+    function drawRegionsMap() {
+
+        var data = google.visualization.arrayToDataTable([@Html.Raw(mapRegion)]);
+
+        var options = {
+            region: '@countryIso',
+            resolution: '@Model.GeoChartLevel',
+            keepAspectRatio: false,
+            backgroundColor: 'lightgray',
+            datalessRegionColor: 'darkgray',
+            defaultColor: 'gray'
+        };
+
+        var chart = new google.visualization.GeoChart(document.getElementById('country_map'));
+
+        chart.draw(data, options);
+    }
+</script>
+
+<div id="country_map" style="width:100%;height:100%"></div>

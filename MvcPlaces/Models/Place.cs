@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace MvcPlaces.Models
@@ -9,6 +8,7 @@ namespace MvcPlaces.Models
         public Place()
         {
             TerritoryPlaces = new HashSet<TerritoryPlace>();
+            PlaceGroupSets = new HashSet<PlaceGroupSet>();
         }
 
         [Key]
@@ -27,5 +27,7 @@ namespace MvcPlaces.Models
         public int? Zoom { get; set; }
 
         public ICollection<TerritoryPlace> TerritoryPlaces { get; set; }
+
+        public ICollection<PlaceGroupSet> PlaceGroupSets { get; set; }
     }
 }

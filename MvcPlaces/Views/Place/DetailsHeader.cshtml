@@ -1,6 +1,18 @@
 ﻿@model MvcPlaces.ViewModels.Models.Main.PlaceView
 
-<div class="alert alert-dark rounded-0">
-    <h3>@Model.Name</h3>
-    <h6><small>@Model.DetailsName</small></h6>
+<div class="alert alert-success rounded p-2">
+    <div class="d-flex">
+        <div>
+            @foreach (var item in Model.Territories)
+            {
+                <img class="card-img-top-50 rounded" src="@item.FlagImage" alt="Card image" style="height:50px;object-fit: cover;overflow: hidden;opacity:0.3">
+            }
+        </div>
+        <div class="p-2 pl-3">
+            <h4>@Model.Name</h4>
+        </div>
+        <div class="ml-auto p-2">
+            <h4>@Model.LocalName</h4>
+        </div>
+    </div>
 </div>

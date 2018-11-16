@@ -35,6 +35,8 @@ namespace MvcPlaces.ViewModels.Models.Main
 
         public ICollection<TerritoryPlaceView> TerritoryPlaces => GetViewList<TerritoryPlaceView, TerritoryPlace>(ViewObject.TerritoryPlaces);
 
+        public ICollection<PlaceGroupSetView> PlaceGroupSets => GetViewList<PlaceGroupSetView, PlaceGroupSet>(ViewObject.PlaceGroupSets);
+
         #endregion Foreign Properties
 
         #region Other Properties
@@ -45,7 +47,7 @@ namespace MvcPlaces.ViewModels.Models.Main
 
         public double LatitudeValue => Latitude.HasValue ? Latitude.Value : 0;
         public string LatitudeDegrees => Latitude.HasValue ? GeoAngle.FromDouble(Latitude.Value).ToString("NS") : "--";
-        
+
         public double LongitudeValue => Longitude.HasValue ? Longitude.Value : 0;
         public string LongitudeDegrees => Longitude.HasValue ? GeoAngle.FromDouble(Longitude.Value).ToString("WE") : "--";
 
@@ -53,6 +55,24 @@ namespace MvcPlaces.ViewModels.Models.Main
         public string ZoomString => Zoom.HasValue ? Zoom.Value.ToString() : "--";
 
         public ICollection<TerritoryView> Territories => TerritoryPlaces.Select(x => x.Territory).Distinct(x => x.Id).ToList();
+
+        public ICollection<PlaceGroupView> Groups => PlaceGroupSets.Select(x => x.Group).Distinct(x => x.Id).ToList();
+
+        //public string FlagImage
+        //{
+        //    get
+        //    {
+        //        if(Territories.Count > 0)
+        //        {
+        //            return Territories.FirstOrDefault().FlagImage;
+        //        }
+        //        else
+        //        {
+        //            return "/images/flags/BLANK.png";
+        //        }
+        //    }
+        //}
+
 
         #endregion Other Properties
     }

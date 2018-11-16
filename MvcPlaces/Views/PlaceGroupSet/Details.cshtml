@@ -1,0 +1,59 @@
+﻿@model MvcPlaces.ViewModels.Models.Main.PlaceGroupSetView
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<br />
+<partial name="DetailsMenu" />
+<br />
+<partial name="DetailsHeader" />
+
+<div class="card-deck">
+    <div class="card border-0">
+        <div class="card-header bg-dark text-white">Place</div>
+        <div class="card-body bg-light rounded-bottom" style="height:250px;max-height:250px;overflow-y:auto;">
+            <div class="d-flex">
+                <div class="w-25 p-1 pl-3 mb-1 bg-secondary text-white rounded-left"><label asp-for="PlaceId"></label></div>
+                <div class="w-75 p-1 pl-4 mb-1 bg-white rounded-right">@Model.PlaceId</div>
+            </div>
+            <div class="d-flex">
+                <div class="w-25 p-1 pl-3 mb-1 bg-secondary text-white rounded-left"><label asp-for="Place.Name"></label></div>
+                <div class="w-75 p-1 pl-4 mb-1 bg-white"><a asp-controller="Place" asp-action="Details" asp-route-id="@Model.PlaceId">@Model.Place.Name</a></div>
+            </div>
+            <div class="d-flex">
+                <div class="w-25 p-1 pr-4 mb-1 bg-secondary text-white text-right"><label asp-for="Place.LocalName"></label></div>
+                <div class="w-75 p-1 pl-4 mb-1 bg-white"><small>@Model.Place.LocalName</small></div>
+            </div>
+            <div class="d-flex">
+                <div class="w-25 p-1 pr-4 mb-1 bg-secondary text-white text-right"><label asp-for="Place.Latitude"></label></div>
+                <div class="w-75 p-1 pl-4 mb-1 bg-white">@Model.Place.LatitudeDegrees</div>
+            </div>
+            <div class="d-flex">
+                <div class="w-25 p-1 pr-4 mb-1 bg-secondary text-white text-right"><label asp-for="Place.Longitude"></label></div>
+                <div class="w-75 p-1 pl-4 mb-1 bg-white">@Model.Place.LongitudeDegrees</div>
+            </div>
+        </div>
+    </div>
+    <div class="card border-0">
+        <div class="card-header bg-dark text-white">Group</div>
+        <div class="card-body bg-light rounded-bottom" style="height:250px;max-height:250px;overflow-y:auto;">
+            <div class="d-flex">
+                <div class="w-25 p-1 pr-4 mb-1 bg-secondary text-white text-right"><label asp-for="GroupId"></label></div>
+                <div class="w-75 p-1 pl-4 mb-1 bg-white">@Model.GroupId</div>
+            </div>
+            <div class="d-flex">
+                <div class="w-25 p-1 pr-4 mb-1 bg-secondary text-white text-right"><label asp-for="Group.Name"></label></div>
+                <div class="w-75 p-1 pl-4 mb-1 bg-white"><a asp-controller="PlaceGroup" asp-action="Details" asp-route-id="@Model.GroupId">@Model.Group.Name</a></div>
+            </div>
+            <div class="d-flex">
+                <div class="w-25 p-1 pr-4 mb-1 bg-secondary text-white text-right"><label asp-for="Group.Description"></label></div>
+                <div class="w-75 p-1 pl-4 mb-1 bg-white">@Model.Group.Description</div>
+            </div>
+            <div class="d-flex">
+                <div class="w-25 p-1 pr-4 mb-1 bg-secondary text-white text-right"><label asp-for="Group.Icon"></label></div>
+                <div class="w-75 p-1 pl-4 mb-1 bg-white">@Model.Group.Icon</div>
+            </div>
+        </div>
+    </div>
+</div>

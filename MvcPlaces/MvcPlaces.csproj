@@ -14,13 +14,14 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Data\Scripts\" />
+    <Folder Include="Content\images\flags\" />
     <Folder Include="Views\Shared\Partial\Components\" />
   </ItemGroup>
 
   <ItemGroup>
     <None Include="wwwroot\css\MvcGrid\Fonts\GridGlyphs.woff" />
     <None Include="wwwroot\css\MvcGrid\mvc-grid_OLD.css" />
+    <None Include="wwwroot\images\flags\MV.png" />
     <None Include="wwwroot\js\mvc-grid.js" />
   </ItemGroup>
 

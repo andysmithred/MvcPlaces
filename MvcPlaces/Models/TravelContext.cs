@@ -6,20 +6,19 @@ namespace MvcPlaces.Models
 {
     public partial class TravelContext : DbContext
     {
-        public TravelContext()
-        {
-        }
+        public TravelContext() { }
 
         public TravelContext(DbContextOptions<TravelContext> options)
-            : base(options)
-        {
-        }
+            : base(options) { }
 
         public virtual DbSet<Continent> Continent { get; set; }
         public virtual DbSet<Territory> Territory { get; set; }
         public virtual DbSet<TerritoryType> TerritoryType { get; set; }
         public virtual DbSet<Place> Place { get; set; }
         public virtual DbSet<TerritoryPlace> TerritoryPlace { get; set; }
+        public virtual DbSet<Flag> Flag { get; set; }
+        public virtual DbSet<PlaceGroup> PlaceGroup { get; set; }
+        public virtual DbSet<PlaceGroupSet> PlaceGroupSet { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -96,6 +95,43 @@ namespace MvcPlaces.Models
                     .WithMany(p => p.TerritoryPlaces)
                     .HasForeignKey(d => d.PlaceId)
                     .HasConstraintName("FK_TerritoryPlace_Place");
+            });
+
+            modelBuilder.Entity<Flag>(entity =>
+            {
+                entity.Property(e => e.Name)
+                    .IsRequired()
+                    .HasMaxLength(100);
+
+                entity.Property(e => e.Code)
+                    .IsRequired()
+                    .HasMaxLength(6)
+                    .HasDefaultValueSql("((0))");
+
+                entity.Property(e => e.Active)
+                    .IsRequired();
+            });
+
+            modelBuilder.Entity<PlaceGroup>(entity =>
+            {
+                entity.Property(e => e.Name)
+                    .IsRequired();
+
+                entity.Property(e => e.Icon)
+                    .HasMaxLength(50);
+            });
+
+            modelBuilder.Entity<PlaceGroupSet>(entity =>
+            {
+                entity.HasOne(d => d.Place)
+                    .WithMany(p => p.PlaceGroupSets)
+                    .HasForeignKey(d => d.PlaceId)
+                    .HasConstraintName("FK_PlaceGroupSet_To_Place");
+
+                entity.HasOne(d => d.Group)
+                    .WithMany(p => p.PlaceGroupSets)
+                    .HasForeignKey(d => d.GroupId)
+                    .HasConstraintName("FK_PlaceGroupSet_To_PlaceGroup");
             });
         }
     }
