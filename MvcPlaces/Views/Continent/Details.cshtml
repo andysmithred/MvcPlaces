@@ -9,118 +9,127 @@
 <br />
 <partial name="DetailsHeader" />
 
-<div class="card-deck">
-    @if (Model.Children.Count > 0)
-    {
-        <div class="card border-0" style="height:70px">
-            <div class="card-body bg-danger text-black-50 rounded">
-                <div class="d-flex">
-                    <div><i class="fas fa-globe-asia" style="font-size:30px"></i></div>
-                    <div class="pl-3"><b>Subcontinents</b></div>
-                    <div class="ml-auto">
-                        <b>@Model.Children.Count</b>
-                        <a asp-action="SubcontinentsList" asp-route-id="@Model.Id"><i class='fas fa-angle-right text-black-50'></i></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    }
-
+<div class="d-flex bg-dark">
     @if (Model.Territories.Count > 0)
     {
-        <div class="card border-0" style="height:70px">
-            <div class="card-body bg-warning text-black-50 rounded">
-                <div class="d-flex">
-                    <div><i class="fas fa-map-marked" style="font-size:30px"></i></div>
-                    <div class="pl-3"><b>Subdivisions</b></div>
-                    <div class="ml-auto">
-                        <b>@Model.Territories.Count</b>
-                        <a asp-action="TerritoriesList" asp-route-id="@Model.Id"><i class='fas fa-angle-right text-black-50'></i></a>
+        <div class="mr-3">
+            <a asp-action="TerritoriesList" asp-route-id="@Model.Id" class="text-dark">
+                <div class="d-flex alert alert-warning">
+                    <div><i class="fas fa-atlas" style="font-size:26px"></i></div>
+                    <div class="pl-3"><h5>Subdivisions</h5></div>
+                    <div class="pl-3"><h5>@Model.Territories.Count</h5></div>
+                    <div class="ml-auto pl-3">
+                        <h5><i class='fas fa-angle-right'></i></h5>
                     </div>
                 </div>
-            </div>
+            </a>
+        </div>
+    }
+    @if (Model.ParentId.HasValue)
+    {
+        <div class="mr-3">
+            <a asp-controller="Continent" asp-action="Details" asp-route-id="@Model.ParentId" class="text-dark">
+                <div class="d-flex alert alert-danger">
+                    <div><i class="fas fas fa-globe-africa" style="font-size:26px"></i></div>
+                    <div class="pl-3"><h5>@Model.Parent.Name</h5></div>
+                    <div class="ml-auto pl-3">
+                        <h5><i class='fas fa-angle-right'></i></h5>
+                    </div>
+                </div>
+            </a>
+        </div>
+    }
+    @if (Model.Children.Count > 0)
+    {
+        <div class="mr-3">
+            <a asp-action="SubcontinentsList" asp-route-id="@Model.Id" class="text-dark">
+                <div class="d-flex alert alert-light">
+                    <div><i class="fas fa-globe-asia" style="font-size:24px"></i></div>
+                    <div class="pl-3"><h5>Subcontinents</h5></div>
+                    <div class="pl-3"><h5>@Model.Children.Count</h5></div>
+                    <div class="ml-auto pl-3">
+                        <h5><i class='fas fa-angle-right'></i></h5>
+                    </div>
+                </div>
+            </a>
         </div>
     }
 </div>
-<br />
+    
 <div class="card-deck">
-    <div class="card rounded-0">
-        <div class="card-header bg-dark text-white rounded-0">Details</div>
-        <div class="card-body bg-light" style="height:250px;max-height:250px;overflow-y:auto;">
+    <div class="card border-0">
+        <div class="card-header bg-secondary text-white">
             <div class="d-flex">
-                <div class="w-25 p-1 pr-4 mb-1 bg-secondary text-white text-right"><label asp-for="Id"></label></div>
-                <div class="w-75 p-1 pl-4 mb-1 bg-white"><span asp-for="Id">@Model.Id</span></div>
-            </div>
-            <div class="d-flex">
-                <div class="w-25 p-1 pr-4 mb-1 bg-secondary text-white text-right"><label asp-for="Name"></label></div>
-                <div class="w-75 p-1 pl-4 mb-1 bg-white"><span asp-for="Name">@Model.Name</span></div>
-            </div>
-            <div class="d-flex">
-                <div class="w-25 p-1 pr-4 mb-1 bg-secondary text-white text-right"><label asp-for="Code"></label></div>
-                <div class="w-75 p-1 pl-4 mb-1 bg-white"><span asp-for="Code">@Model.Code</span></div>
-            </div>
-            <div class="d-flex">
-                <div class="w-25 p-1 pr-4 mb-1 bg-secondary text-white text-right"><label asp-for="ParentId"></label></div>
-                <div class="w-75 p-1 pl-4 mb-1 bg-white">
-                    @if (Model.ParentId.HasValue)
-                    {
-                        <a asp-action="Details" asp-route-id="@Model.ParentId">@Model.Parent.Name</a>
-                    }
-                    else
-                    {
-                        <span>--</span>
-                    }
-                </div>
+                <div><h5>Map</h5></div>
+                <div class="ml-auto"><h5><i class='fas fa-map'></i></h5></div>
             </div>
         </div>
-    </div>
-    <div class="card rounded-0">
-        <div class="card-header bg-dark text-white rounded-0">Sub-Continents</div>
-        <div class="card-body bg-light" style="height:250px;max-height:250px;overflow-y:auto;">
-
-            @if (Model.Children.Count > 0)
-            {
-                foreach (var item in Model.Children)
-                {
-                    <div class="d-flex">
-                        <div class="w-100 p-1 pl-4 mb-1 bg-white text-dark">
-                            <a asp-action="Details" asp-route-id="@item.Id">@item.Name</a>
-                        </div>
-                    </div>
-                }
-            }
-            else
-            {
-                <div class="d-flex">
-                    <div class="w-100 p-1 pl-4 mb-1 bg-white">
-                        <span>--</span>
-                    </div>
-                </div>
-            }
+        <div class="card-body p-0 bg-secondary rounded-bottom">
+            <partial name='PartialMapContinent' model="@Model" />
         </div>
     </div>
-    <div class="card rounded-0">
-        <div class="card-header bg-dark text-white rounded-0">Territories</div>
-        <div class="card-body bg-light" style="height:250px;max-height:250px;overflow-y:auto;">
+    <div class="card border-0">
+        <div class="card-header bg-secondary text-white">
+            <div class="d-flex">
+                <div><h5>Subdivisions</h5></div>
+                <div class="ml-auto"><h5><i class='fas fa-atlas'></i></h5></div>
+            </div>
+        </div>
+        <div class="card-body bg-transparent" style="height:335px;max-height:335px;overflow-y:auto;">
             @if (Model.Territories.Count > 0)
             {
                 foreach (var item in Model.Territories.OrderBy(x => x.Name))
                 {
-                    <div class="d-flex">
-                        <div class="w-100 p-1 pl-4 mb-1 bg-white text-dark">
-                            <a asp-controller="Territory" asp-action="Details" asp-route-id="@item.Id">@item.Name</a>
-                        </div>
-                    </div>
+                    <partial name="ActionListFlag" model='new { Controller = "Territory", Action = "Details", Value = item.Name, RouteId = item.Id, Image = item.FlagImage }' />
                 }
             }
             else
             {
-                <div class="d-flex">
-                    <div class="w-100 p-1 pl-4 mb-1 bg-white">
-                        <span>--</span>
-                    </div>
-                </div>
+                <partial name="BasicListLabel" model='new { Value = "--", Icon = string.Empty }' />
             }
         </div>
+    </div>
+    <div class="card border-0">
+        <div class="card-header bg-secondary text-white">
+            <div class="d-flex">
+                <div><h5>Subcontinents</h5></div>
+                <div class="ml-auto"><h5><i class='fas fa-globe-americas'></i></h5></div>
+            </div>
+        </div>
+        <div class="card-body bg-transparent" style="height:335px;max-height:335px;overflow-y:auto;">
+            @if (Model.Children.Count > 0)
+            {
+                @foreach (var item in Model.Children)
+                {
+                    <partial name="ActionListLabel" model='new { Controller = "Continent", Action = "Details", Value = item.Name, RouteId = item.Id, Icon = "fas fa-globe-asia" }' />
+                }
+            }
+            else
+            {
+                <partial name="BasicListLabel" model='new { Value = "--", Icon = string.Empty }' />
+            }
+        </div>
+    </div>
+</div>
+<br />
+<div class="card border-0 w-25">
+    <div class="card-header bg-secondary text-white">
+        <div class="d-flex">
+            <div><h5>Details</h5></div>
+            <div class="ml-auto"><h5><i class="fas fa-info-circle"></i></h5></div>
+        </div>
+    </div>
+    <div class="card-body bg-light rounded-bottom">
+        <partial name="BasicLabel" model='new { Label = Html.LabelFor(x => x.Id), Value = Model.Id }' />
+        <partial name="BasicLabel" model='new { Label = Html.LabelFor(x => x.Name), Value = Model.Name }' />
+        <partial name="BasicLabel" model='new { Label = Html.LabelFor(x => x.Code), Value = Model.Code }' />
+        @if (Model.ParentId.HasValue)
+        {
+            <partial name="ActionLabel" model='new { Label = Html.LabelFor(x => x.Parent), Value = Model.Parent.Name, RouteId = Model.ParentId }' />
+        }
+        else
+        {
+            <partial name="BasicLabel" model='new { Label = Html.LabelFor(x => x.ParentId), Value = "--" }' />
+        }
     </div>
 </div>

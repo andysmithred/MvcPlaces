@@ -5,34 +5,27 @@
 }
 
 <br />
-<partial name="DeleteMenu" />
+<partial name="DeleteMenu" model='new { RouteId = Model.Id, Icon = "fas fa-trash-alt" }' />
 <br />
 
-<div class="card rounded-0">
-    <div class="card-header bg-dark text-white rounded-0">Continent</div>
-    <div class="card-body bg-light text-dark">
+<div class="card border-0 w-75">
+    <div class="card-header bg-secondary text-white">
+        <div class="d-flex">
+            <div><h5>Flag</h5></div>
+            <div class="ml-auto"><h5><i class='far fa-flag'></i></h5></div>
+        </div>
+    </div>
+    <div class="card-body bg-light text-dark rounded-bottom">
         <h3>Are you sure you want to delete this?</h3>
         <hr />
-        <div class="d-flex">
-            <div class="w-25 p-1 pr-4 mb-1 bg-secondary text-white text-right"><label asp-for="Id"></label></div>
-            <div class="w-75 p-1 pl-4 mb-1 bg-white"><span asp-for="Id">@Model.Id</span></div>
-        </div>
-        <div class="d-flex">
-            <div class="w-25 p-1 pr-4 mb-1 bg-secondary text-white text-right"><label asp-for="Name"></label></div>
-            <div class="w-75 p-1 pl-4 mb-1 bg-white"><span asp-for="Name">@Model.Name</span></div>
-        </div>
-        <div class="d-flex">
-            <div class="w-25 p-1 pr-4 mb-1 bg-secondary text-white text-right"><label asp-for="Code"></label></div>
-            <div class="w-75 p-1 pl-4 mb-1 bg-white"><span asp-for="Code">@Model.Code</span></div>
-        </div>
-        <div class="d-flex">
-            <div class="w-25 p-1 pr-4 mb-1 bg-secondary text-white text-right"><label asp-for="Description"></label></div>
-            <div class="w-75 p-1 pl-4 mb-1 bg-white"><span asp-for="Code">@Model.Description</span></div>
-        </div>
+        <partial name="BasicLabel" model='new { Label = Html.LabelFor(x => x.Id), Value = Model.Id }' />
+        <partial name="BasicLabel" model='new { Label = Html.LabelFor(x => x.Name), Value = Model.Name }' />
+        <partial name="BasicLabel" model='new { Label = Html.LabelFor(x => x.Code), Value = Model.Code }' />
+        <partial name="BasicLabel" model='new { Label = Html.LabelFor(x => x.Description), Value = Model.Description }' />
         <hr />
         <form asp-action="Delete">
             <input type="hidden" asp-for="Id" />
-            <input type="submit" value="Delete" class="btn btn-dark rounded-0" />
+            <input type="submit" value="Delete" class="btn btn-dark" />
         </form>
     </div>
 </div>

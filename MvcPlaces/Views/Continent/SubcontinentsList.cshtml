@@ -9,9 +9,14 @@
 <br />
 <partial name="DetailsHeader" />
 
-<div class="card rounded-0">
-    <div class="card-header bg-dark text-white rounded-0">Subcontinents</div>
-    <div class="card-body bg-light">
+<div class="card border-0">
+    <div class="card-header bg-secondary text-white">
+        <div class="d-flex">
+            <div><h5>Subcontinents</h5></div>
+            <div class="ml-auto"><h5><i class='fas fa-globe-americas'></i></h5></div>
+        </div>
+    </div>
+    <div class="card-body bg-dark p-0">
         <partial name="PartialListDetailsContinents" model="@Model.Children" />
     </div>
 </div>

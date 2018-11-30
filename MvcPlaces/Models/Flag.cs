@@ -11,7 +11,8 @@ namespace MvcPlaces.Models
         public Flag()
         {
             //Children = new HashSet<Territory>();
-            //TerritoryPlaces = new HashSet<TerritoryPlace>();
+
+            Territories = new HashSet<Territory>();
         }
 
         [Key]
@@ -38,11 +39,14 @@ namespace MvcPlaces.Models
         [Required]
         public bool Active { get; set; }
 
+        public ICollection<Territory> Territories { get; set; }
+
+
 
         //public Continent Continent { get; set; }
         //public Territory Parent { get; set; }
         //public TerritoryType TerritoryType { get; set; }
-        //public ICollection<Territory> Children { get; set; }
+
 
         //public ICollection<TerritoryPlace> TerritoryPlaces { get; set; }
     }

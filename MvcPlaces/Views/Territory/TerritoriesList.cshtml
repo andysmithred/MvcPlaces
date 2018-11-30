@@ -10,8 +10,8 @@
 <partial name="DetailsHeader" />
 
 <div class="card border-0">
-    <div class="card-header bg-dark text-white">Subdivisions</div>
-    <div class="card-body bg-light">
+    <div class="card-header bg-secondary text-white">Subdivisions</div>
+    <div class="card-body bg-dark p-0">
         <partial name="PartialListDetailsTerritories" model="@Model.Children.OrderBy(x => x.ListName)" />
     </div>
 </div>

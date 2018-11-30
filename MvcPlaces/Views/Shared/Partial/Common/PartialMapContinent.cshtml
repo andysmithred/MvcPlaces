@@ -1,0 +1,33 @@
+﻿@model MvcPlaces.ViewModels.Models.Main.ContinentView
+
+@{
+    var countries = Model.CountryIsoCodesForGeochart;
+}
+
+<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+<script type="text/javascript">
+    google.load("visualization", "1", {packages:["geochart"]});
+    google.setOnLoadCallback(drawRegionsMap);
+
+    function drawRegionsMap() {
+        var data = google.visualization.arrayToDataTable([@Html.Raw(countries)]);
+
+        var options = {
+            region: '@Model.Code',
+            resolution: 'countries',
+            keepAspectRatio: false,
+            backgroundColor: { stroke: 'white', fill: 'gainsboro' },
+            datalessRegionColor: 'darkgray',
+            defaultColor: 'darkslategray'
+        };
+
+        var chart = new google.visualization.GeoChart(document.getElementById('@Model.Code'));
+
+        chart.draw(data, options);
+    }
+
+</script>
+
+@*<div id="@Model.Code"  style="width:100%;height:250px;object-fit:cover;overflow:hidden;"></div>*@
+@*<div id="@Model.Code" style="width:100%;height:100%" class="rounded-bottom"></div>*@
+<div id="@Model.Code" class="rounded-bottom"></div>

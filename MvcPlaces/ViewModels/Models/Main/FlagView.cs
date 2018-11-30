@@ -42,7 +42,8 @@ namespace MvcPlaces.ViewModels.Models.Main
 
         //public ContinentView Parent => GetView<ContinentView, Continent>(ViewObject.Parent);
         //public ICollection<ContinentView> Children => GetViewList<ContinentView, Continent>(ViewObject.Children);
-        //public ICollection<TerritoryView> Territories => GetViewList<TerritoryView, Territory>(ViewObject.Territories);
+
+        public ICollection<TerritoryView> Territories => GetViewList<TerritoryView, Territory>(ViewObject.Territories);
 
         #endregion Foreign Properties
 
@@ -54,8 +55,35 @@ namespace MvcPlaces.ViewModels.Models.Main
 
         public string ImageSource => FLAG_PATH + Image; 
 
-        //public int TerritoryCount => Territories.Count;
+        public int TerritoryCount => Territories.Count;
+
+        public string StartDateLabel => GetDateLabel(StartDate);
+
+        public string EndDateLabel => GetDateLabel(EndDate);
+
+
+
+
 
         #endregion Other Properties
+
+        #region Methods
+
+        private string GetDateLabel(DateTime? date)
+        {
+            if(date.HasValue)
+            {
+                return date.Value.ToString("dd MMMM yyyy");
+            }
+            else
+            {
+                return "--";
+            }
+        }
+
+
+        #endregion Methods
+
+
     }
 }

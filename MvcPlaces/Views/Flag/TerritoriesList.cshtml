@@ -1,0 +1,22 @@
+﻿@model MvcPlaces.ViewModels.Models.Main.FlagView
+
+@{
+    ViewData["Title"] = "Territories";
+}
+
+<br />
+<partial name="DetailsMenu" />
+<br />
+<partial name="DetailsHeader" />
+
+<div class="card border-0">
+    <div class="card-header bg-secondary text-white">
+        <div class="d-flex">
+            <div><h5>Territories</h5></div>
+            <div class="ml-auto"><h5><i class='fas fa-atlas'></i></h5></div>
+        </div>
+    </div>
+    <div class="card-body bg-dark p-0">
+        <partial name="PartialListDetailsTerritories" model="@Model.Territories.OrderBy(x => x.ListName)" />
+    </div>
+</div>

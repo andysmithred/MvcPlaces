@@ -1,6 +1,8 @@
 ﻿using MvcPlaces.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.Linq;
 
 namespace MvcPlaces.ViewModels.Models.Main
 {
@@ -21,7 +23,19 @@ namespace MvcPlaces.ViewModels.Models.Main
 
         public ContinentView Parent => GetView<ContinentView, Continent>(ViewObject.Parent);
         public ICollection<ContinentView> Children => GetViewList<ContinentView, Continent>(ViewObject.Children);
-        public ICollection<TerritoryView> Territories => GetViewList<TerritoryView, Territory>(ViewObject.Territories);
+        public ICollection<TerritoryView> Territories => GetTerritories();
+
+        private ICollection<TerritoryView> GetTerritories()
+        {
+            ICollection<TerritoryView> result = GetViewList<TerritoryView, Territory>(ViewObject.Territories);
+
+            if(result == null || result.Count == 0)
+            {
+                result = result.Concat(Children.SelectMany(x => x.Territories)).ToList();
+            }
+
+            return result.OrderBy(x => x.Name).ToList();
+        }
 
         #endregion Foreign Properties
 
@@ -32,5 +46,29 @@ namespace MvcPlaces.ViewModels.Models.Main
         public int TerritoryCount => Territories.Count;
 
         #endregion Other Properties
+
+        public string CountryIsoCodesForGeochart => GetCountryIsoCodes();
+        
+
+        private string GetCountryIsoCodes()
+        {
+            string countries = "['Country', 'Name'],";
+            bool first = true;
+
+            foreach (var item in Territories)
+            {
+                string name = item.Name.Replace("'", "\\'");
+
+                if (!first)
+                {
+                    countries += ",";
+                }
+
+                countries += "['" + item.Isocode + "', '" + name + "']";
+                first = false;
+            }
+
+            return countries;
+        }
     }
 }

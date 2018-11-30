@@ -10,7 +10,7 @@
         columns.Add(model => model.Territories.Count).Titled("Territories");
         columns.Add().Encoded(false).RenderedAs(model =>
             "<div class='btn-group float-right'>" +
-                $"<a class='btn btn-dark btn-sm rounded-0' href='/Continent/Details/{model.Id}'>Details</a>" +
+                $"<a class='btn btn-secondary btn-sm' href='/Continent/Details/{model.Id}'>Details</a>" +
             "</div>"
         );
     })
@@ -18,5 +18,5 @@
     .Filterable()
     .Sortable()
     .Pageable()
-    .AppendCss("table-light table-striped table-hover small")
+    .AppendCss("table-dark table-striped table-hover rounded-bottom")
 )

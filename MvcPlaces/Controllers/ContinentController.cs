@@ -45,6 +45,11 @@ namespace MvcPlaces.Controllers
             return await base.Details(id);
         }
 
+        public async Task<IActionResult> Test(int? id)
+        {
+            return await base.Details(id);
+        }
+
         #endregion Details
 
         #region Create
@@ -116,11 +121,23 @@ namespace MvcPlaces.Controllers
         protected override Func<int, Continent> GetItemFunction()
         {
             return i => Context.Continent
-                        .Include(x => x.Territories).ThenInclude(t => t.TerritoryType)
-                        .Include(x => x.Territories).ThenInclude(t => t.Parent)
-                        .Include(x => x.Territories).ThenInclude(t => t.Children)
+                        .Include(x => x.Territories)
+                            .ThenInclude(t => t.TerritoryType)
+                        .Include(x => x.Territories)
+                            .ThenInclude(t => t.Parent)
+                                .ThenInclude(p => p.Flag)
+                        .Include(x => x.Territories)
+                            .ThenInclude(t => t.Children)
+                        .Include(x => x.Territories)
+                            .ThenInclude(t => t.Flag)
                         .Include(x => x.Parent)
-                        .Include(x => x.Children).ThenInclude(c => c.Territories)
+                        .Include(x => x.Children)
+                            .ThenInclude(c => c.Territories)
+                                .ThenInclude<Continent, Territory, Flag>(t => t.Flag)
+                        .Include(x => x.Children)
+                            .ThenInclude(c => c.Territories)
+                                .ThenInclude<Continent, Territory, Territory>(t => t.Parent)
+                                    .ThenInclude(p => p.Flag)
                         .FirstOrDefault(x => x.Id == i);
         }
 

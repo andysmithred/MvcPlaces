@@ -182,3 +182,13 @@ C:\Users\asmith\source\repos\MvcPlaces\MvcPlaces\obj\Debug\netcoreapp2.1\Razor\V
 C:\Users\asmith\source\repos\MvcPlaces\MvcPlaces\obj\Debug\netcoreapp2.1\Razor\Views\Shared\Partial\Lists\PartialListMainImportPlaceGroupSets.g.cshtml.cs
 C:\Users\asmith\source\repos\MvcPlaces\MvcPlaces\obj\Debug\netcoreapp2.1\Razor\Views\Shared\Partial\Lists\PartialListMainImportedPlaceGroupSets.g.cshtml.cs
 C:\Users\asmith\source\repos\MvcPlaces\MvcPlaces\obj\Debug\netcoreapp2.1\Razor\Views\Shared\Partial\Lists\PartialListMainNotImportedPlaceGroupSets.g.cshtml.cs
+C:\Users\asmith\source\repos\MvcPlaces\MvcPlaces\obj\Debug\netcoreapp2.1\Razor\Views\Shared\Partial\Common\BasicLabel.g.cshtml.cs
+C:\Users\asmith\source\repos\MvcPlaces\MvcPlaces\obj\Debug\netcoreapp2.1\Razor\Views\Shared\Partial\Common\ActionLabel.g.cshtml.cs
+C:\Users\asmith\source\repos\MvcPlaces\MvcPlaces\obj\Debug\netcoreapp2.1\Razor\Views\Shared\Partial\Common\ActionListLabel.g.cshtml.cs
+C:\Users\asmith\source\repos\MvcPlaces\MvcPlaces\obj\Debug\netcoreapp2.1\Razor\Views\Shared\Partial\Common\BasicListLabel.g.cshtml.cs
+C:\Users\asmith\source\repos\MvcPlaces\MvcPlaces\obj\Debug\netcoreapp2.1\Razor\Views\Shared\Partial\Common\PartialMapContinent.g.cshtml.cs
+C:\Users\asmith\source\repos\MvcPlaces\MvcPlaces\obj\Debug\netcoreapp2.1\Razor\Views\Continent\Test.g.cshtml.cs
+C:\Users\asmith\source\repos\MvcPlaces\MvcPlaces\obj\Debug\netcoreapp2.1\Razor\Views\Shared\_Layout_OLD.g.cshtml.cs
+C:\Users\asmith\source\repos\MvcPlaces\MvcPlaces\obj\Debug\netcoreapp2.1\Razor\Views\Shared\Partial\Common\ActionListFlag.g.cshtml.cs
+C:\Users\asmith\source\repos\MvcPlaces\MvcPlaces\obj\Debug\netcoreapp2.1\Razor\Views\Flag\TerritoriesList.g.cshtml.cs
+C:\Users\asmith\source\repos\MvcPlaces\MvcPlaces\obj\Debug\netcoreapp2.1\Razor\Views\PlaceGroup\PlacesList.g.cshtml.cs

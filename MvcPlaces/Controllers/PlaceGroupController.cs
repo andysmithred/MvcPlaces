@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using MvcPlaces.Code.Data;
 using MvcPlaces.Models;
 using MvcPlaces.ViewModels.Models.Main;
@@ -30,6 +31,11 @@ namespace MvcPlaces.Controllers
         #region Details
 
         public override async Task<IActionResult> Details(int? id)
+        {
+            return await base.Details(id);
+        }
+
+        public async Task<IActionResult> PlacesList(int? id)
         {
             return await base.Details(id);
         }
@@ -99,6 +105,7 @@ namespace MvcPlaces.Controllers
         protected override Func<int, PlaceGroup> GetItemFunction()
         {
             return i => Context.PlaceGroup
+                        .Include(x => x.PlaceGroupSets).ThenInclude<PlaceGroup, PlaceGroupSet, Place>(x => x.Place)
                         .FirstOrDefault(x => x.Id == i);
         }
 

@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.EntityFrameworkCore;
 using MvcPlaces.Code.Data;
 using MvcPlaces.Models;
 using MvcPlaces.ViewModels.Models.Main;
@@ -31,6 +32,11 @@ namespace MvcPlaces.Controllers
         #region Details
 
         public override async Task<IActionResult> Details(int? id)
+        {
+            return await base.Details(id);
+        }
+
+        public async Task<IActionResult> TerritoriesList(int? id)
         {
             return await base.Details(id);
         }
@@ -100,6 +106,7 @@ namespace MvcPlaces.Controllers
         protected override Func<int, Flag> GetItemFunction()
         {
             return i => Context.Flag
+                        .Include(x => x.Territories).ThenInclude<Flag, Territory, Flag>(t => t.Flag)
                         .FirstOrDefault(x => x.Id == i);
         }
 

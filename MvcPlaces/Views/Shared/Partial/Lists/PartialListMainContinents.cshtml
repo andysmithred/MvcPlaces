@@ -24,9 +24,9 @@
 
         columns.Add().Encoded(false).RenderedAs(model =>
             "<div class='btn-group float-right'>" +
-                $"<a class='btn btn-dark btn-sm rounded-0' href='/Continent/Edit/{model.Id}'>Edit</a>" +
-                $"<a class='btn btn-dark btn-sm rounded-0' href='/Continent/Details/{model.Id}'>Details</a>" +
-                $"<a class='btn btn-dark btn-sm rounded-0' href='/Continent/Delete/{model.Id}'>Delete</a>" +
+                $"<a class='btn btn-secondary btn-sm rounded-left' href='/Continent/Edit/{model.Id}'>Edit</a>" +
+                $"<a class='btn btn-secondary btn-sm rounded-0' href='/Continent/Details/{model.Id}'>Details</a>" +
+                $"<a class='btn btn-secondary btn-sm rounded-right' href='/Continent/Delete/{model.Id}'>Delete</a>" +
             "</div>"
         );
     })
@@ -34,5 +34,5 @@
     .Filterable()
     .Sortable()
     .Pageable()
-    .AppendCss("table-light table-striped table-hover small")
+    .AppendCss("table-dark table-striped table-hover rounded")
 )

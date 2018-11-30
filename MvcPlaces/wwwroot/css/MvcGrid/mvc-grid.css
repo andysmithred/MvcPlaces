@@ -27,15 +27,20 @@
 
     .mvc-grid th {
         background-clip: padding-box;
-        background-color: #343a40;
+        /*background-color: #343a40;*/
+        /*background-color: white;*/
         color: white;
         position: relative;
     }
 
-    .mvc-grid th,
+    .mvc-grid th {
+        /*border: 1px solid #DEE2E6;*/
+        padding: 10px;
+    }
+
     .mvc-grid td {
         /*border: 1px solid #DEE2E6;*/
-        padding: 8px;
+        padding: 6px;
     }
 
     .mvc-grid .filterable {

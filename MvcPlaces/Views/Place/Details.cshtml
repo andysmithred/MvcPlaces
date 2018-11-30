@@ -9,87 +9,87 @@
 <br />
 <partial name="DetailsHeader" />
 
-<div class="card-deck">
+<div class="d-flex bg-dark">
     @if (Model.Territories.Count > 0)
     {
-        <div class="card border-0" style="height:70px">
-            <div class="card-body bg-warning text-black-50 rounded">
-                <div class="d-flex">
-                    <div><i class="fas fa-map-marked" style="font-size:25px;object-fit:cover;overflow:hidden"></i></div>
-                    <div class="pl-3"><b>Regions</b></div>
-                    <div class="ml-auto">
-                        <b>@Model.Territories.Count</b>
-                        <a asp-action="TerritoriesList" asp-route-id="@Model.Id"><i class='fas fa-angle-right text-black-50'></i></a>
+        <div class="mr-3">
+            <a asp-action="TerritoriesList" asp-route-id="@Model.Id" class="text-dark">
+                <div class="d-flex alert bg-success">
+                    <div><i class="fas fa-atlas" style="font-size:26px"></i></div>
+                    <div class="pl-3"><h5>Territories</h5></div>
+                    <div class="pl-3"><h5>@Model.Territories.Count</h5></div>
+                    <div class="ml-auto pl-3">
+                        <h5><i class='fas fa-angle-right'></i></h5>
                     </div>
                 </div>
-            </div>
+            </a>
         </div>
     }
 
     @foreach (var item in Model.Territories.OrderBy(x => x.Name))
     {
-        <div class="card border-0" style="height:70px">
-            <div class="card-body bg-success text-black-50 rounded">
-                <div class="d-flex">
-                    <div>
-                        <img class="rounded" src="@item.FlagImage" alt="Card image" style="height:25px;object-fit: cover;overflow: hidden;opacity:0.3">
-                    </div>
-                    @if (item.Name.Length > 20)
-                    {
-                        <div class="pl-3"><small><b>@item.Name</b></small></div>
-                    }
-                    else
-                    {
-                        <div class="pl-3"><b>@item.Name</b></div>
-                    }
-                    <div class="ml-auto">
-                        <a asp-controller="Territory" asp-action="Details" asp-route-id="@item.Id"><i class='fas fa-angle-right text-black-50'></i></a>
+        <div class="mr-3">
+            <a asp-controller="Territory" asp-action="Details" asp-route-id="@item.Id" class="text-dark">
+                <div class="d-flex alert bg-warning">
+                    <div><img class="rounded" src="@item.FlagImage" alt="Card image" style="height:25px;width:25px;object-fit: cover;overflow: hidden;opacity:0.3"></div>
+                    <div class="pl-3"><h5>@item.Name</h5></div>
+                    <div class="ml-auto pl-3">
+                        <h5><i class='fas fa-angle-right'></i></h5>
                     </div>
                 </div>
-            </div>
+            </a>
+        </div>
+    }
+
+    @foreach (var item in Model.Groups.OrderBy(x => x.Name))
+    {
+        <div class="mr-3">
+            <a asp-controller="PlaceGroup" asp-action="Details" asp-route-id="@item.Id" class="text-dark">
+                <div class="d-flex alert bg-white">
+                    <div><i class="@item.Icon" style="font-size:26px"></i></div>
+                    <div class="pl-3"><h5>@item.Name</h5></div>
+                    <div class="ml-auto pl-3">
+                        <h5><i class='fas fa-angle-right'></i></h5>
+                    </div>
+                </div>
+            </a>
         </div>
     }
 </div>
-<br />
+
 <div class="card-deck">
     <div class="card border-0">
-        <div class="card-header bg-dark text-white shadow">Main</div>
-        <div class="card-body bg-light" style="height:300px;max-height:300px;overflow-y:auto;">
+        <div class="card-header bg-secondary text-white">
             <div class="d-flex">
-                <div class="w-25 p-1 pl-3 mb-1 bg-secondary text-white"><label asp-for="Id"></label></div>
-                <div class="w-75 p-1 pl-3 mb-1 bg-white">@Model.Id</div>
-            </div>
-            <div class="d-flex">
-                <div class="w-25 p-1 pl-3 mb-1 bg-secondary text-white"><label asp-for="LocalName"></label></div>
-                <div class="w-75 p-1 pl-3 mb-1 bg-white">
-                    @if (String.IsNullOrEmpty(Model.LocalName))
-                    {
-                        <span>--</span>
-                    }
-                    else
-                    {
-                        <small>@Model.LocalName</small>
-                    }
-                </div>
-            </div>
-            <div class="d-flex">
-                <div class="w-25 p-1 pl-3 mb-1 bg-secondary text-white"><label asp-for="Latitude"></label></div>
-                <div class="w-75 p-1 pl-3 mb-1 bg-white">@Model.LatitudeDegrees</div>
-            </div>
-            <div class="d-flex">
-                <div class="w-25 p-1 pl-3 mb-1 bg-secondary text-white"><label asp-for="Longitude"></label></div>
-                <div class="w-75 p-1 pl-3 mb-1 bg-white">@Model.LongitudeDegrees</div>
-            </div>
-            <div class="d-flex">
-                <div class="w-25 p-1 pl-3 mb-1 bg-secondary text-white"><label asp-for="Zoom"></label></div>
-                <div class="w-75 p-1 pl-3 mb-1 bg-white">@Model.ZoomString</div>
+                <div><h5>Map</h5></div>
+                <div class="ml-auto"><h5><i class='fas fa-map'></i></h5></div>
             </div>
         </div>
-    </div>
-    <div class="card border-0">
-        <div class="card-header bg-dark text-white">Map</div>
-        <div class="card-body bg-light p-0" style="height:300px;max-height:300px;overflow-y:auto;">
+        <div class="card-body bg-light p-0 rounded-bottom" style="height:500px;max-height:500px;overflow-y:auto;">
             <partial name='PartialMap' model='new { Name = Model.Name, Latitude = Model.LatitudeValue, Longitude = Model.LongitudeValue, Zoom = Model.ZoomValue }' />
+        </div>
+    </div>
+    <div class="card border-0 w-50">
+        <div class="card-header bg-secondary text-white">
+            <div class="d-flex">
+                <div><h5>Details</h5></div>
+                <div class="ml-auto"><h5><i class="fas fa-info-circle"></i></h5></div>
+            </div>
+        </div>
+        <div class="card-body bg-light rounded-bottom">
+            <partial name="BasicLabel" model='new { Label = Html.LabelFor(x => x.Id), Value = Model.Id }' />
+            <partial name="BasicLabel" model='new { Label = Html.LabelFor(x => x.Name), Value = Model.Name }' />
+            @if (!String.IsNullOrEmpty(Model.LocalName))
+            {
+                <partial name="BasicLabel" model='new { Label = Html.LabelFor(x => x.LocalName), Value = Model.LocalName }' />
+            }
+            else
+            {
+                <partial name="BasicLabel" model='new { Label = Html.LabelFor(x => x.LocalName), Value = "--" }' />
+            }
+            <partial name="BasicLabel" model='new { Label = Html.LabelFor(x => x.Latitude), Value = Model.LatitudeDegrees }' />
+            <partial name="BasicLabel" model='new { Label = Html.LabelFor(x => x.Longitude), Value = Model.LongitudeDegrees }' />
+            <partial name="BasicLabel" model='new { Label = Html.LabelFor(x => x.Zoom), Value = Model.ZoomString }' />
         </div>
     </div>
 </div>

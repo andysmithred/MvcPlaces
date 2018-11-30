@@ -9,9 +9,9 @@
 <br />
 <partial name="DetailsHeader" />
 
-<div class="card rounded-0">
-    <div class="card-header bg-dark text-white rounded-0">Territories</div>
-    <div class="card-body bg-light">
+<div class="card border-0">
+    <div class="card-header bg-secondary text-white">Territories</div>
+    <div class="card-body bg-dark p-0">
         <partial name="PartialListDetailsTerritories" model="@Model.Territories.OrderBy(x => x.ListName)" />
     </div>
 </div>

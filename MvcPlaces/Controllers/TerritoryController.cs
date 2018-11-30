@@ -193,6 +193,7 @@ namespace MvcPlaces.Controllers
                         .Include(x => x.Parent).ThenInclude(x => x.Flag)
                         .Include(x => x.Parent).ThenInclude(x => x.Parent).ThenInclude(x => x.Flag)
                         .Include(x => x.Children).ThenInclude(c => c.TerritoryType)
+                        .Include(x => x.Children).ThenInclude(c => c.Flag)
                         .Include(x => x.Children).ThenInclude(c => c.Children)
                         .Include(x => x.Continent)
                         .Include(x => x.TerritoryType)

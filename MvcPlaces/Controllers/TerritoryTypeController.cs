@@ -106,7 +106,9 @@ namespace MvcPlaces.Controllers
         {
             return i => Context.TerritoryType
                         .Include(x => x.Territories).ThenInclude(t => t.Children)
-                        .Include(x => x.Territories).ThenInclude(t => t.Parent)
+                        .Include(x => x.Territories).ThenInclude(t => t.Flag)
+                        .Include(x => x.Territories).ThenInclude(t => t.Parent).ThenInclude(parent => parent.Flag)
+                        .Include(x => x.Territories).ThenInclude(t => t.Parent).ThenInclude(parent => parent.Parent).ThenInclude(parent => parent.Flag)
                         .FirstOrDefault(x => x.Id == i);
         }
 

@@ -11,9 +11,9 @@
         columns.Add(model => model.ZoomString).Titled("Zoom");
         columns.Add().Encoded(false).RenderedAs(model =>
                 "<div class='btn-group float-right'>" +
-                    $"<a class='btn btn-dark btn-sm rounded-0' href='/Place/Edit/{model.Id}'>Edit</a>" +
-                    $"<a class='btn btn-dark btn-sm rounded-0' href='/Place/Details/{model.Id}'>Details</a>" +
-                    $"<a class='btn btn-dark btn-sm rounded-0' href='/Place/Delete/{model.Id}'>Delete</a>" +
+                    $"<a class='btn btn-secondary btn-sm rounded-left' href='/Place/Edit/{model.Id}'>Edit</a>" +
+                    $"<a class='btn btn-secondary btn-sm rounded-0' href='/Place/Details/{model.Id}'>Details</a>" +
+                    $"<a class='btn btn-secondary btn-sm rounded-right' href='/Place/Delete/{model.Id}'>Delete</a>" +
                 "</div>"
             );
         })
@@ -21,5 +21,5 @@
         .Filterable()
         .Sortable()
         .Pageable()
-        .AppendCss("table-light table-striped table-hover")
+        .AppendCss("table-dark table-striped table-hover rounded")
 )
