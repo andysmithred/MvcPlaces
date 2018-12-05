@@ -4,13 +4,14 @@
     .Grid(Model)
     .Build(columns =>
     {
-        columns.Add(model => model.Place.Name).Titled("Place");
+        columns.Add().Encoded(false).RenderedAs(model => $"<i class='{model.Group.Icon}'></i>");
         columns.Add(model => model.Group.Name).Titled("Group");
+        columns.Add(model => model.Place.Name).Titled("Place");
         columns.Add().Encoded(false).RenderedAs(model =>
             "<div class='btn-group float-right'>" +
-                $"<a class='btn btn-dark btn-sm rounded-0' href='/PlaceGroupSet/Edit/{model.Id}'>Edit</a>" +
-                $"<a class='btn btn-dark btn-sm rounded-0' href='/PlaceGroupSet/Details/{model.Id}'>Details</a>" +
-                $"<a class='btn btn-dark btn-sm rounded-0' href='/PlaceGroupSet/Delete/{model.Id}'>Delete</a>" +
+                $"<a class='btn btn-secondary btn-sm rounded-left' href='/PlaceGroupSet/Edit/{model.Id}'>Edit</a>" +
+                $"<a class='btn btn-secondary btn-sm rounded-0' href='/PlaceGroupSet/Details/{model.Id}'>Details</a>" +
+                $"<a class='btn btn-secondary btn-sm rounded-right' href='/PlaceGroupSet/Delete/{model.Id}'>Delete</a>" +
             "</div>"
         );
     })
@@ -18,5 +19,5 @@
     .Filterable()
     .Sortable()
     .Pageable()
-    .AppendCss("table-light table-striped table-hover small")
+    .AppendCss("table-dark table-striped table-hover rounded")
 )

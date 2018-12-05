@@ -86,7 +86,7 @@ namespace MvcPlaces.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,GroupId,PlaceId")] PlaceGroupSet item)
+        public async Task<IActionResult> Create([Bind("GroupId,PlaceId")] PlaceGroupSet item)
         {
             if (ModelState.IsValid)
             {
@@ -108,12 +108,12 @@ namespace MvcPlaces.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> CreateByPlace([Bind("Id,GroupId,PlaceId")] PlaceGroupSet item)
+        public async Task<IActionResult> CreateByPlace([Bind("GroupId,PlaceId")] PlaceGroupSet item)
         {
             if (ModelState.IsValid)
             {
                 await AddAsync(item);
-                return RedirectToAction("Details", new { id = item.Id });
+                return RedirectToAction("Details", "Place", new { id = item.PlaceId });
             }
             ViewBag.Places = GetSelectList<PlaceView>(PlacesList, item.PlaceId);
             ViewBag.PlaceGroups = GetSelectList<PlaceGroupView>(PlaceGroupsList, item.GroupId);
@@ -131,12 +131,12 @@ namespace MvcPlaces.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> CreateByPlaceGroup([Bind("Id,GroupId,PlaceId")] PlaceGroupSet item)
+        public async Task<IActionResult> CreateByPlaceGroup([Bind("GroupId,PlaceId")] PlaceGroupSet item)
         {
             if (ModelState.IsValid)
             {
                 await AddAsync(item);
-                return RedirectToAction("Details", new { id = item.Id });
+                return RedirectToAction("Detailsyyy", new { id = item.Id });
             }
             ViewBag.Places = GetSelectList<PlaceView>(PlacesList, item.PlaceId);
             ViewBag.PlaceGroups = GetSelectList<PlaceGroupView>(PlaceGroupsList, item.GroupId);

@@ -8,9 +8,11 @@ namespace MvcPlaces.Models
         public int Id { get; set; }
 
         [Required]
+        [Display(Name = "Place")]
         public int PlaceId { get; set; }
 
         [Required]
+        [Display(Name = "Group")]
         public int GroupId { get; set; }
 
         public Place Place { get; set; }

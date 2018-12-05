@@ -9,51 +9,66 @@
 <br />
 <partial name="DetailsHeader" />
 
+<div class="d-flex bg-dark mt-3">
+    @if (Model.Place != null)
+    {
+        <div class="mr-3">
+            <a asp-controller="Place" asp-action="Details" asp-route-id="@Model.PlaceId" class="text-dark">
+                <div class="d-flex alert bg-primary">
+                    <div><i class="fas fa-map-marker-alt" style="font-size:26px"></i></div>
+                    <div class="pl-3"><h5>@Model.Place.Name</h5></div>
+                    <div class="ml-auto pl-3">
+                        <h5><i class='fas fa-angle-right'></i></h5>
+                    </div>
+                </div>
+            </a>
+        </div>
+    }
+
+    @if (Model.Group != null)
+    {
+        <div class="mr-3">
+            <a asp-controller="PlaceGroup" asp-action="Details" asp-route-id="@Model.GroupId" class="text-dark">
+                <div class="d-flex alert bg-white">
+                    <div><i class="@Model.Group.Icon" style="font-size:26px"></i></div>
+                    <div class="pl-3"><h5>@Model.Group.Name</h5></div>
+                    <div class="ml-auto pl-3">
+                        <h5><i class='fas fa-angle-right'></i></h5>
+                    </div>
+                </div>
+            </a>
+        </div>
+    }
+</div>
+
 <div class="card-deck">
     <div class="card border-0">
-        <div class="card-header bg-dark text-white">Place</div>
-        <div class="card-body bg-light rounded-bottom" style="height:250px;max-height:250px;overflow-y:auto;">
+        <div class="card-header bg-secondary text-white">
             <div class="d-flex">
-                <div class="w-25 p-1 pl-3 mb-1 bg-secondary text-white rounded-left"><label asp-for="PlaceId"></label></div>
-                <div class="w-75 p-1 pl-4 mb-1 bg-white rounded-right">@Model.PlaceId</div>
+                <div><h5>Place</h5></div>
+                <div class="ml-auto"><h5><i class="fas fa-map-marker-alt"></i></h5></div>
             </div>
-            <div class="d-flex">
-                <div class="w-25 p-1 pl-3 mb-1 bg-secondary text-white rounded-left"><label asp-for="Place.Name"></label></div>
-                <div class="w-75 p-1 pl-4 mb-1 bg-white"><a asp-controller="Place" asp-action="Details" asp-route-id="@Model.PlaceId">@Model.Place.Name</a></div>
-            </div>
-            <div class="d-flex">
-                <div class="w-25 p-1 pr-4 mb-1 bg-secondary text-white text-right"><label asp-for="Place.LocalName"></label></div>
-                <div class="w-75 p-1 pl-4 mb-1 bg-white"><small>@Model.Place.LocalName</small></div>
-            </div>
-            <div class="d-flex">
-                <div class="w-25 p-1 pr-4 mb-1 bg-secondary text-white text-right"><label asp-for="Place.Latitude"></label></div>
-                <div class="w-75 p-1 pl-4 mb-1 bg-white">@Model.Place.LatitudeDegrees</div>
-            </div>
-            <div class="d-flex">
-                <div class="w-25 p-1 pr-4 mb-1 bg-secondary text-white text-right"><label asp-for="Place.Longitude"></label></div>
-                <div class="w-75 p-1 pl-4 mb-1 bg-white">@Model.Place.LongitudeDegrees</div>
-            </div>
+        </div>
+        <div class="card-body bg-light rounded-bottom">
+            <partial name="BasicLabel" model='new { Label = Html.LabelFor(x => x.Id), Value = Model.PlaceId }' />
+            <partial name="BasicLabel" model='new { Label = Html.LabelFor(x => x.Place.Name), Value = Model.Place.Name }' />
+            <partial name="BasicLabel" model='new { Label = Html.LabelFor(x => x.Place.LocalName), Value = Model.Place.LocalName }' />
+            <partial name="BasicLabel" model='new { Label = Html.LabelFor(x => x.Place.Latitude), Value = Model.Place.LatitudeDegrees }' />
+            <partial name="BasicLabel" model='new { Label = Html.LabelFor(x => x.Place.Longitude), Value = Model.Place.LongitudeDegrees }' />
         </div>
     </div>
     <div class="card border-0">
-        <div class="card-header bg-dark text-white">Group</div>
-        <div class="card-body bg-light rounded-bottom" style="height:250px;max-height:250px;overflow-y:auto;">
+        <div class="card-header bg-secondary text-white">
             <div class="d-flex">
-                <div class="w-25 p-1 pr-4 mb-1 bg-secondary text-white text-right"><label asp-for="GroupId"></label></div>
-                <div class="w-75 p-1 pl-4 mb-1 bg-white">@Model.GroupId</div>
+                <div><h5>Group</h5></div>
+                <div class="ml-auto"><h5><i class="@Model.Group.Icon"></i></h5></div>
             </div>
-            <div class="d-flex">
-                <div class="w-25 p-1 pr-4 mb-1 bg-secondary text-white text-right"><label asp-for="Group.Name"></label></div>
-                <div class="w-75 p-1 pl-4 mb-1 bg-white"><a asp-controller="PlaceGroup" asp-action="Details" asp-route-id="@Model.GroupId">@Model.Group.Name</a></div>
-            </div>
-            <div class="d-flex">
-                <div class="w-25 p-1 pr-4 mb-1 bg-secondary text-white text-right"><label asp-for="Group.Description"></label></div>
-                <div class="w-75 p-1 pl-4 mb-1 bg-white">@Model.Group.Description</div>
-            </div>
-            <div class="d-flex">
-                <div class="w-25 p-1 pr-4 mb-1 bg-secondary text-white text-right"><label asp-for="Group.Icon"></label></div>
-                <div class="w-75 p-1 pl-4 mb-1 bg-white">@Model.Group.Icon</div>
-            </div>
+        </div>
+        <div class="card-body bg-light rounded-bottom">
+            <partial name="BasicLabel" model='new { Label = Html.LabelFor(x => x.Id), Value = Model.GroupId }' />
+            <partial name="BasicLabel" model='new { Label = Html.LabelFor(x => x.Group.Name), Value = Model.Group.Name }' />
+            <partial name="BasicLabel" model='new { Label = Html.LabelFor(x => x.Group.Description), Value = Model.Group.Description }' />
+            <partial name="BasicLabel" model='new { Label = Html.LabelFor(x => x.Group.Icon), Value = Model.Group.Icon }' />
         </div>
     </div>
 </div>

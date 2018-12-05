@@ -1,12 +1,19 @@
 ﻿@model MvcPlaces.ViewModels.Models.Main.PlaceGroupSetView
 
-<div class="alert alert-dark rounded p-2">
+
+<div class="card alert alert-dark rounded p-2 w-100">
     <div class="d-flex">
         <div>
-            <i class='fas fa-map-marker p-2' style='font-size:40px'></i>
+            <i class='fas fa-map-marker-alt p-2' style='font-size:40px'></i>
         </div>
         <div class="p-2 pl-3">
-            <h3>@Model.ListName</h3>
+            <h3>@Model.Place.Name</h3>
+        </div>
+        <div class="p-2 pl-3 ml-auto">
+            <h3>@Model.Group.Name</h3>
+        </div>
+        <div>
+            <i class='@Model.Group.Icon p-2' style='font-size:40px'></i>
         </div>
     </div>
 </div>

@@ -9,7 +9,7 @@
 <br />
 <partial name="DetailsHeader" />
 
-<div class="d-flex bg-dark">
+<div class="d-flex flex-wrap bg-dark">
     @if (Model.Territories.Count > 0)
     {
         <div class="mr-3">
@@ -57,39 +57,64 @@
     }
 </div>
 
-<div class="card-deck">
-    <div class="card border-0">
+<div class="d-flex">
+    <div class="card border-0 w-50 mr-2">
         <div class="card-header bg-secondary text-white">
             <div class="d-flex">
                 <div><h5>Map</h5></div>
                 <div class="ml-auto"><h5><i class='fas fa-map'></i></h5></div>
             </div>
         </div>
-        <div class="card-body bg-light p-0 rounded-bottom" style="height:500px;max-height:500px;overflow-y:auto;">
+        <div class="card-body bg-light p-0 rounded-bottom" style="height:100%">
             <partial name='PartialMap' model='new { Name = Model.Name, Latitude = Model.LatitudeValue, Longitude = Model.LongitudeValue, Zoom = Model.ZoomValue }' />
         </div>
     </div>
-    <div class="card border-0 w-50">
-        <div class="card-header bg-secondary text-white">
-            <div class="d-flex">
-                <div><h5>Details</h5></div>
-                <div class="ml-auto"><h5><i class="fas fa-info-circle"></i></h5></div>
+    <div class="w-50 ml-2">
+        <div class="card border-0">
+            <div class="card-header bg-secondary text-white">
+                <div class="d-flex">
+                    <div><h5>Details</h5></div>
+                    <div class="ml-auto"><h5><i class="fas fa-info-circle"></i></h5></div>
+                </div>
+            </div>
+            <div class="card-body bg-light rounded-bottom">
+                <partial name="BasicLabel" model='new { Label = Html.LabelFor(x => x.Id), Value = Model.Id }' />
+                <partial name="BasicLabel" model='new { Label = Html.LabelFor(x => x.Name), Value = Model.Name }' />
+                @if (!String.IsNullOrEmpty(Model.LocalName))
+                {
+                    <partial name="BasicLabel" model='new { Label = Html.LabelFor(x => x.LocalName), Value = Model.LocalName }' />
+                }
+                else
+                {
+                    <partial name="BasicLabel" model='new { Label = Html.LabelFor(x => x.LocalName), Value = "--" }' />
+                }
+                <partial name="BasicLabel" model='new { Label = Html.LabelFor(x => x.Latitude), Value = Model.LatitudeDegrees }' />
+                <partial name="BasicLabel" model='new { Label = Html.LabelFor(x => x.Longitude), Value = Model.LongitudeDegrees }' />
+                <partial name="BasicLabel" model='new { Label = Html.LabelFor(x => x.Zoom), Value = Model.ZoomString }' />
             </div>
         </div>
-        <div class="card-body bg-light rounded-bottom">
-            <partial name="BasicLabel" model='new { Label = Html.LabelFor(x => x.Id), Value = Model.Id }' />
-            <partial name="BasicLabel" model='new { Label = Html.LabelFor(x => x.Name), Value = Model.Name }' />
-            @if (!String.IsNullOrEmpty(Model.LocalName))
-            {
-                <partial name="BasicLabel" model='new { Label = Html.LabelFor(x => x.LocalName), Value = Model.LocalName }' />
-            }
-            else
-            {
-                <partial name="BasicLabel" model='new { Label = Html.LabelFor(x => x.LocalName), Value = "--" }' />
-            }
-            <partial name="BasicLabel" model='new { Label = Html.LabelFor(x => x.Latitude), Value = Model.LatitudeDegrees }' />
-            <partial name="BasicLabel" model='new { Label = Html.LabelFor(x => x.Longitude), Value = Model.LongitudeDegrees }' />
-            <partial name="BasicLabel" model='new { Label = Html.LabelFor(x => x.Zoom), Value = Model.ZoomString }' />
+        <div class="card border-0 mt-3">
+            <div class="card-header bg-secondary text-white">
+                <div class="d-flex">
+                    <div><h5>Groups</h5></div>
+                    <div class="ml-auto">
+                        <h5><a asp-controller="PlaceGroupSet" asp-action="CreateByPlace" asp-route-id="@Model.Id" style="color:white" title="Add Group"><i class="fas fa-plus"></i></a></h5>
+                    </div>
+                </div>
+            </div>
+            <div class="card-body bg-transparent">
+                @if (Model.Groups.Count > 0)
+                {
+                    foreach (var item in Model.Groups.OrderBy(x => x.Name))
+                    {
+                        <partial name="ActionListLabel" model='new { Controller = "PlaceGroup", Action = "Details", Value = item.Name, RouteId = item.Id, Icon = item.Icon }' />
+                    }
+                }
+                else
+                {
+                    <partial name="BasicListLabel" model='new { Value = "--", Icon = string.Empty }' />
+                }
+            </div>
         </div>
     </div>
 </div>

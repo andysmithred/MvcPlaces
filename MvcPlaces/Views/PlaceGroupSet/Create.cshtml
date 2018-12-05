@@ -5,35 +5,35 @@
 }
 
 <br />
-<partial name="CreateMenu" />
+<partial name="CreateMenu" model='new { Icon = "fas fa-plus-square" }' />
 <br />
 
-<div class="card border-0">
-    <div class="card-header bg-dark text-white rounded-top">
+<div class="card border-0 w-75">
+    <div class="card-header bg-secondary text-white">
         <div class="d-flex">
-            <div><b>Place Group Set</b></div>
-            <div class="ml-auto"><i class='fas fa-map-marker'></i></div>
+            <div><h5>Group Set</h5></div>
+            <div class="ml-auto"><h5><i class='far fa-object-ungroup'></i></h5></div>
         </div>
     </div>
-    <div class="card-body bg-light text-dark rounded-bottom">
+    <div class="card-body bg-transparent text-dark">
         <form asp-action="Create">
             <div class="input-group mb-3 input-group">
                 <div class="input-group-prepend w-25">
                     <label asp-for="PlaceId" class="input-group-text w-100"></label>
                 </div>
-                <select asp-for="PlaceId" asp-items="ViewBag.Places" class="form-control"></select>
+                <select asp-for="PlaceId" asp-items="ViewBag.Places" class="form-control rounded-right"></select>
                 <span asp-validation-for="PlaceId" class="text-danger"></span>
             </div>
             <div class="input-group mb-3 input-group">
                 <div class="input-group-prepend w-25">
                     <label asp-for="GroupId" class="input-group-text w-100"></label>
                 </div>
-                <select asp-for="GroupId" asp-items="ViewBag.PlaceGroups" class="form-control"></select>
+                <select asp-for="GroupId" asp-items="ViewBag.PlaceGroups" class="form-control rounded-right"></select>
                 <span asp-validation-for="GroupId" class="text-danger"></span>
             </div>
             <hr />
             <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-dark rounded" />
+                <input type="submit" value="Create" class="btn btn-dark" />
             </div>
         </form>
     </div>
