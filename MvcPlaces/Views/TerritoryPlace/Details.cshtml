@@ -9,55 +9,67 @@
 <br />
 <partial name="DetailsHeader" />
 
+<div class="d-flex bg-dark mt-3">
+    @if (Model.Place != null)
+    {
+        <div class="mr-3">
+            <a asp-controller="Place" asp-action="Details" asp-route-id="@Model.PlaceId" class="text-dark">
+                <div class="d-flex alert bg-primary">
+                    <div><i class="fas fa-map-marker-alt" style="font-size:26px"></i></div>
+                    <div class="pl-3"><h5>@Model.Place.Name</h5></div>
+                    <div class="ml-auto pl-3">
+                        <h5><i class='fas fa-angle-right'></i></h5>
+                    </div>
+                </div>
+            </a>
+        </div>
+    }
+
+    @if (Model.Territory != null)
+    {
+        <div class="mr-3">
+            <a asp-controller="Territory" asp-action="Details" asp-route-id="@Model.TerritoryId" class="text-dark">
+                <div class="d-flex alert bg-warning">
+                    <div><img class="rounded" src="@Model.Territory.FlagImage" alt="Card image" style="height:25px;width:25px;object-fit: cover;overflow: hidden;opacity:0.3"></div>
+                    <div class="pl-3"><h5>@Model.Territory.Name</h5></div>
+                    <div class="ml-auto pl-3">
+                        <h5><i class='fas fa-angle-right'></i></h5>
+                    </div>
+                </div>
+            </a>
+        </div>
+    }
+</div>
+
 <div class="card-deck">
-    <div class="card rounded-0">
-        <div class="card-header bg-dark text-white rounded-0">Place</div>
-        <div class="card-body bg-light" style="height:250px;max-height:250px;overflow-y:auto;">
+    <div class="card border-0">
+        <div class="card-header bg-secondary text-white">
             <div class="d-flex">
-                <div class="w-25 p-1 pr-4 mb-1 bg-secondary text-white text-right"><label asp-for="PlaceId"></label></div>
-                <div class="w-75 p-1 pl-4 mb-1 bg-white">@Model.PlaceId</div>
-            </div>
-            <div class="d-flex">
-                <div class="w-25 p-1 pr-4 mb-1 bg-secondary text-white text-right"><label asp-for="Place.Name"></label></div>
-                <div class="w-75 p-1 pl-4 mb-1 bg-white"><a asp-controller="Place" asp-action="Details" asp-route-id="@Model.PlaceId">@Model.Place.Name</a></div>
-            </div>
-            <div class="d-flex">
-                <div class="w-25 p-1 pr-4 mb-1 bg-secondary text-white text-right"><label asp-for="Place.LocalName"></label></div>
-                <div class="w-75 p-1 pl-4 mb-1 bg-white"><small>@Model.Place.LocalName</small></div>
-            </div>
-            <div class="d-flex">
-                <div class="w-25 p-1 pr-4 mb-1 bg-secondary text-white text-right"><label asp-for="Place.Latitude"></label></div>
-                <div class="w-75 p-1 pl-4 mb-1 bg-white">@Model.Place.LatitudeDegrees</div>
-            </div>
-            <div class="d-flex">
-                <div class="w-25 p-1 pr-4 mb-1 bg-secondary text-white text-right"><label asp-for="Place.Longitude"></label></div>
-                <div class="w-75 p-1 pl-4 mb-1 bg-white">@Model.Place.LongitudeDegrees</div>
+                <div><h5>Place</h5></div>
+                <div class="ml-auto"><h5><i class="fas fa-map-marker-alt"></i></h5></div>
             </div>
         </div>
+        <div class="card-body bg-light rounded-bottom">
+            <partial name="BasicLabel" model='new { Label = Html.LabelFor(x => x.Id), Value = Model.PlaceId }' />
+            <partial name="BasicLabel" model='new { Label = Html.LabelFor(x => x.Place.Name), Value = Model.Place.Name }' />
+            <partial name="BasicLabel" model='new { Label = Html.LabelFor(x => x.Place.LocalName), Value = Model.Place.LocalName }' />
+            <partial name="BasicLabel" model='new { Label = Html.LabelFor(x => x.Place.Latitude), Value = Model.Place.LatitudeDegrees }' />
+            <partial name="BasicLabel" model='new { Label = Html.LabelFor(x => x.Place.Longitude), Value = Model.Place.LongitudeDegrees }' />
+        </div>
     </div>
-    <div class="card rounded-0">
-        <div class="card-header bg-dark text-white rounded-0">Territory</div>
-        <div class="card-body bg-light" style="height:250px;max-height:250px;overflow-y:auto;">
+    <div class="card border-0">
+        <div class="card-header bg-secondary text-white">
             <div class="d-flex">
-                <div class="w-25 p-1 pr-4 mb-1 bg-secondary text-white text-right"><label asp-for="TerritoryId"></label></div>
-                <div class="w-75 p-1 pl-4 mb-1 bg-white">@Model.TerritoryId</div>
+                <div><h5>Group</h5></div>
+                <div class="ml-auto"><h5><i class="fas fa-atlas"></i></h5></div>
             </div>
-            <div class="d-flex">
-                <div class="w-25 p-1 pr-4 mb-1 bg-secondary text-white text-right"><label asp-for="Territory.Name"></label></div>
-                <div class="w-75 p-1 pl-4 mb-1 bg-white"><a asp-controller="Territory" asp-action="Details" asp-route-id="@Model.TerritoryId">@Model.Territory.Name</a></div>
-            </div>
-            <div class="d-flex">
-                <div class="w-25 p-1 pr-4 mb-1 bg-secondary text-white text-right"><label asp-for="Territory.NativeName"></label></div>
-                <div class="w-75 p-1 pl-4 mb-1 bg-white">@Model.Territory.NativeName</div>
-            </div>
-            <div class="d-flex">
-                <div class="w-25 p-1 pr-4 mb-1 bg-secondary text-white text-right"><label asp-for="Territory.Population"></label></div>
-                <div class="w-75 p-1 pl-4 mb-1 bg-white">@String.Format("{0:N0}", Model.Territory.Population)</div>
-            </div>
-            <div class="d-flex">
-                <div class="w-25 p-1 pr-4 mb-1 bg-secondary text-white text-right"><label asp-for="Territory.Area"></label></div>
-                <div class="w-75 p-1 pl-4 mb-1 bg-white">@String.Format(Model.Territory.Area % 1 == 0 ? "{0:N0}" : "{0:N2}", Model.Territory.Area) km<sup>2</sup></div>
-            </div>
+        </div>
+        <div class="card-body bg-light rounded-bottom">
+            <partial name="BasicLabel" model='new { Label = Html.LabelFor(x => x.Id), Value = Model.TerritoryId }' />
+            <partial name="BasicLabel" model='new { Label = Html.LabelFor(x => x.Territory.Name), Value = Model.Territory.Name }' />
+            <partial name="BasicLabel" model='new { Label = Html.LabelFor(x => x.Territory.NativeName), Value = Model.Territory.NativeName }' />
+            <partial name="BasicLabel" model='new { Label = Html.LabelFor(x => x.Territory.FullName), Value = Model.Territory.FullName }' />
+            <partial name="BasicLabel" model='new { Label = Html.LabelFor(x => x.Territory.Isocode), Value = Model.Territory.Isocode }' />
         </div>
     </div>
 </div>

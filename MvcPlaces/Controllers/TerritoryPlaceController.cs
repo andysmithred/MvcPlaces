@@ -195,7 +195,7 @@ namespace MvcPlaces.Controllers
         protected override Func<int, TerritoryPlace> GetItemFunction()
         {
             return i => Context.TerritoryPlace
-                        .Include(x => x.Territory)
+                        .Include(x => x.Territory).ThenInclude(x => x.Flag)
                         .Include(x => x.Place)
                         .FirstOrDefault(x => x.Id == i);
         }

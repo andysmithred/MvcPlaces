@@ -5,6 +5,7 @@
 }
 
 <br />
-<partial name='IndexMenu' model='new { Title = "Territory Places" }' />
+<partial name='IndexMenu' model='new { Title = "Territory Places", Icon = "fas fa-map-marked-alt" }' />
 <br />
-<partial name="PartialListMainTerritoryPlaces" model="@Model" />
+
+<partial name="PartialListMainTerritoryPlaces" model="@Model.OrderBy(x => x.Place.Name).ToList()" />

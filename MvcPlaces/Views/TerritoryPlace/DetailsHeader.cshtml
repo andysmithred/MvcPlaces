@@ -1,5 +1,18 @@
 ﻿@model MvcPlaces.ViewModels.Models.Main.TerritoryPlaceView
 
-<div class="alert alert-dark rounded-0">
-    <h3>@Model.ListName</h3>
+<div class="card alert alert-dark rounded p-2 w-100">
+    <div class="d-flex">
+        <div>
+            <i class='fas fa-map-marker-alt p-2' style='font-size:40px'></i>
+        </div>
+        <div class="p-2 pl-3">
+            <h3>@Model.Place.Name</h3>
+        </div>
+        <div class="p-2 pr-3 ml-auto">
+            <h3>@Model.Territory.Name</h3>
+        </div>
+        <div>
+            <img class="card-img-top-50 rounded" src="@Model.Territory.FlagImage" alt="Card image" style="height:50px;object-fit: cover;overflow: hidden;opacity:0.3">
+        </div>
+    </div>
 </div>
