@@ -136,7 +136,7 @@ namespace MvcPlaces.Controllers
             if (ModelState.IsValid)
             {
                 await AddAsync(item);
-                return RedirectToAction("Detailsyyy", new { id = item.Id });
+                return RedirectToAction("Details", "PlaceGroup", new { id = item.GroupId });
             }
             ViewBag.Places = GetSelectList<PlaceView>(PlacesList, item.PlaceId);
             ViewBag.PlaceGroups = GetSelectList<PlaceGroupView>(PlaceGroupsList, item.GroupId);

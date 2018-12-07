@@ -282,7 +282,7 @@ WriteAttributeValue(" ", 225, Model.CssClasses, 226, 17, false);
             WriteLiteral("                                ");
             EndContext();
             BeginContext(2101, 55, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "69ec862050294c9aab9dea4180fefefc", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "35d688bff83d460f914f65dca95e034f", async() => {
                 BeginContext(2137, 10, false);
 #line 56 "C:\Users\asmith\source\repos\MvcPlaces\MvcPlaces\Views\Shared\MvcGrid\_Pager.cshtml"
                                                               Write(size.Value);
@@ -328,7 +328,7 @@ WriteAttributeValue(" ", 225, Model.CssClasses, 226, 17, false);
             WriteLiteral("                                ");
             EndContext();
             BeginContext(2286, 46, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "c75ea4c618804e1cb82f6c0df7478644", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "fc91409338ec4e84a462c113fe67c530", async() => {
                 BeginContext(2313, 10, false);
 #line 60 "C:\Users\asmith\source\repos\MvcPlaces\MvcPlaces\Views\Shared\MvcGrid\_Pager.cshtml"
                                                      Write(size.Value);

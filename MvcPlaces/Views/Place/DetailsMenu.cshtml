@@ -13,6 +13,7 @@
             </a>
             <div class="dropdown-menu">
                 <a class="dropdown-item" asp-action="TerritoriesList" asp-route-id="@Model.Id">Territories</a>
+                <a class="dropdown-item" asp-controller="TerritoryPlace" asp-action="CreateByPlace" asp-route-id="@Model.Id">Add Territory</a>
             </div>
         </li>
     </ul>

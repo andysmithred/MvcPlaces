@@ -109,12 +109,12 @@ namespace MvcPlaces.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> CreateByPlace([Bind("Id,TerritoryId,PlaceId")] TerritoryPlace item)
+        public async Task<IActionResult> CreateByPlace([Bind("TerritoryId,PlaceId")] TerritoryPlace item)
         {
             if (ModelState.IsValid)
             {
                 await AddAsync(item);
-                return RedirectToAction("Details", new { id = item.Id });
+                return RedirectToAction("Details", "Place", new { id = item.PlaceId });
             }
             ViewBag.Territories = GetTerritoriesSelectList(item.TerritoryId);
             ViewBag.Places = GetPlacesSelectList(item.PlaceId);
@@ -132,12 +132,12 @@ namespace MvcPlaces.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> CreateByTerritory([Bind("Id,TerritoryId,PlaceId")] TerritoryPlace item)
+        public async Task<IActionResult> CreateByTerritory([Bind("TerritoryId,PlaceId")] TerritoryPlace item)
         {
             if (ModelState.IsValid)
             {
                 await AddAsync(item);
-                return RedirectToAction("Details", new { id = item.Id });
+                return RedirectToAction("Details", "Territory", new { id = item.TerritoryId });
             }
             ViewBag.Territories = GetTerritoriesSelectList(item.TerritoryId);
             ViewBag.Places = GetPlacesSelectList(item.PlaceId);
@@ -196,6 +196,7 @@ namespace MvcPlaces.Controllers
         {
             return i => Context.TerritoryPlace
                         .Include(x => x.Territory).ThenInclude(x => x.Flag)
+                        .Include(x => x.Territory).ThenInclude(x => x.Parent).ThenInclude(x => x.Flag)
                         .Include(x => x.Place)
                         .FirstOrDefault(x => x.Id == i);
         }
