@@ -67,7 +67,7 @@ using NonFactors.Mvc.Grid;
         <li class=""nav-item"">");
             EndContext();
             BeginContext(265, 57, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "fbcfeec07c174ba984640bfafdf82842", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "4a0bf3a3da7940d399bd2fd168bb4fcb", async() => {
                 BeginContext(304, 14, true);
                 WriteLiteral("<h4>Index</h4>");
                 EndContext();
@@ -90,7 +90,7 @@ using NonFactors.Mvc.Grid;
             WriteLiteral("</li>\r\n        <li class=\"nav-item\">");
             EndContext();
             BeginContext(358, 80, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "422d84efbbae484b8850a2e78b247de2", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "42b27b6aac9c45cd889c692e2b943ea9", async() => {
                 BeginContext(421, 13, true);
                 WriteLiteral("<h4>Edit</h4>");
                 EndContext();
@@ -126,7 +126,7 @@ using NonFactors.Mvc.Grid;
             WriteLiteral("</li>\r\n        <li class=\"nav-item\">");
             EndContext();
             BeginContext(474, 84, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "3250da0294eb4d06bd92438cc76bf15c", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "41c4a5b1fd96439bb07b4637e9a3b6e8", async() => {
                 BeginContext(539, 15, true);
                 WriteLiteral("<h4>Delete</h4>");
                 EndContext();
@@ -162,7 +162,7 @@ using NonFactors.Mvc.Grid;
             WriteLiteral("</li>\r\n        <li class=\"nav-item\">");
             EndContext();
             BeginContext(594, 86, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "abfb812371314abda04a3b05ef6891c2", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d75e9e22cb244c569bf8c1fe8c01d998", async() => {
                 BeginContext(660, 16, true);
                 WriteLiteral("<h4>Details</h4>");
                 EndContext();

@@ -43,8 +43,9 @@ namespace MvcPlaces
                     o.ViewLocationFormats.Add("/Views/Shared/Partial/Lists/{0}" + RazorViewEngine.ViewExtension);
                     o.ViewLocationFormats.Add("/Views/Shared/Partial/Components/{0}" + RazorViewEngine.ViewExtension);
                 });
-                
-            var connection = @"Server=(localdb)\mssqllocaldb;Database=Travel;Trusted_Connection=True;ConnectRetryCount=0";
+
+            //var connection = @"Server=(localdb)\mssqllocaldb;Database=Travel;Trusted_Connection=True;ConnectRetryCount=0";
+            var connection = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\asmith\source\repos\MvcPlaces\MvcPlaces\Databases\Travel.mdf;Integrated Security=True;Connect Timeout=30";
             services.AddDbContext<TravelContext>(options => options.UseSqlServer(connection));
         }
 

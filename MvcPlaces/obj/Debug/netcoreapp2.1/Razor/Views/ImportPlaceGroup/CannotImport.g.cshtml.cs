@@ -72,7 +72,7 @@ using NonFactors.Mvc.Grid;
             WriteLiteral("\r\n<br />\r\n");
             EndContext();
             BeginContext(96, 80, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("partial", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "5225a3fe1bbe485992fbe937bfbd8e9d", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("partial", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "f0fcdaf9d8444d89ac0145a0ee74ebaf", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_TagHelpers_PartialTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.PartialTagHelper>();
@@ -106,7 +106,7 @@ __Microsoft_AspNetCore_Mvc_TagHelpers_PartialTagHelper.Model = new { Title = "Im
             <div class=""w-25 p-1 pr-4 mb-1 bg-secondary text-white text-right"">");
             EndContext();
             BeginContext(519, 28, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("label", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d478c99895b241a896b6ac29b821d798", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("label", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "28c6d2d5a0d14f40a99c415ed36f2408", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_TagHelpers_LabelTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.LabelTagHelper>();
@@ -139,7 +139,7 @@ __Microsoft_AspNetCore_Mvc_TagHelpers_LabelTagHelper.For = ModelExpressionProvid
             WriteLiteral("</span></div>\r\n        </div>\r\n        <div class=\"d-flex\">\r\n            <div class=\"w-25 p-1 pr-4 mb-1 bg-secondary text-white text-right\">");
             EndContext();
             BeginContext(776, 30, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("label", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "31709fabdc2449be841bfe424abaec5a", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("label", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "7222c2e47e404bce982efebb01536354", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_TagHelpers_LabelTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.LabelTagHelper>();
@@ -172,7 +172,7 @@ __Microsoft_AspNetCore_Mvc_TagHelpers_LabelTagHelper.For = ModelExpressionProvid
             WriteLiteral("</span></div>\r\n        </div>\r\n        <div class=\"d-flex\">\r\n            <div class=\"w-25 p-1 pr-4 mb-1 bg-secondary text-white text-right\">");
             EndContext();
             BeginContext(1039, 37, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("label", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ecd3f350c2434e1db2e021339ae8aaa7", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("label", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "755dac73fc4946459edaf0c28a5cccfa", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_TagHelpers_LabelTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.LabelTagHelper>();
@@ -205,7 +205,7 @@ __Microsoft_AspNetCore_Mvc_TagHelpers_LabelTagHelper.For = ModelExpressionProvid
             WriteLiteral("</span></div>\r\n        </div>\r\n        <hr />\r\n        ");
             EndContext();
             BeginContext(1238, 131, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "b5b2a3fceb8f4fc2b7e298f0734bb4fc", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "a9d09244ba7b4489935feb28d4aff0f9", async() => {
                 BeginContext(1270, 92, true);
                 WriteLiteral("\r\n            <input type=\"submit\" value=\"Confirm\" class=\"btn btn-dark rounded\" />\r\n        ");
                 EndContext();

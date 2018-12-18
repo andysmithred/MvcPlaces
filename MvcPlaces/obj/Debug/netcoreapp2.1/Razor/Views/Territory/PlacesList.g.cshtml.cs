@@ -70,7 +70,7 @@ using NonFactors.Mvc.Grid;
             WriteLiteral("\r\n<br />\r\n");
             EndContext();
             BeginContext(110, 30, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("partial", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "da6c085dbe7a40d5be013a80bd2d16dc", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("partial", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "0ef33ea174584557b1678dee68c65093", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_TagHelpers_PartialTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.PartialTagHelper>();
@@ -89,7 +89,7 @@ using NonFactors.Mvc.Grid;
             WriteLiteral("\r\n<br />\r\n");
             EndContext();
             BeginContext(150, 32, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("partial", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "beec9c882ccd458bb68dbe25ba7bf46c", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("partial", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "f9a2008fa1804c42a9ad6691439a58e0", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_TagHelpers_PartialTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.PartialTagHelper>();
@@ -108,7 +108,7 @@ using NonFactors.Mvc.Grid;
             WriteLiteral("\r\n\r\n<div class=\"card border-0\">\r\n    <div class=\"card-header bg-secondary text-white\">Places</div>\r\n    <div class=\"card-body bg-dark p-0\">\r\n        ");
             EndContext();
             BeginContext(331, 90, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("partial", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "a2ebded644cc438fbb138492bccd9df8", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("partial", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "d5b3db0dd890408e81b2e684036b1628", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_TagHelpers_PartialTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.PartialTagHelper>();

@@ -81,7 +81,7 @@ WriteAttributeValue("", 65, Model.Icon, 65, 11, false);
             WriteLiteral("</h4></a>\r\n    <ul class=\"navbar-nav\">\r\n        <li class=\"nav-item\">\r\n            ");
             EndContext();
             BeginContext(264, 56, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "aba4d4e4761242458b17dafb6ccce3c7", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "780e2c09c81b44f2a6f8a08b00c72414", async() => {
                 BeginContext(304, 12, true);
                 WriteLiteral("<h4>New</h4>");
                 EndContext();

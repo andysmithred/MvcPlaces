@@ -73,7 +73,7 @@ WriteAttributeValue("", 73, Model.Icon, 73, 11, false);
             WriteLiteral(" style=\'font-size:24px\'></i>\r\n    <a class=\"navbar-brand pl-4 pr-4\" href=\"#\"><h4>Delete</h4></a>\r\n    <ul class=\"navbar-nav\">\r\n        <li class=\"nav-item\">");
             EndContext();
             BeginContext(252, 56, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ac2a108039a0443fbfb51eb1167eef3a", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "29ff848ab33a4586ac3c0ec7ecfe22f9", async() => {
                 BeginContext(291, 13, true);
                 WriteLiteral("<h4>Main</h4>");
                 EndContext();
@@ -96,7 +96,7 @@ WriteAttributeValue("", 73, Model.Icon, 73, 11, false);
             WriteLiteral("</li>\r\n        <li class=\"nav-item\">");
             EndContext();
             BeginContext(344, 67, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "b4acb0404c5247ffbc2c177ac2109902", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "10152fd9db1e4cb59986b1895e72168a", async() => {
                 BeginContext(390, 17, true);
                 WriteLiteral("<h4>Imported</h4>");
                 EndContext();
@@ -119,7 +119,7 @@ WriteAttributeValue("", 73, Model.Icon, 73, 11, false);
             WriteLiteral("</li>\r\n        <li class=\"nav-item\">");
             EndContext();
             BeginContext(447, 74, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "bb941beb6a16427b8356a96e6d2c2a83", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "2c8bf3fe219a4d6aa70cf3a9ef0a216b", async() => {
                 BeginContext(496, 21, true);
                 WriteLiteral("<h4>Not Imported</h4>");
                 EndContext();

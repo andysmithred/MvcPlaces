@@ -73,7 +73,7 @@ WriteAttributeValue("", 73, Model.Icon, 73, 11, false);
             WriteLiteral(" style=\'font-size:24px\'></i>\r\n    <a class=\"navbar-brand pl-4 pr-4\" href=\"#\"><h4>Edit</h4></a>\r\n    <ul class=\"navbar-nav\">\r\n        <li class=\"nav-item\">");
             EndContext();
             BeginContext(250, 57, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "949299f36cb245b5b3f9985dd7c59faa", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "88753ea29acb44a598bbb7324518e05f", async() => {
                 BeginContext(289, 14, true);
                 WriteLiteral("<h4>Index</h4>");
                 EndContext();
@@ -96,7 +96,7 @@ WriteAttributeValue("", 73, Model.Icon, 73, 11, false);
             WriteLiteral("</li>\r\n        <li class=\"nav-item\">");
             EndContext();
             BeginContext(343, 91, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "513e2b432bf544929025bcc6973c9d3b", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "f238f727f96440499439012a4c756d90", async() => {
                 BeginContext(414, 16, true);
                 WriteLiteral("<h4>Details</h4>");
                 EndContext();
@@ -132,7 +132,7 @@ WriteAttributeValue("", 73, Model.Icon, 73, 11, false);
             WriteLiteral("</li>\r\n        <li class=\"nav-item\">");
             EndContext();
             BeginContext(470, 89, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "5fe2b73d6c1840fa8058ef3563e653e9", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "722d60fdfb8b40bbac91759f1a8840bd", async() => {
                 BeginContext(540, 15, true);
                 WriteLiteral("<h4>Delete</h4>");
                 EndContext();
