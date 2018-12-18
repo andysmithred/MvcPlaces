@@ -1,0 +1,30 @@
+﻿@model MvcPlaces.Models.Drive
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<br />
+<partial name="DeleteMenu" model='new { RouteId = Model.Id, Icon = "fas fa-trash-alt" }' />
+<br />
+
+<div class="card border-0 w-75">
+    <div class="card-header bg-secondary text-white">
+        <div class="d-flex">
+            <div><h5>Drive</h5></div>
+            <div class="ml-auto"><h5><i class='fas fa-road'></i></h5></div>
+        </div>
+    </div>
+    <div class="card-body bg-light text-dark rounded-bottom">
+        <h3>Are you sure you want to delete this?</h3>
+        <hr />
+        <partial name="BasicLabel" model='new { Label = Html.LabelFor(x => x.Id), Value = Model.Id }' />
+        <partial name="BasicLabel" model='new { Label = Html.LabelFor(x => x.Name), Value = Model.Name }' />
+        <partial name="BasicLabel" model='new { Label = Html.LabelFor(x => x.Description), Value = Model.Description }' />
+        <hr />
+        <form asp-action="Delete">
+            <input type="hidden" asp-for="Id" />
+            <input type="submit" value="Delete" class="btn btn-dark" />
+        </form>
+    </div>
+</div>

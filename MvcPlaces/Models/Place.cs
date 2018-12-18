@@ -9,6 +9,8 @@ namespace MvcPlaces.Models
         {
             TerritoryPlaces = new HashSet<TerritoryPlace>();
             PlaceGroupSets = new HashSet<PlaceGroupSet>();
+            OriginLegs = new HashSet<DriveLeg>();
+            DestinationLegs = new HashSet<DriveLeg>();
         }
 
         [Key]
@@ -29,5 +31,9 @@ namespace MvcPlaces.Models
         public ICollection<TerritoryPlace> TerritoryPlaces { get; set; }
 
         public ICollection<PlaceGroupSet> PlaceGroupSets { get; set; }
+
+        public ICollection<DriveLeg> OriginLegs { get; set; }
+
+        public ICollection<DriveLeg> DestinationLegs { get; set; }
     }
 }

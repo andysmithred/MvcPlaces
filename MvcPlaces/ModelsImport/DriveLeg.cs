@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace MvcPlaces.ModelsImport
+﻿namespace MvcPlaces.ModelsImport
 {
     public partial class DriveLeg
     {
@@ -11,6 +8,7 @@ namespace MvcPlaces.ModelsImport
         public int OriginId { get; set; }
         public int DestinationId { get; set; }
         public string Description { get; set; }
+        public int? ImportId { get; set; }
 
         public Place Destination { get; set; }
         public Drive Drive { get; set; }

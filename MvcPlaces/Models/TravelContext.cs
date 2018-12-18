@@ -19,6 +19,8 @@ namespace MvcPlaces.Models
         public virtual DbSet<Flag> Flag { get; set; }
         public virtual DbSet<PlaceGroup> PlaceGroup { get; set; }
         public virtual DbSet<PlaceGroupSet> PlaceGroupSet { get; set; }
+        public virtual DbSet<Drive> Drive { get; set; }
+        public virtual DbSet<DriveLeg> DriveLeg { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -132,6 +134,41 @@ namespace MvcPlaces.Models
                     .WithMany(p => p.PlaceGroupSets)
                     .HasForeignKey(d => d.GroupId)
                     .HasConstraintName("FK_PlaceGroupSet_To_PlaceGroup");
+            });
+
+            modelBuilder.Entity<Drive>(entity =>
+            {
+                entity.Property(e => e.Name).IsRequired();
+            });
+
+            modelBuilder.Entity<DriveLeg>(entity =>
+            {
+                entity.Property(e => e.Number)
+                    .IsRequired();
+
+                entity.Property(e => e.DriveId)
+                    .IsRequired();
+
+                entity.Property(e => e.OriginId)
+                    .IsRequired();
+
+                entity.Property(e => e.DestinationId)
+                    .IsRequired();
+
+                entity.HasOne(d => d.Drive)
+                    .WithMany(p => p.DriveLegs)
+                    .HasForeignKey(d => d.DriveId)
+                    .HasConstraintName("FK_DriveLeg_To_Drive");
+
+                entity.HasOne(d => d.Origin)
+                    .WithMany(p => p.OriginLegs)
+                    .HasForeignKey(d => d.OriginId)
+                    .HasConstraintName("FK_DriveLeg_To_Place_Origin");
+
+                entity.HasOne(d => d.Destination)
+                    .WithMany(p => p.DestinationLegs)
+                    .HasForeignKey(d => d.DestinationId)
+                    .HasConstraintName("FK_DriveLeg_To_Place_Destination");
             });
         }
     }

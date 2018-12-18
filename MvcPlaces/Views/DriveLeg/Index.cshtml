@@ -1,0 +1,10 @@
+﻿@model IEnumerable<MvcPlaces.ViewModels.Models.Main.DriveLegView>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<br />
+<partial name='IndexMenu' model='new { Title = "Drive Legs", Icon = "fas fa-route" }' />
+<br />
+<partial name="PartialListMainDriveLegs" model="@Model.OrderBy(x => x.Drive.Name).ToList()" />

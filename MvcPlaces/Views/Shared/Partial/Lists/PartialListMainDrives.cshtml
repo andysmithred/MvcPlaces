@@ -1,0 +1,23 @@
+﻿@model IEnumerable<MvcPlaces.ViewModels.Models.Main.DriveView>
+
+@(Html
+    .Grid(Model)
+    .Build(columns =>
+    {
+        columns.Add().Encoded(false).RenderedAs(model => $"<i class='fas fa-road'></i>");
+        columns.Add(model => model.Name).Titled("Name");
+        columns.Add(model => model.Description).Titled("Description");
+        columns.Add().Encoded(false).RenderedAs(model =>
+            "<div class='btn-group float-right'>" +
+                $"<a class='btn btn-secondary btn-sm rounded-left' href='/Drive/Edit/{model.Id}'>Edit</a>" +
+                $"<a class='btn btn-secondary btn-sm rounded-0' href='/Drive/Details/{model.Id}'>Details</a>" +
+                $"<a class='btn btn-secondary btn-sm rounded-right' href='/Drive/Delete/{model.Id}'>Delete</a>" +
+            "</div>"
+        );
+    })
+    .Empty("No data found")
+    .Filterable()
+    .Sortable()
+    .Pageable()
+    .AppendCss("table-dark table-striped table-hover rounded")
+)

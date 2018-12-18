@@ -14,7 +14,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Content\images\flags\" />
     <Folder Include="Databases\" />
     <Folder Include="Views\Shared\Partial\Components\" />
   </ItemGroup>
