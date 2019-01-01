@@ -45,7 +45,8 @@ namespace MvcPlaces
                 });
 
             //var connection = @"Server=(localdb)\mssqllocaldb;Database=Travel;Trusted_Connection=True;ConnectRetryCount=0";
-            var connection = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\asmith\source\repos\MvcPlaces\MvcPlaces\Databases\Travel.mdf;Integrated Security=True;Connect Timeout=30";
+            //var connection = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\asmith\source\repos\MvcPlaces\MvcPlaces\Databases\Travel.mdf;Integrated Security=True;Connect Timeout=30";
+            var connection = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\dev\MvcPlaces\MvcPlaces\Databases\Travel.mdf;Integrated Security=True;Connect Timeout=30";
             services.AddDbContext<TravelContext>(options => options.UseSqlServer(connection));
         }
 
