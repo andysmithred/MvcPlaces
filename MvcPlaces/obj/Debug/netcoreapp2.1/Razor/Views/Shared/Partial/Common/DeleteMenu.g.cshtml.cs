@@ -72,7 +72,7 @@ WriteAttributeValue("", 73, Model.Icon, 73, 11, false);
             WriteLiteral(" style=\'font-size:24px\'></i>\r\n    <a class=\"navbar-brand pl-4 pr-4\" href=\"#\"><h4>Delete</h4></a>\r\n    <ul class=\"navbar-nav\">\r\n        <li class=\"nav-item\">");
             EndContext();
             BeginContext(252, 57, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "0eb17b83654b405dae33b88f3db14871", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "92b490771b14403c8a9c9a3bc2ca0427", async() => {
                 BeginContext(291, 14, true);
                 WriteLiteral("<h4>Index</h4>");
                 EndContext();
@@ -95,7 +95,7 @@ WriteAttributeValue("", 73, Model.Icon, 73, 11, false);
             WriteLiteral("</li>\r\n        <li class=\"nav-item\">");
             EndContext();
             BeginContext(345, 91, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "edce1f0719394960947d2eadf80507d5", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "b5d617d9f65e495ca961eab6d2f2e852", async() => {
                 BeginContext(416, 16, true);
                 WriteLiteral("<h4>Details</h4>");
                 EndContext();
