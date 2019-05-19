@@ -84,7 +84,7 @@ WriteAttributeValue("", 65, Model.Icon, 65, 11, false);
             WriteLiteral("</h4></a>\r\n    <ul class=\"navbar-nav\">\r\n        <li class=\"nav-item\">");
             EndContext();
             BeginContext(250, 56, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "64ae9ae6c57644a9adda4877ef729885", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "3a0d0a4983ee42f590bb37ac80b38f39", async() => {
                 BeginContext(289, 13, true);
                 WriteLiteral("<h4>Main</h4>");
                 EndContext();
@@ -107,7 +107,7 @@ WriteAttributeValue("", 65, Model.Icon, 65, 11, false);
             WriteLiteral("</li>\r\n        <li class=\"nav-item\">");
             EndContext();
             BeginContext(342, 67, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "2e36013eaf0f45d0b741e5ef625d36bc", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "c0f4988ba6c848b09766ac47a2652efa", async() => {
                 BeginContext(388, 17, true);
                 WriteLiteral("<h4>Imported</h4>");
                 EndContext();
@@ -130,7 +130,7 @@ WriteAttributeValue("", 65, Model.Icon, 65, 11, false);
             WriteLiteral("</li>\r\n        <li class=\"nav-item\">");
             EndContext();
             BeginContext(445, 74, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "1c99ab2e3f2c4cb7beca69146e15de61", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "b510e8aa8a804b69b564f2994e9200af", async() => {
                 BeginContext(494, 21, true);
                 WriteLiteral("<h4>Not Imported</h4>");
                 EndContext();
@@ -153,7 +153,7 @@ WriteAttributeValue("", 65, Model.Icon, 65, 11, false);
             WriteLiteral("</li>\r\n        <li class=\"nav-item\">");
             EndContext();
             BeginContext(555, 89, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "03381a91b7fe4be68681a54b9b4b38d2", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "751a7b7cff834004920650025e01b7c6", async() => {
                 BeginContext(625, 15, true);
                 WriteLiteral("<h4>Delete</h4>");
                 EndContext();

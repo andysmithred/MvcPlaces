@@ -70,7 +70,7 @@ using NonFactors.Mvc.Grid;
         <li class=""nav-item"">");
             EndContext();
             BeginContext(256, 57, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "57b204552bc4489b9274edbda3d58b54", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "5d1cfc41f7ee4a0795b2dabc2363248e", async() => {
                 BeginContext(295, 14, true);
                 WriteLiteral("<h4>Index</h4>");
                 EndContext();
@@ -93,7 +93,7 @@ using NonFactors.Mvc.Grid;
             WriteLiteral("</li>\r\n        <li class=\"nav-item\">");
             EndContext();
             BeginContext(349, 80, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "b719bcbfa21a4edd95cde480cf6d4ff1", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "bfdf4059604a4341a7bd4e41cfe73ce2", async() => {
                 BeginContext(412, 13, true);
                 WriteLiteral("<h4>Edit</h4>");
                 EndContext();
@@ -129,7 +129,7 @@ using NonFactors.Mvc.Grid;
             WriteLiteral("</li>\r\n        <li class=\"nav-item\">");
             EndContext();
             BeginContext(465, 84, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "be207b42e34e4f269f6af4876815a932", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "c4c07437604845e5905e941fc00e3440", async() => {
                 BeginContext(530, 15, true);
                 WriteLiteral("<h4>Delete</h4>");
                 EndContext();
@@ -165,7 +165,7 @@ using NonFactors.Mvc.Grid;
             WriteLiteral("</li>\r\n        <li class=\"nav-item\">");
             EndContext();
             BeginContext(585, 86, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "afd7ba99453245378de83b35b6f889ea", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "4e18849f1b4449e48e5bea2529981065", async() => {
                 BeginContext(651, 16, true);
                 WriteLiteral("<h4>Details</h4>");
                 EndContext();
@@ -208,7 +208,7 @@ using NonFactors.Mvc.Grid;
                 ");
             EndContext();
             BeginContext(934, 95, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "f506e952f865487f86185839b00ae6da", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ea3469437df6496ba7c8bcb598a82f2a", async() => {
                 BeginContext(1013, 12, true);
                 WriteLiteral("Subdivisions");
                 EndContext();
@@ -244,7 +244,7 @@ using NonFactors.Mvc.Grid;
             WriteLiteral("\r\n                ");
             EndContext();
             BeginContext(1047, 84, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "eb27b4e145de48b18a36b25e2efa1597", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "9f239e709cd94cdcb16d49c72a5a5bd1", async() => {
                 BeginContext(1121, 6, true);
                 WriteLiteral("Places");
                 EndContext();
