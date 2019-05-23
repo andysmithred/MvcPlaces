@@ -36,7 +36,7 @@ namespace MvcPlaces.ViewModels.Models.Main
 
             if(result == null || result.Count == 0)
             {
-                result = result.Concat(Children.SelectMany(x => x.Territories).ToList();
+                result = result.Concat(Children.SelectMany(x => x.Territories)).ToList();
             }
 
             return result.OrderBy(x => x.Name).ToList();
