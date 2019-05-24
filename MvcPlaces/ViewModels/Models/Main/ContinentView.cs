@@ -1,4 +1,5 @@
 ﻿using MvcPlaces.Models;
+//using MvcPlaces
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -11,10 +12,12 @@ namespace MvcPlaces.ViewModels.Models.Main
         #region Database Properties
 
         public int Id => ViewObject.Id;
+
         public string Name => ViewObject.Name;
+
         public string Code => ViewObject.Code;
 
-        [Display(Name = "Parent")]
+        [Display(Name = "Parent Id")]
         public int? ParentId => ViewObject.ParentId;
 
         #endregion Database Properties
@@ -22,7 +25,9 @@ namespace MvcPlaces.ViewModels.Models.Main
         #region Foreign Properties
 
         public ContinentView Parent => GetView<ContinentView, Continent>(ViewObject.Parent);
+
         public ICollection<ContinentView> Children => GetViewList<ContinentView, Continent>(ViewObject.Children);
+
         public ICollection<TerritoryView> Territories => GetTerritories();
 
         private ICollection<TerritoryView> GetTerritories()
@@ -46,6 +51,13 @@ namespace MvcPlaces.ViewModels.Models.Main
         public int TerritoryCount => Territories.Count;
 
         #endregion Other Properties
+
+        #region Methods
+
+
+
+        #endregion Methods
+
 
         public string CountryIsoCodesForGeochart => GetCountryIsoCodes();
         
