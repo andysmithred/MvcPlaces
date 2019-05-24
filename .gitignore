@@ -3,3 +3,19 @@
 ################################################################################
 
 /.vs
+
+MvcPlaces/obj/Debug/netcoreapp2\.1/MvcPlaces\.assets\.cache
+
+MvcPlaces/obj/Debug/netcoreapp2\.1/MvcPlaces\.csprojAssemblyReference\.cache
+
+MvcPlaces/obj/MvcPlaces\.csproj\.nuget\.cache
+
+MvcPlaces/obj/MvcPlaces\.csproj\.nuget\.g\.props
+
+MvcPlaces/obj/Debug/netcoreapp2\.1/MvcPlaces\.csproj\.CoreCompileInputs\.cache
+
+MvcPlaces/obj/MvcPlaces\.csproj\.nuget\.dgspec\.json
+
+MvcPlaces/obj/MvcPlaces\.csproj\.nuget\.g\.targets
+
+MvcPlaces/obj/project\.assets\.json
