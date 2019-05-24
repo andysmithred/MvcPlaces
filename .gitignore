@@ -19,3 +19,15 @@ MvcPlaces/obj/MvcPlaces\.csproj\.nuget\.dgspec\.json
 MvcPlaces/obj/MvcPlaces\.csproj\.nuget\.g\.targets
 
 MvcPlaces/obj/project\.assets\.json
+
+MvcPlaces/bin/Debug/netcoreapp2\.1/MvcPlaces\.deps\.json
+
+MvcPlaces/bin/Debug/netcoreapp2\.1/MvcPlaces\.dll
+
+MvcPlaces/bin/Debug/netcoreapp2\.1/MvcPlaces\.pdb
+
+MvcPlaces/bin/Debug/netcoreapp2\.1/MvcPlaces\.runtimeconfig\.dev\.json
+
+MvcPlaces/bin/Debug/netcoreapp2\.1/MvcPlaces\.Views\.dll
+
+MvcPlaces/bin/Debug/netcoreapp2\.1/MvcPlaces\.Views\.pdb
