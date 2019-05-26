@@ -114,6 +114,9 @@ namespace MvcPlaces.Models
 
                 entity.Property(e => e.Active)
                     .IsRequired();
+
+                entity.Property(e => e.Complete)
+                    .IsRequired();
             });
 
             modelBuilder.Entity<PlaceGroup>(entity =>
