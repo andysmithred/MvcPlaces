@@ -36,6 +36,9 @@ namespace MvcPlaces.ViewModels.Models.Main
         [Required]
         public bool Active => ViewObject.Active;
 
+        [Required]
+        public bool Complete => ViewObject.Complete;
+
         #endregion Database Properties
 
         #region Foreign Properties

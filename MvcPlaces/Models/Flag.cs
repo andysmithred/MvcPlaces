@@ -39,6 +39,9 @@ namespace MvcPlaces.Models
         [Required]
         public bool Active { get; set; }
 
+        [Required]
+        public bool Complete { get; set; }
+
         public ICollection<Territory> Territories { get; set; }
 
 

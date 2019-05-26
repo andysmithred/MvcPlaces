@@ -6,5 +6,7 @@
     [StartDate]   DATETIME       NULL,
     [EndDate]     DATETIME       NULL,
     [Active]      BIT            NOT NULL,
+    [Complete] BIT NOT NULL DEFAULT 0, 
     PRIMARY KEY CLUSTERED ([Id] ASC)
 );
+

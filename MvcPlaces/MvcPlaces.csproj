@@ -5,6 +5,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Views\Shared\Partial\Components\**" />
+    <Content Remove="Views\Shared\Partial\Components\**" />
+    <EmbeddedResource Remove="Views\Shared\Partial\Components\**" />
+    <None Remove="Views\Shared\Partial\Components\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="bootstrap" Version="4.1.3" />
     <PackageReference Include="bootstrap.sass" Version="4.1.3" />
     <PackageReference Include="jQuery" Version="3.3.1" />
@@ -15,7 +22,6 @@
 
   <ItemGroup>
     <Folder Include="Databases\" />
-    <Folder Include="Views\Shared\Partial\Components\" />
   </ItemGroup>
 
   <ItemGroup>
