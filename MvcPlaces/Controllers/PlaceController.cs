@@ -58,7 +58,7 @@ namespace MvcPlaces.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Name,LocalName,Latitude,Longitude,Zoom")] Place item)
+        public async Task<IActionResult> Create([Bind("Id,Name,LocalName,Latitude,Longitude,Zoom,Complete")] Place item)
         {
             if (ModelState.IsValid)
             {
@@ -79,7 +79,7 @@ namespace MvcPlaces.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public override async Task<IActionResult> Edit(int id, [Bind("Id,Name,LocalName,Latitude,Longitude,Zoom")] Place item)
+        public override async Task<IActionResult> Edit(int id, [Bind("Id,Name,LocalName,Latitude,Longitude,Zoom,Complete")] Place item)
         {
             return await base.Edit(id, item);
         }

@@ -49,6 +49,9 @@ namespace MvcPlaces.ViewModels.Models.Main
         [Display(Name = "Geochart")]
         public string GeoChartLevel => ViewObject.GeoChartLevel;
 
+        [Required]
+        public bool Complete => ViewObject.Complete;
+
         #endregion Database Properties
 
         #region Foreign Properties

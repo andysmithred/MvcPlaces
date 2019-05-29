@@ -123,6 +123,17 @@
                 </select>
                 <span asp-validation-for="GeoChartLevel" class="text-danger"></span>
             </div>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend w-25">
+                    <label asp-for="Complete" class="input-group-text w-100"></label>
+                </div>
+                <div class="input-group-prepend">
+                    <div class="input-group-text  rounded-right">
+                        <input asp-for="Complete" type="checkbox">
+                    </div>
+                </div>
+                <span asp-validation-for="Complete" class="text-danger"></span>
+            </div>
             <hr />
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-dark" />

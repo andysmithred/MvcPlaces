@@ -19,6 +19,8 @@ namespace MvcPlaces.ViewModels.Models.Main
         public double? Latitude => ViewObject.Latitude;
         public double? Longitude => ViewObject.Longitude;
         public int? Zoom => ViewObject.Zoom;
+        [Required]
+        public bool Complete => ViewObject.Complete;
 
         #endregion Database Properties
 

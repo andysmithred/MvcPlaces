@@ -28,6 +28,9 @@ namespace MvcPlaces.Models
 
         public int? Zoom { get; set; }
 
+        [Required]
+        public bool Complete { get; set; }
+
         public ICollection<TerritoryPlace> TerritoryPlaces { get; set; }
 
         public ICollection<PlaceGroupSet> PlaceGroupSets { get; set; }

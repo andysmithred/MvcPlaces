@@ -118,7 +118,7 @@ namespace MvcPlaces.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Name,FullName,NativeName,ContinentId,ParentId,Population,Area,Isocode,Latitude,Longitude,Zoom,TerritoryTypeId,GeoChartLevel,FlagId")] Territory item)
+        public async Task<IActionResult> Create([Bind("Id,Name,FullName,NativeName,ContinentId,ParentId,Population,Area,Isocode,Latitude,Longitude,Zoom,TerritoryTypeId,GeoChartLevel,FlagId,Complete")] Territory item)
         {
             if (ModelState.IsValid)
             {
@@ -150,7 +150,7 @@ namespace MvcPlaces.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public override async Task<IActionResult> Edit(int id, [Bind("Id,Name,FullName,NativeName,ContinentId,ParentId,Population,Area,Isocode,Latitude,Longitude,Zoom,TerritoryTypeId,GeoChartLevel,FlagId")] Territory item)
+        public override async Task<IActionResult> Edit(int id, [Bind("Id,Name,FullName,NativeName,ContinentId,ParentId,Population,Area,Isocode,Latitude,Longitude,Zoom,TerritoryTypeId,GeoChartLevel,FlagId,Complete")] Territory item)
         {
             IActionResult result = await base.Edit(id, item);
             ViewBag.Continents = GetContinentsSelectList(item.ContinentId);

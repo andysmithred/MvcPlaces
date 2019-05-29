@@ -9,6 +9,7 @@
         columns.Add(model => model.LatitudeDegrees).Titled("Latitude");
         columns.Add(model => model.LongitudeDegrees).Titled("Longitude");
         columns.Add(model => model.ZoomString).Titled("Zoom");
+        columns.Add(model => model.Complete).Titled("Complete");
         columns.Add().Encoded(false).RenderedAs(model =>
                 "<div class='btn-group float-right'>" +
                     $"<a class='btn btn-secondary btn-sm' href='/Place/Details/{model.Id}'>Details</a>" +

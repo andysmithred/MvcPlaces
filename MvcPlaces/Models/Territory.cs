@@ -48,6 +48,9 @@ namespace MvcPlaces.Models
         [Display(Name = "Geochart")]
         public string GeoChartLevel { get; set; }
 
+        [Required]
+        public bool Complete { get; set; }
+
         public Continent Continent { get; set; }
         public Territory Parent { get; set; }
         public TerritoryType TerritoryType { get; set; }

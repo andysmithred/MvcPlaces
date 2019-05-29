@@ -8,6 +8,7 @@
         columns.Add(model => model.Isocode).Titled("ISO");
         columns.Add(model => model.NativeName).Titled("Native");
         columns.Add(model => model.TerritoryType.Type).Titled("Type");
+        columns.Add(model => model.Complete).Titled("Complete");
         columns.Add().Encoded(false).RenderedAs(model =>
             "<div class='btn-group float-right'>" +
                 $"<a class='btn btn-secondary btn-sm rounded-left' href='/Territory/Edit/{model.Id}'>Edit</a>" +

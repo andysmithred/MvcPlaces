@@ -61,6 +61,9 @@ namespace MvcPlaces.Models
                     .IsRequired()
                     .HasMaxLength(50);
 
+                entity.Property(e => e.Complete)
+                    .IsRequired();
+
                 entity.HasOne(d => d.Continent)
                     .WithMany(p => p.Territories)
                     .HasForeignKey(d => d.ContinentId)
@@ -86,6 +89,8 @@ namespace MvcPlaces.Models
             modelBuilder.Entity<Place>(entity =>
             {
                 entity.Property(e => e.Name).IsRequired();
+
+                entity.Property(e => e.Complete).IsRequired();
             });
 
             modelBuilder.Entity<TerritoryPlace>(entity =>
