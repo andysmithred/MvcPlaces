@@ -21,6 +21,9 @@ namespace MvcPlaces.ViewModels.Models.Main
         [StringLength(50)]
         public string Icon => ViewObject.Icon;
 
+        [StringLength(50)]
+        public string Image => ViewObject.Image;
+
         #endregion Database Properties
 
         #region Foreign Properties

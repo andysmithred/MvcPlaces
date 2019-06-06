@@ -51,7 +51,7 @@ namespace MvcPlaces.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Name,Description,Icon")] PlaceGroup item)
+        public async Task<IActionResult> Create([Bind("Id,Name,Description,Icon,Image")] PlaceGroup item)
         {
             if (ModelState.IsValid)
             {
@@ -72,7 +72,7 @@ namespace MvcPlaces.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public override async Task<IActionResult> Edit(int id, [Bind("Id,Name,Description,Icon")] PlaceGroup item)
+        public override async Task<IActionResult> Edit(int id, [Bind("Id,Name,Description,Icon,Image")] PlaceGroup item)
         {
             return await base.Edit(id, item);
         }

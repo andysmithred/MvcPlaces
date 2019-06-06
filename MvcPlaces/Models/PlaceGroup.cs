@@ -21,6 +21,9 @@ namespace MvcPlaces.Models
         [StringLength(50)]
         public string Icon { get; set; }
 
+        [StringLength(50)]
+        public string Image { get; set; }
+
         public ICollection<PlaceGroupSet> PlaceGroupSets { get; set; }
     }
 }

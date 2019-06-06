@@ -131,6 +131,9 @@ namespace MvcPlaces.Models
 
                 entity.Property(e => e.Icon)
                     .HasMaxLength(50);
+
+                entity.Property(e => e.Image)
+                    .HasMaxLength(50);
             });
 
             modelBuilder.Entity<PlaceGroupSet>(entity =>

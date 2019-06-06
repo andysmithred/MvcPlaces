@@ -7,6 +7,7 @@
         columns.Add().Encoded(false).RenderedAs(model => $"<i class='{model.Icon}'></i>");
         columns.Add(model => model.Name).Titled("Name");
         columns.Add(model => model.Description).Titled("Description");
+        columns.Add(model => model.Image).Titled("Image");
         columns.Add().Encoded(false).RenderedAs(model =>
             "<div class='btn-group float-right'>" +
                 $"<a class='btn btn-secondary btn-sm rounded-left' href='/PlaceGroup/Edit/{model.Id}'>Edit</a>" +
