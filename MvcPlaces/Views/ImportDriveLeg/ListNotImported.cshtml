@@ -1,0 +1,10 @@
+﻿@model IEnumerable<MvcPlaces.ViewModels.Models.Import.DriveLegView>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<br />
+<partial name='ImportIndexMenu' model='new { Title = "Import Drive Legs", Icon = "fas fa-road" }' />
+<br />
+<partial name="PartialListMainNotImportedDriveLegs" model="@Model" />

@@ -33,3 +33,5 @@ MvcPlaces/bin/Debug/netcoreapp2\.1/MvcPlaces\.Views\.dll
 MvcPlaces/bin/Debug/netcoreapp2\.1/MvcPlaces\.Views\.pdb
 
 MvcPlaces/obj/Debug/netcoreapp2\.1/
+/MvcPlaces/bin/Debug/netcoreapp2.2
+/MvcPlaces/obj/Debug/netcoreapp2.2

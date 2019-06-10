@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using MvcPlaces.Code.Data;
 using MvcPlaces.Models;
 using MvcPlaces.ViewModels.Models.Main;
@@ -98,13 +99,20 @@ namespace MvcPlaces.Controllers
 
         protected override Func<int, Drive> GetItemFunction()
         {
-            return i => Context.Drive
+            return i => Context
+                        .Drive
+                        .Include(x => x.DriveLegs)
+                            .ThenInclude(x => x.Origin)
+                        .Include(x => x.DriveLegs)
+                            .ThenInclude(x => x.Destination)
                         .FirstOrDefault(x => x.Id == i);
         }
 
         protected override Func<IQueryable<Drive>> GetItemsFunction()
         {
-            return () => Context.Drive;
+            return () => Context
+                        .Drive
+                        .Include(x => x.DriveLegs);
         }
 
         protected override Func<Drive, bool> GetExistsFunc(int id)
