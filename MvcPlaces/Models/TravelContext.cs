@@ -29,11 +29,10 @@ namespace MvcPlaces.Models
                 //optionsBuilder.UseSqlServer("Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=Travel;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
                 //optionsBuilder.UseSqlServer("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\asmith\\source\\repos\\MvcPlaces\\MvcPlaces\\Databases\\Travel.mdf;Integrated Security=True;Connect Timeout=30");
 
-                optionsBuilder.UseSqlServer(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\asmith\source\repos\MvcPlaces\MvcPlaces\Databases\Travel.mdf;Integrated Security=True;Connect Timeout=30");
+                //optionsBuilder.UseSqlServer(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\asmith\source\repos\MvcPlaces\MvcPlaces\Databases\Travel.mdf;Integrated Security=True;Connect Timeout=30");
 
-                //var connection = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\asmith\source\repos\MvcPlaces\MvcPlaces\Databases\Travel.mdf;Integrated Security=True;Connect Timeout=30";
-
-                //optionsBuilder.UseSqlServer("Data Source = (LocalDB)\\MSSQLLocalDB; AttachDbFilename=C:\\dev\\MvcPlaces\\MvcPlaces\\Databases\\Travel.mdf; Integrated Security = True;Connect Timeout=30");
+                
+                optionsBuilder.UseSqlServer("Data Source = (LocalDB)\\MSSQLLocalDB; AttachDbFilename=C:\\dev\\MvcPlaces\\MvcPlaces\\Databases\\Travel.mdf; Integrated Security = True;Connect Timeout=30");
             }
         }
 
