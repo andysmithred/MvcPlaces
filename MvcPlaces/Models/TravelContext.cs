@@ -21,6 +21,7 @@ namespace MvcPlaces.Models
         public virtual DbSet<PlaceGroupSet> PlaceGroupSet { get; set; }
         public virtual DbSet<Drive> Drive { get; set; }
         public virtual DbSet<DriveLeg> DriveLeg { get; set; }
+        public virtual DbSet<Route> Route { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -185,6 +186,13 @@ namespace MvcPlaces.Models
                     .HasForeignKey(d => d.DestinationId)
                     .HasConstraintName("FK_DriveLeg_To_Place_Destination");
             });
+
+            modelBuilder.Entity<Route>(entity =>
+            {
+                entity.Property(e => e.Name).IsRequired();
+            });
+
+
         }
     }
 }

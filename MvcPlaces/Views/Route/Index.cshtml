@@ -1,0 +1,10 @@
+﻿@model IEnumerable<MvcPlaces.ViewModels.Models.Main.RouteView>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<br />
+<partial name='IndexMenu' model='new { Title = "Routes", Icon = "fas fa-plane" }' />
+<br />
+<partial name="PartialListMainRoutes" model="@Model.OrderBy(x => x.Name).ToList()" />
