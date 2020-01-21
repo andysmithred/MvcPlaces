@@ -1,0 +1,30 @@
+﻿@model MvcPlaces.ViewModels.Models.Import.RouteView
+
+@{
+    ViewData["Title"] = "Import";
+}
+
+<br />
+<partial name="ImportMenu" model='new { Title = "Import Route", Icon = "fas fa-trash-alt", RouteId = Model.Id }' />
+<br />
+
+<div class="card border-0 w-75">
+    <div class="card-header bg-secondary text-white">
+        <div class="d-flex">
+            <div><h5>Route</h5></div>
+            <div class="ml-auto"><h5><i class='fas fa-plane'></i></h5></div>
+        </div>
+    </div>
+    <div class="card-body bg-transparent text-dark">
+        <h3>Are you sure you want to import this?</h3>
+        <hr />
+        <partial name="BasicLabel" model='new { Label = Html.LabelFor(x => x.Id), Value = Model.Id }' />
+        <partial name="BasicLabel" model='new { Label = Html.LabelFor(x => x.Name), Value = Model.Name }' />
+        <partial name="BasicLabel" model='new { Label = Html.LabelFor(x => x.Description), Value = Model.Description }' />
+        <hr />
+        <form asp-action="Import">
+            <input type="hidden" asp-for="Id" />
+            <input type="submit" value="Import" class="btn btn-dark" />
+        </form>
+    </div>
+</div>

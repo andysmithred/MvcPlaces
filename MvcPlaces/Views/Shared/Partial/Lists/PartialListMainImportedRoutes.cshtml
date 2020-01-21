@@ -1,0 +1,21 @@
+﻿@model IEnumerable<MvcPlaces.ViewModels.Models.Import.RouteView>
+
+@(Html
+        .Grid(Model)
+        .Build(columns =>
+        {
+            columns.Add().Encoded(false).RenderedAs(model => $"<i class='fas fa-plane'></i>");
+            columns.Add(model => model.Name).Titled("Name");
+            columns.Add(model => model.ImportId.HasValue ? model.ImportId.Value.ToString() : "--").Titled("Import Id");
+            columns.Add().Encoded(false).RenderedAs(model =>
+                "<div class='btn-group float-right'>" +
+                    $"<a class='btn btn-secondary btn-sm rounded' style='margin:1px' href='/ImportRoute/Delete/{model.Id}'>Delete</a>" +
+                "</div>"
+            );
+        })
+        .Empty("No data found")
+        .Filterable()
+        .Sortable()
+        .Pageable()
+        .AppendCss("table-dark table-striped table-hover rounded")
+)

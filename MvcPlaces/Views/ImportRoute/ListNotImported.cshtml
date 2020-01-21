@@ -1,0 +1,10 @@
+﻿@model IEnumerable<MvcPlaces.ViewModels.Models.Import.RouteView>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<br />
+<partial name='ImportIndexMenu' model='new { Title = "Import Routes", Icon = "fas fa-plane" }' />
+<br />
+<partial name="PartialListMainNotImportedRoutes" model="@Model" />
