@@ -1,0 +1,65 @@
+﻿@model MvcPlaces.Models.RouteLeg
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<br />
+<partial name="CreateMenu" model='new { Icon = "fas fa-plus-square" }' />
+<br />
+
+<div class="card border-0 w-75">
+    <div class="card-header bg-secondary text-white">
+        <div class="d-flex">
+            <div><h5>Route Leg</h5></div>
+            <div class="ml-auto"><h5><i class='fas fa-route'></i></h5></div>
+        </div>
+    </div>
+    <div class="card-body bg-transparent text-dark">
+        <form asp-action="Create">
+            <div class="input-group mb-3">
+                <div class="input-group-prepend w-25">
+                    <label asp-for="Number" class="input-group-text w-100"></label>
+                </div>
+                <input asp-for="Number" class="form-control rounded-right" />
+                <span asp-validation-for="Number" class="text-danger"></span>
+            </div>
+            <div class="input-group mb-3 input-group">
+                <div class="input-group-prepend w-25">
+                    <label asp-for="RouteId" class="input-group-text w-100"></label>
+                </div>
+                <select asp-for="RouteId" asp-items="ViewBag.Routes" class="form-control rounded-right"></select>
+                <span asp-validation-for="RouteId" class="text-danger"></span>
+            </div>
+            <div class="input-group mb-3 input-group">
+                <div class="input-group-prepend w-25">
+                    <label asp-for="OriginId" class="input-group-text w-100"></label>
+                </div>
+                <select asp-for="OriginId" asp-items="ViewBag.Origins" class="form-control rounded-right"></select>
+                <span asp-validation-for="OriginId" class="text-danger"></span>
+            </div>
+            <div class="input-group mb-3 input-group">
+                <div class="input-group-prepend w-25">
+                    <label asp-for="DestinationId" class="input-group-text w-100"></label>
+                </div>
+                <select asp-for="DestinationId" asp-items="ViewBag.Destinations" class="form-control rounded-right"></select>
+                <span asp-validation-for="DestinationId" class="text-danger"></span>
+            </div>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend w-25">
+                    <label asp-for="Description" class="input-group-text w-100"></label>
+                </div>
+                <input asp-for="Description" class="form-control rounded-right" />
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+            <hr />
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-dark" />
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

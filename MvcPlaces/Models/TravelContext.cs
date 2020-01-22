@@ -22,6 +22,7 @@ namespace MvcPlaces.Models
         public virtual DbSet<Drive> Drive { get; set; }
         public virtual DbSet<DriveLeg> DriveLeg { get; set; }
         public virtual DbSet<Route> Route { get; set; }
+        public virtual DbSet<RouteLeg> RouteLeg { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -177,12 +178,12 @@ namespace MvcPlaces.Models
                     .HasConstraintName("FK_DriveLeg_To_Drive");
 
                 entity.HasOne(d => d.Origin)
-                    .WithMany(p => p.OriginLegs)
+                    .WithMany(p => p.DriveOriginLegs)
                     .HasForeignKey(d => d.OriginId)
                     .HasConstraintName("FK_DriveLeg_To_Place_Origin");
 
                 entity.HasOne(d => d.Destination)
-                    .WithMany(p => p.DestinationLegs)
+                    .WithMany(p => p.DriveDestinationLegs)
                     .HasForeignKey(d => d.DestinationId)
                     .HasConstraintName("FK_DriveLeg_To_Place_Destination");
             });
@@ -192,7 +193,35 @@ namespace MvcPlaces.Models
                 entity.Property(e => e.Name).IsRequired();
             });
 
+            modelBuilder.Entity<RouteLeg>(entity =>
+            {
+                entity.Property(e => e.Number)
+                    .IsRequired();
 
+                entity.Property(e => e.RouteId)
+                    .IsRequired();
+
+                entity.Property(e => e.OriginId)
+                    .IsRequired();
+
+                entity.Property(e => e.DestinationId)
+                    .IsRequired();
+
+                entity.HasOne(d => d.Route)
+                    .WithMany(p => p.RouteLegs)
+                    .HasForeignKey(d => d.RouteId)
+                    .HasConstraintName("FK_RouteLeg_ToRoute");
+
+                entity.HasOne(d => d.Origin)
+                    .WithMany(p => p.RouteOriginLegs)
+                    .HasForeignKey(d => d.OriginId)
+                    .HasConstraintName("FK_RouteLeg_ToOrigin");
+
+                entity.HasOne(d => d.Destination)
+                    .WithMany(p => p.RouteDestinationLegs)
+                    .HasForeignKey(d => d.DestinationId)
+                    .HasConstraintName("FK_RouteLeg_ToDestination");
+            });
         }
     }
 }

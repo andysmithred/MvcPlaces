@@ -7,7 +7,7 @@ namespace MvcPlaces.Models
     {
         public Route()
         {
-            //DriveLegs = new HashSet<DriveLeg>();
+            RouteLegs = new HashSet<RouteLeg>();
         }
 
         [Key]
@@ -16,8 +16,8 @@ namespace MvcPlaces.Models
         [Required]
         public string Name { get; set; }
 
-        public string Description { get; set; }
+        public string Description { get; set; } 
 
-        //public ICollection<DriveLeg> DriveLegs { get; set; }
+        public ICollection<RouteLeg> RouteLegs { get; set; }
     }
 }

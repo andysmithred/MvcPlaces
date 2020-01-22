@@ -20,7 +20,7 @@ namespace MvcPlaces.ViewModels.Models.Main
 
         #region Foreign Properties
 
-        //public ICollection<DriveLegView> DriveLegs => GetViewList<DriveLegView, DriveLeg>(ViewObject.DriveLegs);
+        public ICollection<RouteLegView> RouteLegs => GetViewList<RouteLegView, RouteLeg>(ViewObject.RouteLegs);
 
         #endregion Foreign Properties
 
