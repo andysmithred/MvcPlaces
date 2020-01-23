@@ -101,18 +101,18 @@ namespace MvcPlaces.Controllers
         {
             return i => Context
                         .Route
-                        //.Include(x => x.DriveLegs)
-                        //    .ThenInclude(x => x.Origin)
-                        //.Include(x => x.DriveLegs)
-                        //    .ThenInclude(x => x.Destination)
+                        .Include(x => x.RouteLegs)
+                            .ThenInclude(x => x.Origin)
+                        .Include(x => x.RouteLegs)
+                            .ThenInclude(x => x.Destination)
                         .FirstOrDefault(x => x.Id == i);
         }
 
         protected override Func<IQueryable<Route>> GetItemsFunction()
         {
             return () => Context
-                        .Route;
-                        //.Include(x => x.DriveLegs);
+                        .Route
+                        .Include(x => x.RouteLegs);
         }
 
         protected override Func<Route, bool> GetExistsFunc(int id)

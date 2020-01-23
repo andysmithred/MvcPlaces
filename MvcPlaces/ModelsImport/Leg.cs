@@ -11,6 +11,7 @@ namespace MvcPlaces.ModelsImport
         public int OriginAirfieldId { get; set; }
         public int DestinationAirfieldId { get; set; }
         public string Description { get; set; }
+        public int? ImportId { get; set; }
 
         public Airfield DestinationAirfield { get; set; }
         public Airfield OriginAirfield { get; set; }
