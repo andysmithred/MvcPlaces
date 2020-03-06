@@ -52,7 +52,7 @@ namespace MvcPlaces.ViewModels.Models.Main
 
         #region Other Properties
 
-        public override string ListName => Name + " : " + Code;
+        public override string ListName => Code + " : " + Name;
 
         public string Image => Code + FLAG_EXTENSION;
 
