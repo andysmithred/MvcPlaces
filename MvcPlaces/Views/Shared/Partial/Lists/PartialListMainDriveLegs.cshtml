@@ -11,9 +11,9 @@
             columns.Add(model => model.Destination.Name).Titled("Destination");
             columns.Add().Encoded(false).RenderedAs(model =>
                 "<div class='btn-group float-right'>" +
-                    $"<a class='btn btn-secondary btn-sm rounded-left' href='/Drive/Edit/{model.Id}'>Edit</a>" +
-                    $"<a class='btn btn-secondary btn-sm rounded-0' href='/Drive/Details/{model.Id}'>Details</a>" +
-                    $"<a class='btn btn-secondary btn-sm rounded-right' href='/Drive/Delete/{model.Id}'>Delete</a>" +
+                    $"<a class='btn btn-secondary btn-sm rounded-left' href='/DriveLeg/Edit/{model.Id}'>Edit</a>" +
+                    $"<a class='btn btn-secondary btn-sm rounded-0' href='/DriveLeg/Details/{model.Id}'>Details</a>" +
+                    $"<a class='btn btn-secondary btn-sm rounded-right' href='/DriveLeg/Delete/{model.Id}'>Delete</a>" +
                 "</div>"
             );
         })

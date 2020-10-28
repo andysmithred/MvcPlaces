@@ -1,0 +1,101 @@
+﻿@model MvcPlaces.ViewModels.Models.Main.DriveLegView
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<br />
+<partial name="DetailsMenu" />
+<br />
+<partial name="DetailsHeader" />
+
+<div class="d-flex bg-dark mt-3">
+    @if (Model.Drive != null)
+    {
+        <div class="mr-3">
+            <a asp-controller="Route" asp-action="Details" asp-route-id="@Model.DriveId" class="text-dark">
+                <div class="d-flex alert bg-success">
+                    <div><i class="fas fa-plane" style="font-size:26px"></i></div>
+                    <div class="pl-3"><h5>@Model.Drive.Name</h5></div>
+                    <div class="ml-auto pl-3">
+                        <h5><i class='fas fa-angle-right'></i></h5>
+                    </div>
+                </div>
+            </a>
+        </div>
+    }
+    @if (Model.Origin != null)
+    {
+        <div class="mr-3">
+            <a asp-controller="Place" asp-action="Details" asp-route-id="@Model.OriginId" class="text-dark">
+                <div class="d-flex alert bg-primary">
+                    <div><i class="fas fa-map-marker-alt" style="font-size:26px"></i></div>
+                    <div class="pl-3"><h5>@Model.Origin.Name</h5></div>
+                    <div class="ml-auto pl-3">
+                        <h5><i class='fas fa-angle-right'></i></h5>
+                    </div>
+                </div>
+            </a>
+        </div>
+    }
+    @if (Model.Destination != null)
+    {
+        <div class="mr-3">
+            <a asp-controller="Place" asp-action="Details" asp-route-id="@Model.DestinationId" class="text-dark">
+                <div class="d-flex alert bg-primary">
+                    <div><i class="fas fa-map-marker-alt" style="font-size:26px"></i></div>
+                    <div class="pl-3"><h5>@Model.Destination.Name</h5></div>
+                    <div class="ml-auto pl-3">
+                        <h5><i class='fas fa-angle-right'></i></h5>
+                    </div>
+                </div>
+            </a>
+        </div>
+    }
+</div>
+
+<div class="card-deck">
+    <div class="card border-0">
+        <div class="card-header bg-secondary text-white">
+            <div class="d-flex">
+                <div><h5>Drive</h5></div>
+                <div class="ml-auto"><h5><i class="fas fa-plane"></i></h5></div>
+            </div>
+        </div>
+        <div class="card-body bg-light rounded-bottom">
+            <partial name="BasicLabel" model='new { Label = Html.LabelFor(x => x.Id), Value = Model.DriveId }' />
+            <partial name="BasicLabel" model='new { Label = Html.LabelFor(x => x.Drive.Name), Value = Model.Drive.Name }' />
+            <partial name="BasicLabel" model='new { Label = Html.LabelFor(x => x.Drive.Description), Value = Model.Drive.Description }' />
+        </div>
+    </div>
+    <div class="card border-0">
+        <div class="card-header bg-secondary text-white">
+            <div class="d-flex">
+                <div><h5>Origin</h5></div>
+                <div class="ml-auto"><h5><i class="fas fa-map-marker-alt"></i></h5></div>
+            </div>
+        </div>
+        <div class="card-body bg-light rounded-bottom">
+            <partial name="BasicLabel" model='new { Label = Html.LabelFor(x => x.Id), Value = Model.OriginId }' />
+            <partial name="BasicLabel" model='new { Label = Html.LabelFor(x => x.Origin.Name), Value = Model.Origin.Name }' />
+            <partial name="BasicLabel" model='new { Label = Html.LabelFor(x => x.Origin.LocalName), Value = Model.Origin.LocalName }' />
+            <partial name="BasicLabel" model='new { Label = Html.LabelFor(x => x.Origin.Latitude), Value = Model.Origin.LatitudeDegrees }' />
+            <partial name="BasicLabel" model='new { Label = Html.LabelFor(x => x.Origin.Longitude), Value = Model.Origin.LongitudeDegrees }' />
+        </div>
+    </div>
+    <div class="card border-0">
+        <div class="card-header bg-secondary text-white">
+            <div class="d-flex">
+                <div><h5>Destination</h5></div>
+                <div class="ml-auto"><h5><i class="fas fa-map-marker-alt"></i></h5></div>
+            </div>
+        </div>
+        <div class="card-body bg-light rounded-bottom">
+            <partial name="BasicLabel" model='new { Label = Html.LabelFor(x => x.Id), Value = Model.DestinationId }' />
+            <partial name="BasicLabel" model='new { Label = Html.LabelFor(x => x.Destination.Name), Value = Model.Destination.Name }' />
+            <partial name="BasicLabel" model='new { Label = Html.LabelFor(x => x.Destination.LocalName), Value = Model.Destination.LocalName }' />
+            <partial name="BasicLabel" model='new { Label = Html.LabelFor(x => x.Destination.Latitude), Value = Model.Destination.LatitudeDegrees }' />
+            <partial name="BasicLabel" model='new { Label = Html.LabelFor(x => x.Destination.Longitude), Value = Model.Destination.LongitudeDegrees }' />
+        </div>
+    </div>
+</div>
